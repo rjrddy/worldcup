@@ -82,7 +82,8 @@ function mapSquadPlayer(
   raw: any,
   salaryMap: Record<string, Salary>,
   nationalTeamRawId: number | undefined,
-  clubs: ClubsCache
+  clubs: ClubsCache,
+  clubMeta: ClubMetaCache
 ): Player {
   const rawId = raw.player?.id ?? raw.id
   const id = `af-${rawId}`
@@ -104,6 +105,14 @@ function mapSquadPlayer(
   )
   const clubFromCache = clubs[String(rawId)]
   const club = clubFromCache ?? statsClubEntry?.team
+
+  // Country for the club flag. Priority: club-meta.json (authoritative),
+  // then whatever the club record itself carries.
+  const clubCountry =
+    (club?.id != null && clubMeta[String(club.id)]?.country) ||
+    club?.country ||
+    ''
+
   const position = games.position ?? raw.position ?? ''
 
   return {
@@ -117,8 +126,8 @@ function mapSquadPlayer(
     club: club
       ? {
           name: club.name,
-          country: club.country ?? '',
-          countryCode: clubCountryCode(club.country),
+          country: clubCountry,
+          countryCode: clubCountryCode(clubCountry),
         }
       : { name: '', country: '', countryCode: '' },
     photoUrl: raw.player?.photo ?? raw.photo,
@@ -137,72 +146,71 @@ function mapSquadPlayer(
   }
 }
 
+// Country names from api-football → ISO-3166 alpha-2 codes (used by flagcdn.com).
+// Includes the four UK subdivisions where flagcdn supports them.
 const COUNTRY_TO_CODE: Record<string, string> = {
+  // UK home nations
   England: 'gb-eng',
   Scotland: 'gb-sct',
   Wales: 'gb-wls',
   'Northern Ireland': 'gb-nir',
-  Spain: 'es',
-  Italy: 'it',
-  Germany: 'de',
-  France: 'fr',
-  Portugal: 'pt',
-  Netherlands: 'nl',
-  Belgium: 'be',
-  Brazil: 'br',
-  Argentina: 'ar',
-  Mexico: 'mx',
-  USA: 'us',
-  'United States': 'us',
-  Canada: 'ca',
-  Morocco: 'ma',
-  'South Korea': 'kr',
-  'Korea Republic': 'kr',
-  'South Africa': 'za',
-  Czechia: 'cz',
-  'Czech Republic': 'cz',
-  Bosnia: 'ba',
-  'Bosnia and Herzegovina': 'ba',
-  Qatar: 'qa',
-  Switzerland: 'ch',
-  Haiti: 'ht',
-  Paraguay: 'py',
-  Australia: 'au',
-  Turkey: 'tr',
-  'Saudi Arabia': 'sa',
-  'United Arab Emirates': 'ae',
-  Greece: 'gr',
-  Japan: 'jp',
-  Croatia: 'hr',
-  Denmark: 'dk',
-  Norway: 'no',
-  Sweden: 'se',
-  Poland: 'pl',
-  Austria: 'at',
-  Serbia: 'rs',
-  Uruguay: 'uy',
-  Colombia: 'co',
-  Chile: 'cl',
-  Peru: 'pe',
-  Ecuador: 'ec',
-  Senegal: 'sn',
-  Nigeria: 'ng',
-  Ghana: 'gh',
-  Egypt: 'eg',
-  Algeria: 'dz',
-  Tunisia: 'tn',
-  'Ivory Coast': 'ci',
-  Cameroon: 'cm',
-  Iran: 'ir',
-  Iraq: 'iq',
-  Jordan: 'jo',
-  Uzbekistan: 'uz',
-  'New Zealand': 'nz',
+
+  // Europe
+  Spain: 'es', Italy: 'it', Germany: 'de', France: 'fr', Portugal: 'pt',
+  Netherlands: 'nl', Belgium: 'be', Switzerland: 'ch', Austria: 'at',
+  Greece: 'gr', Croatia: 'hr', Serbia: 'rs', Slovenia: 'si', Slovakia: 'sk',
+  'Czech Republic': 'cz', Czechia: 'cz', Hungary: 'hu', Romania: 'ro',
+  Bulgaria: 'bg', Poland: 'pl', Ukraine: 'ua', Russia: 'ru',
+  Denmark: 'dk', Norway: 'no', Sweden: 'se', Finland: 'fi', Iceland: 'is',
+  Ireland: 'ie', 'Republic of Ireland': 'ie', Cyprus: 'cy', Malta: 'mt',
+  Albania: 'al', 'North Macedonia': 'mk', Bosnia: 'ba',
+  'Bosnia and Herzegovina': 'ba', Turkey: 'tr', 'Türkiye': 'tr',
+  Israel: 'il', Luxembourg: 'lu', Estonia: 'ee', Latvia: 'lv', Lithuania: 'lt',
+  Belarus: 'by', Georgia: 'ge', Armenia: 'am', Azerbaijan: 'az',
+  Kazakhstan: 'kz', Moldova: 'md',
+
+  // Americas
+  Brazil: 'br', Argentina: 'ar', Uruguay: 'uy', Paraguay: 'py',
+  Chile: 'cl', Peru: 'pe', Colombia: 'co', Ecuador: 'ec', Venezuela: 've',
+  Bolivia: 'bo', Mexico: 'mx', USA: 'us', 'United States': 'us', Canada: 'ca',
+  'Costa Rica': 'cr', Panama: 'pa', Honduras: 'hn', 'El Salvador': 'sv',
+  Guatemala: 'gt', Nicaragua: 'ni', Jamaica: 'jm', Haiti: 'ht', Cuba: 'cu',
+  'Dominican Republic': 'do', 'Trinidad and Tobago': 'tt',
+
+  // Asia
+  'South Korea': 'kr', 'Korea Republic': 'kr', 'North Korea': 'kp',
+  Japan: 'jp', China: 'cn', 'China PR': 'cn', India: 'in',
+  Indonesia: 'id', Malaysia: 'my', Thailand: 'th', Vietnam: 'vn',
+  Singapore: 'sg', Philippines: 'ph', Iran: 'ir', Iraq: 'iq',
+  'Saudi Arabia': 'sa', 'United Arab Emirates': 'ae', Qatar: 'qa',
+  Bahrain: 'bh', Kuwait: 'kw', Oman: 'om', Yemen: 'ye',
+  Jordan: 'jo', Lebanon: 'lb', Syria: 'sy', Palestine: 'ps',
+  Uzbekistan: 'uz', Tajikistan: 'tj', Turkmenistan: 'tm', Kyrgyzstan: 'kg',
+  Afghanistan: 'af', Pakistan: 'pk', Bangladesh: 'bd', 'Sri Lanka': 'lk',
+
+  // Africa
+  Morocco: 'ma', Algeria: 'dz', Tunisia: 'tn', Egypt: 'eg', Libya: 'ly',
+  Senegal: 'sn', Nigeria: 'ng', Ghana: 'gh', 'South Africa': 'za',
+  'Ivory Coast': 'ci', "Cote d'Ivoire": 'ci', Cameroon: 'cm', Kenya: 'ke',
+  'Cape Verde': 'cv', Mali: 'ml', 'Burkina Faso': 'bf', Angola: 'ao',
+  'Congo DR': 'cd', 'DR Congo': 'cd', Ethiopia: 'et', Uganda: 'ug',
+  Tanzania: 'tz', Zimbabwe: 'zw', Zambia: 'zm', Mozambique: 'mz', Sudan: 'sd',
+
+  // Oceania
+  Australia: 'au', 'New Zealand': 'nz', Fiji: 'fj',
 }
 
-function clubCountryCode(country: string | undefined): string {
+function clubCountryCode(country: string | undefined | null): string {
   if (!country) return 'un'
-  return COUNTRY_TO_CODE[country] ?? country.slice(0, 2).toLowerCase()
+  // api-football uses hyphens ("Saudi-Arabia", "United-Arab-Emirates") —
+  // normalize to spaces for lookup, fall back to raw, then fall back to
+  // a hash-warning placeholder so a bad mapping is loudly visible.
+  const normalized = country.replace(/-/g, ' ').trim()
+  return (
+    COUNTRY_TO_CODE[normalized] ??
+    COUNTRY_TO_CODE[country] ??
+    'un'
+  )
 }
 
 interface FixturesCache {
@@ -244,15 +252,27 @@ interface ClubsCache {
   } | null
 }
 
+interface ClubMetaCache {
+  [clubId: string]: {
+    id: number
+    name: string
+    country?: string | null
+    code?: string | null
+    logo?: string | null
+  } | null
+}
+
 async function loadCaches() {
-  const [fixtures, squads, teams, lineups, marketValues, clubs] = await Promise.all([
-    readJson<FixturesCache>('fixtures.json'),
-    readJson<SquadCache>('squads.json'),
-    readJson<TeamMetaCache>('teams.json'),
-    readJson<LineupCache>('lineups.json'),
-    readJson<MarketValueCache>('market-values.json'),
-    readJson<ClubsCache>('clubs.json'),
-  ])
+  const [fixtures, squads, teams, lineups, marketValues, clubs, clubMeta] =
+    await Promise.all([
+      readJson<FixturesCache>('fixtures.json'),
+      readJson<SquadCache>('squads.json'),
+      readJson<TeamMetaCache>('teams.json'),
+      readJson<LineupCache>('lineups.json'),
+      readJson<MarketValueCache>('market-values.json'),
+      readJson<ClubsCache>('clubs.json'),
+      readJson<ClubMetaCache>('club-meta.json'),
+    ])
   return {
     fixtures,
     squads: squads ?? {},
@@ -260,6 +280,7 @@ async function loadCaches() {
     lineups: lineups ?? {},
     marketValues: marketValues ?? {},
     clubs: clubs ?? {},
+    clubMeta: clubMeta ?? {},
   }
 }
 
@@ -275,7 +296,8 @@ export const apiFootballProvider: WorldCupDataProvider = {
   },
 
   async getMatchDetail(matchId: string): Promise<MatchDetail | null> {
-    const { fixtures, squads, teams, lineups, marketValues, clubs } = await loadCaches()
+    const { fixtures, squads, teams, lineups, marketValues, clubs, clubMeta } =
+      await loadCaches()
     if (!fixtures) {
       throw new Error(
         'No cached api-football data found. Run `npm run fetch:data` to populate `data/`.'
@@ -301,7 +323,7 @@ export const apiFootballProvider: WorldCupDataProvider = {
         return m ? parseInt(m[1], 10) : undefined
       })()
       let players: Player[] = rawSquad.map((p) =>
-        mapSquadPlayer(p, marketValues, nationalTeamRawId, clubs)
+        mapSquadPlayer(p, marketValues, nationalTeamRawId, clubs, clubMeta)
       )
 
       const xiData = lineup?.[side]

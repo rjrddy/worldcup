@@ -1,24 +1,1272 @@
 {
-  "test-1": {
-    "annual": 4000000,
+  "af-35769": {
+    "annual": 2800000,
     "currency": "EUR",
     "source": "Transfermarkt",
     "isMarketValue": true
   },
-  "test-2": {
+  "af-2098": {
     "annual": 250000,
     "currency": "EUR",
     "source": "Transfermarkt",
     "isMarketValue": true
   },
-  "test-4": {
+  "af-270774": {
+    "annual": 6500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2881": {
+    "annual": 2800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-392387": {
+    "annual": 2000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-510799": {
+    "annual": 3500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-46334": {
+    "annual": 1800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-46601": {
+    "annual": 1200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-406752": {
+    "annual": 2000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-46458": {
+    "annual": 1600000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-330174": {
+    "annual": 1200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-268710": {
+    "annual": 1800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-194430": {
+    "annual": 2000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-3287": {
+    "annual": 2800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-158433": {
+    "annual": 600000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-3289": {
+    "annual": 250000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-179893": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-98936": {
+    "annual": 8000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-201354": {
+    "annual": 1400000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-354831": {
+    "annual": 750000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-414149": {
+    "annual": 3000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-295977": {
+    "annual": 1400000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-127429": {
+    "annual": 2800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-359561": {
+    "annual": 1200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2890": {
+    "annual": 650000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2892": {
+    "annual": 500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-34374": {
+    "annual": 1000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2897": {
+    "annual": 20000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2912": {
+    "annual": 750000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-34418": {
+    "annual": 1200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-237218": {
+    "annual": 3000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-99211": {
+    "annual": 1000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-237220": {
+    "annual": 2000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-197985": {
+    "annual": 6500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-280358": {
+    "annual": 10000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-304951": {
+    "annual": 800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-357286": {
+    "annual": 4000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-237050": {
+    "annual": 1800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2901": {
+    "annual": 7000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-34431": {
+    "annual": 1600000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2906": {
+    "annual": 2000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-927": {
+    "annual": 28000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2909": {
+    "annual": 2000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-304958": {
+    "annual": 5000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-24888": {
     "annual": 6000000,
     "currency": "EUR",
     "source": "Transfermarkt",
     "isMarketValue": true
   },
-  "test-5": {
-    "annual": 80000000,
+  "af-34211": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-34710": {
+    "annual": 15000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-186": {
+    "annual": 15000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-269349": {
+    "annual": 18000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-138804": {
+    "annual": 8000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-66347": {
+    "annual": 2000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-337740": {
+    "annual": 10000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-1231": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2252": {
+    "annual": 1000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-162964": {
+    "annual": 10000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-128793": {
+    "annual": 5000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-66407": {
+    "annual": 22000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-1237": {
+    "annual": 600000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-128772": {
+    "annual": 7000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-66214": {
+    "annual": 3500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-162194": {
+    "annual": 6000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-25348": {
+    "annual": 375000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-66353": {
+    "annual": 8000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-241": {
+    "annual": 8000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-386837": {
+    "annual": 2300000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-1243": {
+    "annual": 10000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-66387": {
+    "annual": 20000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-818": {
+    "annual": 2700000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-66275": {
+    "annual": 4000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-66019": {
+    "annual": 10000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-66340": {
+    "annual": 2700000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-794": {
+    "annual": 18000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-290212": {
+    "annual": 3000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-51274": {
+    "annual": 1800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-284554": {
+    "annual": 550000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-51148": {
+    "annual": 3500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-51295": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-327738": {
+    "annual": 1000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-50816": {
+    "annual": 1000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-78494": {
+    "annual": 2000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-78547": {
+    "annual": 8000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-18938": {
+    "annual": 6000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-407017": {
+    "annual": 7000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-509": {
+    "annual": 40000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-416901": {
+    "annual": 4000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-50826": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-44798": {
+    "annual": 3000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-50788": {
+    "annual": 800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-35570": {
+    "annual": 6000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-328046": {
+    "annual": 25000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-50817": {
+    "annual": 1000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-294824": {
+    "annual": 7500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-284061": {
+    "annual": 4500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-51016": {
+    "annual": 12000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-8489": {
+    "annual": 30000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2001": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-362145": {
+    "annual": 5000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-351587": {
+    "annual": 7000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-446130": {
+    "annual": 700000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-9026": {
+    "annual": 4500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-108370": {
+    "annual": 2000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-395589": {
+    "annual": 7000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-7318": {
+    "annual": 16000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-53517": {
+    "annual": 1200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-1741": {
+    "annual": 1800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-1442": {
+    "annual": 4000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-271350": {
+    "annual": 25000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-76867": {
+    "annual": 1200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-14301": {
+    "annual": 2800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-162222": {
+    "annual": 1500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-70514": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-50006": {
+    "annual": 4000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-340173": {
+    "annual": 5000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-1324": {
+    "annual": 2000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-264094": {
+    "annual": 4500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-322101": {
+    "annual": 4500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-25129": {
+    "annual": 1200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-395559": {
+    "annual": 22000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-329409": {
+    "annual": 8000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-314377": {
+    "annual": 1500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-46930": {
+    "annual": 22000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-790": {
+    "annual": 1000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-77037": {
+    "annual": 2200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-28382": {
+    "annual": 3500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-266606": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-50728": {
+    "annual": 2000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-50999": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-38735": {
+    "annual": 18000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-355994": {
+    "annual": 3500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-50735": {
+    "annual": 7000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-19023": {
+    "annual": 150000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-126949": {
+    "annual": 28000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-19549": {
+    "annual": 22000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-50879": {
+    "annual": 3500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-50852": {
+    "annual": 7000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-50737": {
+    "annual": 6000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-362400": {
+    "annual": 5000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-201713": {
+    "annual": 8000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-415": {
+    "annual": 30000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-161921": {
+    "annual": 4000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-51114": {
+    "annual": 3500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-162037": {
+    "annual": 30000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-1150": {
+    "annual": 25000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-1138": {
+    "annual": 20000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-35885": {
+    "annual": 10000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-50739": {
+    "annual": 22000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-138835": {
+    "annual": 40000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-73868": {
+    "annual": 30000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-17": {
+    "annual": 40000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-427": {
+    "annual": 16000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-70852": {
+    "annual": 6000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-51733": {
+    "annual": 500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-6168": {
+    "annual": 13000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2499": {
+    "annual": 1500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-195992": {
+    "annual": 5000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2500": {
+    "annual": 900000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2502": {
+    "annual": 3500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-425020": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-35808": {
+    "annual": 400000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-70732": {
+    "annual": 2200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-195107": {
+    "annual": 6000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-119128": {
+    "annual": 1000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-6236": {
+    "annual": 4500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-305832": {
+    "annual": 5500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-278370": {
+    "annual": 25000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-106485": {
+    "annual": 15000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-70767": {
+    "annual": 3500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-196298": {
+    "annual": 10000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2507": {
+    "annual": 7000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2514": {
+    "annual": 4500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-95460": {
+    "annual": 3500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-6483": {
+    "annual": 750000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-70747": {
+    "annual": 25000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-70670": {
+    "annual": 7500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-42021": {
+    "annual": 700000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-136503": {
+    "annual": 400000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-175439": {
+    "annual": 500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-42060": {
+    "annual": 1500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-200981": {
+    "annual": 500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2532": {
+    "annual": 200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-42288": {
+    "annual": 350000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-366516": {
+    "annual": 200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2530": {
+    "annual": 600000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2537": {
+    "annual": 175000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2545": {
+    "annual": 1800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-283174": {
+    "annual": 15000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2544": {
+    "annual": 8000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2542": {
+    "annual": 100000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2543": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-42075": {
+    "annual": 10000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-423737": {
+    "annual": 200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-42089": {
+    "annual": 200000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-123468": {
+    "annual": 6000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-25282": {
+    "annual": 40000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-1142": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-5": {
+    "annual": 17000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-162414": {
+    "annual": 10000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-48372": {
+    "annual": 2500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2803": {
+    "annual": 8000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-349344": {
+    "annual": 10000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-48489": {
+    "annual": 5000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-1631": {
+    "annual": 1400000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-48378": {
+    "annual": 800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-951": {
+    "annual": 4000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2807": {
+    "annual": 3000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-264705": {
+    "annual": 25000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-957": {
+    "annual": 7500000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-1464": {
+    "annual": 8000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-2810": {
+    "annual": 25000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-952": {
+    "annual": 2000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-48497": {
+    "annual": 1800000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "af-163032": {
+    "annual": 12000000,
     "currency": "EUR",
     "source": "Transfermarkt",
     "isMarketValue": true

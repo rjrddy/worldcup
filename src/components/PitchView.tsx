@@ -19,9 +19,17 @@ export function PitchView({ players, teamName }: PitchViewProps) {
 
   if (starters.length === 0) {
     return (
-      <p className="text-ink-muted text-sm text-center py-8">
-        No lineup data available
-      </p>
+      <div className="pitch-view pitch-view--empty">
+        <div className="pitch-view__empty-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="1" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </div>
+        <p className="pitch-view__empty-title">Lineup not yet announced</p>
+        <p className="pitch-view__empty-sub">Starting XI publishes ~1 hour before kick-off</p>
+      </div>
     )
   }
 
@@ -33,26 +41,34 @@ export function PitchView({ players, teamName }: PitchViewProps) {
         role="img"
         aria-label={`Pitch diagram showing ${teamName} starting XI positions`}
       >
-        {/* Pitch background */}
-        <rect x="0" y="0" width="100" height="110" fill="var(--pitch-green)" />
+        {/* Pitch background — gradient stripes for a TV-style turf */}
+        <defs>
+          <linearGradient id="turf-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="var(--pitch-green-light)" />
+            <stop offset="100%" stopColor="var(--pitch-green)" />
+          </linearGradient>
+          <pattern id="turf-stripes" width="100" height="11" patternUnits="userSpaceOnUse">
+            <rect width="100" height="11" fill="url(#turf-grad)" />
+            <rect width="100" height="5.5" fill="rgba(255,255,255,0.04)" />
+          </pattern>
+        </defs>
+        <rect x="0" y="0" width="100" height="110" fill="url(#turf-stripes)" />
 
         {/* Pitch markings */}
-        <rect x="2" y="2" width="96" height="106" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5" />
-        {/* Centre line */}
-        <line x1="2" y1="55" x2="98" y2="55" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5" />
-        {/* Centre circle */}
-        <circle cx="50" cy="55" r="10" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5" />
-        {/* Centre spot */}
-        <circle cx="50" cy="55" r="0.8" fill="rgba(255,255,255,0.6)" />
-        {/* Penalty areas */}
-        <rect x="20" y="2" width="60" height="22" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5" />
-        <rect x="20" y="86" width="60" height="22" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5" />
-        {/* Goal areas */}
-        <rect x="35" y="2" width="30" height="8" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5" />
-        <rect x="35" y="100" width="30" height="8" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5" />
-        {/* Penalty spots */}
-        <circle cx="50" cy="18" r="0.8" fill="rgba(255,255,255,0.6)" />
-        <circle cx="50" cy="92" r="0.8" fill="rgba(255,255,255,0.6)" />
+        <g stroke="rgba(255,255,255,0.55)" strokeWidth="0.4" fill="none">
+          <rect x="2" y="2" width="96" height="106" />
+          <line x1="2" y1="55" x2="98" y2="55" />
+          <circle cx="50" cy="55" r="10" />
+          <rect x="20" y="2" width="60" height="22" />
+          <rect x="20" y="86" width="60" height="22" />
+          <rect x="35" y="2" width="30" height="8" />
+          <rect x="35" y="100" width="30" height="8" />
+        </g>
+        <g fill="rgba(255,255,255,0.6)">
+          <circle cx="50" cy="55" r="0.8" />
+          <circle cx="50" cy="18" r="0.8" />
+          <circle cx="50" cy="92" r="0.8" />
+        </g>
 
         {starters.map((player) => {
           const x = player.pitchX!
@@ -61,16 +77,17 @@ export function PitchView({ players, teamName }: PitchViewProps) {
           const shortName = player.name.split(' ').pop() ?? player.name
 
           return (
-            <g key={player.id} className="pitch-player" role="listitem">
+            <g key={player.id} className="pitch-player">
               <title>{`${player.name} — ${player.position} (#${player.jerseyNumber})`}</title>
-              <circle cx={x} cy={y} r="4.5" fill={color} opacity="0.92" />
+              <circle cx={x} cy={y + 0.4} r="5" fill="rgba(0,0,0,0.25)" />
+              <circle cx={x} cy={y} r="5" fill={color} stroke="white" strokeWidth="0.4" />
               <text
                 x={x}
                 y={y + 0.5}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fontSize="2.5"
-                fontWeight="700"
+                fontSize="2.8"
+                fontWeight="800"
                 fill="white"
                 fontFamily="var(--font-hanken), sans-serif"
               >
@@ -78,16 +95,16 @@ export function PitchView({ players, teamName }: PitchViewProps) {
               </text>
               <text
                 x={x}
-                y={y + 7}
+                y={y + 8}
                 textAnchor="middle"
                 dominantBaseline="hanging"
-                fontSize="2.8"
+                fontSize="3"
                 fill="white"
-                fontWeight="600"
+                fontWeight="700"
                 fontFamily="var(--font-hanken), sans-serif"
-                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.7)' }}
+                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}
               >
-                {shortName.length > 8 ? shortName.slice(0, 7) + '.' : shortName}
+                {shortName.length > 9 ? shortName.slice(0, 8) + '.' : shortName}
               </text>
             </g>
           )

@@ -11,7 +11,9 @@ interface TeamPanelProps {
 const GROUP_ORDER: PositionGroup[] = ['GK', 'DEF', 'MID', 'ATT']
 
 export function TeamPanel({ team, side }: TeamPanelProps) {
-  const byGroup = GROUP_ORDER.reduce<Record<PositionGroup, typeof team.squad[number][]>>(
+  const byGroup = GROUP_ORDER.reduce<
+    Record<PositionGroup, typeof team.squad[number][]>
+  >(
     (acc, g) => {
       acc[g] = team.squad.filter((p) => p.group === g)
       return acc
@@ -24,9 +26,16 @@ export function TeamPanel({ team, side }: TeamPanelProps) {
   return (
     <section className="team-panel" aria-labelledby={`team-${side}-heading`}>
       <header className="team-panel__header">
-        <CountryFlag countryCode={team.countryCode} countryName={team.name} size="lg" />
-        <div>
-          <h2 id={`team-${side}-heading`} className="team-panel__name">{team.name}</h2>
+        <CountryFlag
+          countryCode={team.countryCode}
+          countryName={team.name}
+          size="lg"
+        />
+        <div className="team-panel__heading-block">
+          <p className="team-panel__side-chip">{side === 'home' ? 'Home' : 'Away'}</p>
+          <h2 id={`team-${side}-heading`} className="team-panel__name">
+            {team.name}
+          </h2>
           <div className="team-panel__meta">
             {team.formation && (
               <span className="team-panel__meta-item">
@@ -39,16 +48,17 @@ export function TeamPanel({ team, side }: TeamPanelProps) {
                 FIFA #{team.fifaRanking}
               </span>
             )}
+            <span className="team-panel__meta-item">
+              {team.squad.length} players
+            </span>
           </div>
         </div>
       </header>
 
       {!hasSquad ? (
-        <p className="text-ink-muted text-sm py-8 text-center">
-          Squad not yet available
-        </p>
+        <p className="team-panel__empty">Squad not yet available</p>
       ) : (
-        <div className="team-panel__body">
+        <>
           <div className="team-panel__pitch-wrap">
             <PitchView players={team.squad} teamName={team.name} />
           </div>
@@ -57,7 +67,7 @@ export function TeamPanel({ team, side }: TeamPanelProps) {
               <PositionSection key={g} group={g} players={byGroup[g]} />
             ))}
           </div>
-        </div>
+        </>
       )}
     </section>
   )

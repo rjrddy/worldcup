@@ -545,6 +545,63 @@ async function main() {
     )
   }
 
+  // 3c. Club metadata enrichment.
+  //     /players/teams returns { id, name, logo } per team — no country.
+  //     For the country flag next to each club name in the UI, fetch
+  //     /teams?id={id} once per unique club. Cached, incremental.
+  let clubMeta = {}
+  try {
+    clubMeta = JSON.parse(
+      await fs.readFile(path.join(DATA_DIR, 'club-meta.json'), 'utf8')
+    )
+  } catch {
+    /* no existing cache */
+  }
+  const uniqueClubIds = new Set()
+  for (const c of Object.values(clubs)) {
+    if (c?.id != null) uniqueClubIds.add(c.id)
+  }
+  const clubsToFetch = [...uniqueClubIds].filter((id) => !clubMeta[String(id)])
+  console.log(
+    `→ Resolving club metadata (${clubsToFetch.length} clubs to fetch, ${
+      uniqueClubIds.size - clubsToFetch.length
+    } cached).`
+  )
+  let mIdx = 0
+  for (const clubId of clubsToFetch) {
+    mIdx++
+    if (mIdx === 1 || mIdx % 50 === 0 || mIdx === clubsToFetch.length) {
+      process.stdout.write(`  [${mIdx}/${clubsToFetch.length}] resolving clubs…\n`)
+    }
+    try {
+      const resp = await af('/teams', { id: clubId })
+      const t = resp?.[0]?.team
+      if (t) {
+        clubMeta[String(clubId)] = {
+          id: t.id,
+          name: t.name,
+          country: t.country ?? null,
+          code: t.code ?? null,
+          logo: t.logo ?? null,
+        }
+      } else {
+        clubMeta[String(clubId)] = null
+      }
+    } catch (err) {
+      console.log(`    ✗ club ${clubId}: ${err.message}`)
+    }
+    if (mIdx % 25 === 0) {
+      await fs.writeFile(
+        path.join(DATA_DIR, 'club-meta.json'),
+        JSON.stringify(clubMeta, null, 2)
+      )
+    }
+  }
+  await fs.writeFile(
+    path.join(DATA_DIR, 'club-meta.json'),
+    JSON.stringify(clubMeta, null, 2)
+  )
+
   // Re-flag hasLineups based on whether we actually have squads for both teams.
   // (Originally this gated on FT/LIVE status — but pre-tournament we still want
   // matches to be clickable as long as we can render both squads.)

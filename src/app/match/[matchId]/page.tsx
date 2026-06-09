@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { getProvider } from '@/lib/providers'
 import { TeamPanel } from '@/components/TeamPanel'
 import { CountryFlag } from '@/components/CountryFlag'
-import { formatKickoff } from '@/lib/utils'
+import { formatKickoffDate } from '@/lib/utils'
 
 // Pre-render every match page at build time. Data is read from cached JSON
 // in ./data/, so this costs no API calls and produces fully static HTML.
@@ -38,42 +38,66 @@ export default async function MatchPage({ params }: Props) {
   if (!detail) notFound()
 
   const { match, home, away } = detail
-  const kickoffDisplay = formatKickoff(match.kickoff)
-  const stageLabel = match.stage === 'group' ? `Group ${match.group}` : match.stage.toUpperCase()
+  const k = formatKickoffDate(match.kickoff)
+  const stageLabel =
+    match.stage === 'group' ? `Group ${match.group}` : match.stage.toUpperCase()
 
   return (
     <>
-      <header className="match-header" role="banner">
-        <p className="match-header__stage">{stageLabel}</p>
-        <div className="match-header__matchup">
-          <div className="match-header__team">
-            <CountryFlag countryCode={home.countryCode} countryName={home.name} size="lg" />
-            <span>{home.name}</span>
+      <nav aria-label="Breadcrumb" className="match-breadcrumb">
+        <Link href="/" className="match-breadcrumb__link">
+          <span aria-hidden="true">←</span> All matches
+        </Link>
+      </nav>
+
+      <header className="match-hero" role="banner">
+        <div className="match-hero__inner">
+          <div className="match-hero__eyebrow">
+            <span>{stageLabel}</span>
+            <span aria-hidden="true">·</span>
+            <span>FIFA World Cup 2026</span>
           </div>
-          <span className="match-header__vs" aria-hidden="true">vs</span>
-          <div className="match-header__team">
-            <CountryFlag countryCode={away.countryCode} countryName={away.name} size="lg" />
-            <span>{away.name}</span>
+
+          <div className="match-hero__matchup">
+            <div className="match-hero__team match-hero__team--home">
+              <CountryFlag
+                countryCode={home.countryCode}
+                countryName={home.name}
+                size="lg"
+              />
+              <div className="match-hero__team-name">{home.name}</div>
+            </div>
+
+            <div className="match-hero__vs" aria-hidden="true">
+              <div className="match-hero__vs-date">
+                {k.weekday} {k.month} {k.day}
+              </div>
+              <div className="match-hero__vs-time">{k.time}</div>
+              <div className="match-hero__vs-tz">{k.tz}</div>
+            </div>
+
+            <div className="match-hero__team match-hero__team--away">
+              <CountryFlag
+                countryCode={away.countryCode}
+                countryName={away.name}
+                size="lg"
+              />
+              <div className="match-hero__team-name">{away.name}</div>
+            </div>
           </div>
-        </div>
-        <h1 className="sr-only">{home.name} vs {away.name}</h1>
-        <div className="match-header__meta">
-          <time dateTime={match.kickoff}>{kickoffDisplay}</time>
-          {match.venue && <span>{match.venue}</span>}
+
+          <h1 className="sr-only">
+            {home.name} vs {away.name}
+          </h1>
+
+          {match.venue && (
+            <div className="match-hero__venue">{match.venue}</div>
+          )}
         </div>
       </header>
 
       <main className="page-shell" id="main-content">
-        <nav aria-label="Breadcrumb" className="mb-6">
-          <Link
-            href="/"
-            className="text-sm font-mono text-ink-muted underline underline-offset-2 hover:text-accent"
-          >
-            ← All matches
-          </Link>
-        </nav>
-
-        <div className="flex flex-col gap-10">
+        <div className="team-grid">
           <TeamPanel team={home} side="home" />
           <TeamPanel team={away} side="away" />
         </div>

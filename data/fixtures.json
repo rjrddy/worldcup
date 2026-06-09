@@ -1,0 +1,1516 @@
+{
+  "matches": [
+    {
+      "id": "af-1489369",
+      "stage": "group",
+      "kickoff": "2026-06-11T19:00:00+00:00",
+      "venue": "Estadio Azteca, Mexico City",
+      "home": {
+        "id": "af-team-16",
+        "name": "Mexico",
+        "countryCode": "mx"
+      },
+      "away": {
+        "id": "af-team-1531",
+        "name": "South Africa",
+        "countryCode": "za"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 16,
+      "_rawTeamAwayId": 1531,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489369
+    },
+    {
+      "id": "af-1538999",
+      "stage": "group",
+      "kickoff": "2026-06-12T02:00:00+00:00",
+      "venue": "Estadio Akron, Guadalajara",
+      "home": {
+        "id": "af-team-17",
+        "name": "South Korea",
+        "countryCode": "kr"
+      },
+      "away": {
+        "id": "af-team-770",
+        "name": "Czech Republic",
+        "countryCode": "cz"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 17,
+      "_rawTeamAwayId": 770,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1538999
+    },
+    {
+      "id": "af-1539000",
+      "stage": "group",
+      "kickoff": "2026-06-12T19:00:00+00:00",
+      "venue": "BMO Field, Toronto",
+      "home": {
+        "id": "af-team-5529",
+        "name": "Canada",
+        "countryCode": "ca"
+      },
+      "away": {
+        "id": "af-team-1113",
+        "name": "Bosnia & Herzegovina",
+        "countryCode": "bo"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 5529,
+      "_rawTeamAwayId": 1113,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539000
+    },
+    {
+      "id": "af-1489370",
+      "stage": "group",
+      "kickoff": "2026-06-13T01:00:00+00:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "home": {
+        "id": "af-team-2384",
+        "name": "USA",
+        "countryCode": "us"
+      },
+      "away": {
+        "id": "af-team-2380",
+        "name": "Paraguay",
+        "countryCode": "py"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 2384,
+      "_rawTeamAwayId": 2380,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489370
+    },
+    {
+      "id": "af-1489373",
+      "stage": "group",
+      "kickoff": "2026-06-13T19:00:00+00:00",
+      "venue": "Levi's Stadium, San Francisco Bay Area",
+      "home": {
+        "id": "af-team-1569",
+        "name": "Qatar",
+        "countryCode": "qa"
+      },
+      "away": {
+        "id": "af-team-15",
+        "name": "Switzerland",
+        "countryCode": "ch"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1569,
+      "_rawTeamAwayId": 15,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489373
+    },
+    {
+      "id": "af-1489371",
+      "stage": "group",
+      "kickoff": "2026-06-13T22:00:00+00:00",
+      "venue": "MetLife Stadium, New York New Jersey",
+      "home": {
+        "id": "af-team-6",
+        "name": "Brazil",
+        "countryCode": "br"
+      },
+      "away": {
+        "id": "af-team-31",
+        "name": "Morocco",
+        "countryCode": "ma"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 6,
+      "_rawTeamAwayId": 31,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489371
+    },
+    {
+      "id": "af-1489372",
+      "stage": "group",
+      "kickoff": "2026-06-14T01:00:00+00:00",
+      "venue": "Gillette Stadium, Boston",
+      "home": {
+        "id": "af-team-2386",
+        "name": "Haiti",
+        "countryCode": "ht"
+      },
+      "away": {
+        "id": "af-team-1108",
+        "name": "Scotland",
+        "countryCode": "gb-sct"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 2386,
+      "_rawTeamAwayId": 1108,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489372
+    },
+    {
+      "id": "af-1539001",
+      "stage": "group",
+      "kickoff": "2026-06-14T04:00:00+00:00",
+      "venue": "BC Place, Vancouver",
+      "home": {
+        "id": "af-team-20",
+        "name": "Australia",
+        "countryCode": "au"
+      },
+      "away": {
+        "id": "af-team-777",
+        "name": "Türkiye",
+        "countryCode": "tü"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 20,
+      "_rawTeamAwayId": 777,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539001
+    },
+    {
+      "id": "af-1489374",
+      "stage": "group",
+      "kickoff": "2026-06-14T17:00:00+00:00",
+      "venue": "NRG Stadium, Houston",
+      "home": {
+        "id": "af-team-25",
+        "name": "Germany",
+        "countryCode": "de"
+      },
+      "away": {
+        "id": "af-team-5530",
+        "name": "Curaçao",
+        "countryCode": "cu"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 25,
+      "_rawTeamAwayId": 5530,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489374
+    },
+    {
+      "id": "af-1489376",
+      "stage": "group",
+      "kickoff": "2026-06-14T20:00:00+00:00",
+      "venue": "AT&T Stadium, Dallas",
+      "home": {
+        "id": "af-team-1118",
+        "name": "Netherlands",
+        "countryCode": "nl"
+      },
+      "away": {
+        "id": "af-team-12",
+        "name": "Japan",
+        "countryCode": "jp"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1118,
+      "_rawTeamAwayId": 12,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489376
+    },
+    {
+      "id": "af-1489375",
+      "stage": "group",
+      "kickoff": "2026-06-14T23:00:00+00:00",
+      "venue": "Lincoln Financial Field, Philadelphia",
+      "home": {
+        "id": "af-team-1501",
+        "name": "Ivory Coast",
+        "countryCode": "ci"
+      },
+      "away": {
+        "id": "af-team-2382",
+        "name": "Ecuador",
+        "countryCode": "ec"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1501,
+      "_rawTeamAwayId": 2382,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489375
+    },
+    {
+      "id": "af-1539002",
+      "stage": "group",
+      "kickoff": "2026-06-15T02:00:00+00:00",
+      "venue": "Estadio BBVA, Monterrey",
+      "home": {
+        "id": "af-team-5",
+        "name": "Sweden",
+        "countryCode": "se"
+      },
+      "away": {
+        "id": "af-team-28",
+        "name": "Tunisia",
+        "countryCode": "tn"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 5,
+      "_rawTeamAwayId": 28,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539002
+    },
+    {
+      "id": "af-1489380",
+      "stage": "group",
+      "kickoff": "2026-06-15T16:00:00+00:00",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "home": {
+        "id": "af-team-9",
+        "name": "Spain",
+        "countryCode": "es"
+      },
+      "away": {
+        "id": "af-team-1533",
+        "name": "Cape Verde Islands",
+        "countryCode": "ca"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 9,
+      "_rawTeamAwayId": 1533,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489380
+    },
+    {
+      "id": "af-1489377",
+      "stage": "group",
+      "kickoff": "2026-06-15T19:00:00+00:00",
+      "venue": "Lumen Field, Seattle",
+      "home": {
+        "id": "af-team-1",
+        "name": "Belgium",
+        "countryCode": "be"
+      },
+      "away": {
+        "id": "af-team-32",
+        "name": "Egypt",
+        "countryCode": "eg"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1,
+      "_rawTeamAwayId": 32,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489377
+    },
+    {
+      "id": "af-1489379",
+      "stage": "group",
+      "kickoff": "2026-06-15T22:00:00+00:00",
+      "venue": "Hard Rock Stadium, Miami",
+      "home": {
+        "id": "af-team-23",
+        "name": "Saudi Arabia",
+        "countryCode": "sa"
+      },
+      "away": {
+        "id": "af-team-7",
+        "name": "Uruguay",
+        "countryCode": "uy"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 23,
+      "_rawTeamAwayId": 7,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489379
+    },
+    {
+      "id": "af-1489378",
+      "stage": "group",
+      "kickoff": "2026-06-16T01:00:00+00:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "home": {
+        "id": "af-team-22",
+        "name": "Iran",
+        "countryCode": "ir"
+      },
+      "away": {
+        "id": "af-team-4673",
+        "name": "New Zealand",
+        "countryCode": "nz"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 22,
+      "_rawTeamAwayId": 4673,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489378
+    },
+    {
+      "id": "af-1489383",
+      "stage": "group",
+      "kickoff": "2026-06-16T19:00:00+00:00",
+      "venue": "MetLife Stadium, New York New Jersey",
+      "home": {
+        "id": "af-team-2",
+        "name": "France",
+        "countryCode": "fr"
+      },
+      "away": {
+        "id": "af-team-13",
+        "name": "Senegal",
+        "countryCode": "sn"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 2,
+      "_rawTeamAwayId": 13,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489383
+    },
+    {
+      "id": "af-1539016",
+      "stage": "group",
+      "kickoff": "2026-06-16T22:00:00+00:00",
+      "venue": "Gillette Stadium, Boston",
+      "home": {
+        "id": "af-team-1567",
+        "name": "Iraq",
+        "countryCode": "iq"
+      },
+      "away": {
+        "id": "af-team-1090",
+        "name": "Norway",
+        "countryCode": "no"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1567,
+      "_rawTeamAwayId": 1090,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539016
+    },
+    {
+      "id": "af-1489381",
+      "stage": "group",
+      "kickoff": "2026-06-17T01:00:00+00:00",
+      "venue": "Arrowhead Stadium, Kansas City",
+      "home": {
+        "id": "af-team-26",
+        "name": "Argentina",
+        "countryCode": "ar"
+      },
+      "away": {
+        "id": "af-team-1532",
+        "name": "Algeria",
+        "countryCode": "dz"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 26,
+      "_rawTeamAwayId": 1532,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489381
+    },
+    {
+      "id": "af-1489382",
+      "stage": "group",
+      "kickoff": "2026-06-17T04:00:00+00:00",
+      "venue": "Levi's Stadium, San Francisco Bay Area",
+      "home": {
+        "id": "af-team-775",
+        "name": "Austria",
+        "countryCode": "at"
+      },
+      "away": {
+        "id": "af-team-1548",
+        "name": "Jordan",
+        "countryCode": "jo"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 775,
+      "_rawTeamAwayId": 1548,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489382
+    },
+    {
+      "id": "af-1539003",
+      "stage": "group",
+      "kickoff": "2026-06-17T17:00:00+00:00",
+      "venue": "NRG Stadium, Houston",
+      "home": {
+        "id": "af-team-27",
+        "name": "Portugal",
+        "countryCode": "pt"
+      },
+      "away": {
+        "id": "af-team-1508",
+        "name": "Congo DR",
+        "countryCode": "co"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 27,
+      "_rawTeamAwayId": 1508,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539003
+    },
+    {
+      "id": "af-1489384",
+      "stage": "group",
+      "kickoff": "2026-06-17T20:00:00+00:00",
+      "venue": "AT&T Stadium, Dallas",
+      "home": {
+        "id": "af-team-10",
+        "name": "England",
+        "countryCode": "gb-eng"
+      },
+      "away": {
+        "id": "af-team-3",
+        "name": "Croatia",
+        "countryCode": "hr"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 10,
+      "_rawTeamAwayId": 3,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489384
+    },
+    {
+      "id": "af-1489385",
+      "stage": "group",
+      "kickoff": "2026-06-17T23:00:00+00:00",
+      "venue": "BMO Field, Toronto",
+      "home": {
+        "id": "af-team-1504",
+        "name": "Ghana",
+        "countryCode": "gh"
+      },
+      "away": {
+        "id": "af-team-11",
+        "name": "Panama",
+        "countryCode": "pa"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1504,
+      "_rawTeamAwayId": 11,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489385
+    },
+    {
+      "id": "af-1489386",
+      "stage": "group",
+      "kickoff": "2026-06-18T02:00:00+00:00",
+      "venue": "Estadio Azteca, Mexico City",
+      "home": {
+        "id": "af-team-1568",
+        "name": "Uzbekistan",
+        "countryCode": "uz"
+      },
+      "away": {
+        "id": "af-team-8",
+        "name": "Colombia",
+        "countryCode": "co"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1568,
+      "_rawTeamAwayId": 8,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489386
+    },
+    {
+      "id": "af-1539004",
+      "stage": "group",
+      "kickoff": "2026-06-18T16:00:00+00:00",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "home": {
+        "id": "af-team-770",
+        "name": "Czech Republic",
+        "countryCode": "cz"
+      },
+      "away": {
+        "id": "af-team-1531",
+        "name": "South Africa",
+        "countryCode": "za"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 770,
+      "_rawTeamAwayId": 1531,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539004
+    },
+    {
+      "id": "af-1539005",
+      "stage": "group",
+      "kickoff": "2026-06-18T19:00:00+00:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "home": {
+        "id": "af-team-15",
+        "name": "Switzerland",
+        "countryCode": "ch"
+      },
+      "away": {
+        "id": "af-team-1113",
+        "name": "Bosnia & Herzegovina",
+        "countryCode": "bo"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 15,
+      "_rawTeamAwayId": 1113,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539005
+    },
+    {
+      "id": "af-1489387",
+      "stage": "group",
+      "kickoff": "2026-06-18T22:00:00+00:00",
+      "venue": "BC Place, Vancouver",
+      "home": {
+        "id": "af-team-5529",
+        "name": "Canada",
+        "countryCode": "ca"
+      },
+      "away": {
+        "id": "af-team-1569",
+        "name": "Qatar",
+        "countryCode": "qa"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 5529,
+      "_rawTeamAwayId": 1569,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489387
+    },
+    {
+      "id": "af-1489388",
+      "stage": "group",
+      "kickoff": "2026-06-19T01:00:00+00:00",
+      "venue": "Estadio Akron, Guadalajara",
+      "home": {
+        "id": "af-team-16",
+        "name": "Mexico",
+        "countryCode": "mx"
+      },
+      "away": {
+        "id": "af-team-17",
+        "name": "South Korea",
+        "countryCode": "kr"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 16,
+      "_rawTeamAwayId": 17,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489388
+    },
+    {
+      "id": "af-1489391",
+      "stage": "group",
+      "kickoff": "2026-06-19T19:00:00+00:00",
+      "venue": "Lumen Field, Seattle",
+      "home": {
+        "id": "af-team-2384",
+        "name": "USA",
+        "countryCode": "us"
+      },
+      "away": {
+        "id": "af-team-20",
+        "name": "Australia",
+        "countryCode": "au"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 2384,
+      "_rawTeamAwayId": 20,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489391
+    },
+    {
+      "id": "af-1489390",
+      "stage": "group",
+      "kickoff": "2026-06-19T22:00:00+00:00",
+      "venue": "Gillette Stadium, Boston",
+      "home": {
+        "id": "af-team-1108",
+        "name": "Scotland",
+        "countryCode": "gb-sct"
+      },
+      "away": {
+        "id": "af-team-31",
+        "name": "Morocco",
+        "countryCode": "ma"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1108,
+      "_rawTeamAwayId": 31,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489390
+    },
+    {
+      "id": "af-1489389",
+      "stage": "group",
+      "kickoff": "2026-06-20T00:30:00+00:00",
+      "venue": "Lincoln Financial Field, Philadelphia",
+      "home": {
+        "id": "af-team-6",
+        "name": "Brazil",
+        "countryCode": "br"
+      },
+      "away": {
+        "id": "af-team-2386",
+        "name": "Haiti",
+        "countryCode": "ht"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 6,
+      "_rawTeamAwayId": 2386,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489389
+    },
+    {
+      "id": "af-1539006",
+      "stage": "group",
+      "kickoff": "2026-06-20T03:00:00+00:00",
+      "venue": "Levi's Stadium, San Francisco Bay Area",
+      "home": {
+        "id": "af-team-777",
+        "name": "Türkiye",
+        "countryCode": "tü"
+      },
+      "away": {
+        "id": "af-team-2380",
+        "name": "Paraguay",
+        "countryCode": "py"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 777,
+      "_rawTeamAwayId": 2380,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539006
+    },
+    {
+      "id": "af-1539007",
+      "stage": "group",
+      "kickoff": "2026-06-20T17:00:00+00:00",
+      "venue": "NRG Stadium, Houston",
+      "home": {
+        "id": "af-team-1118",
+        "name": "Netherlands",
+        "countryCode": "nl"
+      },
+      "away": {
+        "id": "af-team-5",
+        "name": "Sweden",
+        "countryCode": "se"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1118,
+      "_rawTeamAwayId": 5,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539007
+    },
+    {
+      "id": "af-1489393",
+      "stage": "group",
+      "kickoff": "2026-06-20T20:00:00+00:00",
+      "venue": "BMO Field, Toronto",
+      "home": {
+        "id": "af-team-25",
+        "name": "Germany",
+        "countryCode": "de"
+      },
+      "away": {
+        "id": "af-team-1501",
+        "name": "Ivory Coast",
+        "countryCode": "ci"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 25,
+      "_rawTeamAwayId": 1501,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489393
+    },
+    {
+      "id": "af-1489392",
+      "stage": "group",
+      "kickoff": "2026-06-21T00:00:00+00:00",
+      "venue": "Arrowhead Stadium, Kansas City",
+      "home": {
+        "id": "af-team-2382",
+        "name": "Ecuador",
+        "countryCode": "ec"
+      },
+      "away": {
+        "id": "af-team-5530",
+        "name": "Curaçao",
+        "countryCode": "cu"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 2382,
+      "_rawTeamAwayId": 5530,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489392
+    },
+    {
+      "id": "af-1489394",
+      "stage": "group",
+      "kickoff": "2026-06-21T04:00:00+00:00",
+      "venue": "Estadio BBVA, Monterrey",
+      "home": {
+        "id": "af-team-28",
+        "name": "Tunisia",
+        "countryCode": "tn"
+      },
+      "away": {
+        "id": "af-team-12",
+        "name": "Japan",
+        "countryCode": "jp"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 28,
+      "_rawTeamAwayId": 12,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489394
+    },
+    {
+      "id": "af-1489397",
+      "stage": "group",
+      "kickoff": "2026-06-21T16:00:00+00:00",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "home": {
+        "id": "af-team-9",
+        "name": "Spain",
+        "countryCode": "es"
+      },
+      "away": {
+        "id": "af-team-23",
+        "name": "Saudi Arabia",
+        "countryCode": "sa"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 9,
+      "_rawTeamAwayId": 23,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489397
+    },
+    {
+      "id": "af-1489395",
+      "stage": "group",
+      "kickoff": "2026-06-21T19:00:00+00:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "home": {
+        "id": "af-team-1",
+        "name": "Belgium",
+        "countryCode": "be"
+      },
+      "away": {
+        "id": "af-team-22",
+        "name": "Iran",
+        "countryCode": "ir"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1,
+      "_rawTeamAwayId": 22,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489395
+    },
+    {
+      "id": "af-1489398",
+      "stage": "group",
+      "kickoff": "2026-06-21T22:00:00+00:00",
+      "venue": "Hard Rock Stadium, Miami",
+      "home": {
+        "id": "af-team-7",
+        "name": "Uruguay",
+        "countryCode": "uy"
+      },
+      "away": {
+        "id": "af-team-1533",
+        "name": "Cape Verde Islands",
+        "countryCode": "ca"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 7,
+      "_rawTeamAwayId": 1533,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489398
+    },
+    {
+      "id": "af-1489396",
+      "stage": "group",
+      "kickoff": "2026-06-22T01:00:00+00:00",
+      "venue": "BC Place, Vancouver",
+      "home": {
+        "id": "af-team-4673",
+        "name": "New Zealand",
+        "countryCode": "nz"
+      },
+      "away": {
+        "id": "af-team-32",
+        "name": "Egypt",
+        "countryCode": "eg"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 4673,
+      "_rawTeamAwayId": 32,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489396
+    },
+    {
+      "id": "af-1489399",
+      "stage": "group",
+      "kickoff": "2026-06-22T17:00:00+00:00",
+      "venue": "AT&T Stadium, Dallas",
+      "home": {
+        "id": "af-team-26",
+        "name": "Argentina",
+        "countryCode": "ar"
+      },
+      "away": {
+        "id": "af-team-775",
+        "name": "Austria",
+        "countryCode": "at"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 26,
+      "_rawTeamAwayId": 775,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489399
+    },
+    {
+      "id": "af-1539017",
+      "stage": "group",
+      "kickoff": "2026-06-22T21:00:00+00:00",
+      "venue": "Lincoln Financial Field, Philadelphia",
+      "home": {
+        "id": "af-team-2",
+        "name": "France",
+        "countryCode": "fr"
+      },
+      "away": {
+        "id": "af-team-1567",
+        "name": "Iraq",
+        "countryCode": "iq"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 2,
+      "_rawTeamAwayId": 1567,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539017
+    },
+    {
+      "id": "af-1489401",
+      "stage": "group",
+      "kickoff": "2026-06-23T00:00:00+00:00",
+      "venue": "MetLife Stadium, New York New Jersey",
+      "home": {
+        "id": "af-team-1090",
+        "name": "Norway",
+        "countryCode": "no"
+      },
+      "away": {
+        "id": "af-team-13",
+        "name": "Senegal",
+        "countryCode": "sn"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1090,
+      "_rawTeamAwayId": 13,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489401
+    },
+    {
+      "id": "af-1489400",
+      "stage": "group",
+      "kickoff": "2026-06-23T03:00:00+00:00",
+      "venue": "Levi's Stadium, San Francisco Bay Area",
+      "home": {
+        "id": "af-team-1548",
+        "name": "Jordan",
+        "countryCode": "jo"
+      },
+      "away": {
+        "id": "af-team-1532",
+        "name": "Algeria",
+        "countryCode": "dz"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1548,
+      "_rawTeamAwayId": 1532,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489400
+    },
+    {
+      "id": "af-1489404",
+      "stage": "group",
+      "kickoff": "2026-06-23T17:00:00+00:00",
+      "venue": "NRG Stadium, Houston",
+      "home": {
+        "id": "af-team-27",
+        "name": "Portugal",
+        "countryCode": "pt"
+      },
+      "away": {
+        "id": "af-team-1568",
+        "name": "Uzbekistan",
+        "countryCode": "uz"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 27,
+      "_rawTeamAwayId": 1568,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489404
+    },
+    {
+      "id": "af-1489402",
+      "stage": "group",
+      "kickoff": "2026-06-23T20:00:00+00:00",
+      "venue": "Gillette Stadium, Boston",
+      "home": {
+        "id": "af-team-10",
+        "name": "England",
+        "countryCode": "gb-eng"
+      },
+      "away": {
+        "id": "af-team-1504",
+        "name": "Ghana",
+        "countryCode": "gh"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 10,
+      "_rawTeamAwayId": 1504,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489402
+    },
+    {
+      "id": "af-1489403",
+      "stage": "group",
+      "kickoff": "2026-06-23T23:00:00+00:00",
+      "venue": "BMO Field, Toronto",
+      "home": {
+        "id": "af-team-11",
+        "name": "Panama",
+        "countryCode": "pa"
+      },
+      "away": {
+        "id": "af-team-3",
+        "name": "Croatia",
+        "countryCode": "hr"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 11,
+      "_rawTeamAwayId": 3,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489403
+    },
+    {
+      "id": "af-1539008",
+      "stage": "group",
+      "kickoff": "2026-06-24T02:00:00+00:00",
+      "venue": "Estadio Akron, Guadalajara",
+      "home": {
+        "id": "af-team-8",
+        "name": "Colombia",
+        "countryCode": "co"
+      },
+      "away": {
+        "id": "af-team-1508",
+        "name": "Congo DR",
+        "countryCode": "co"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 8,
+      "_rawTeamAwayId": 1508,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539008
+    },
+    {
+      "id": "af-1489408",
+      "stage": "group",
+      "kickoff": "2026-06-24T19:00:00+00:00",
+      "venue": "BC Place, Vancouver",
+      "home": {
+        "id": "af-team-15",
+        "name": "Switzerland",
+        "countryCode": "ch"
+      },
+      "away": {
+        "id": "af-team-5529",
+        "name": "Canada",
+        "countryCode": "ca"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 15,
+      "_rawTeamAwayId": 5529,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489408
+    },
+    {
+      "id": "af-1539009",
+      "stage": "group",
+      "kickoff": "2026-06-24T19:00:00+00:00",
+      "venue": "Lumen Field, Seattle",
+      "home": {
+        "id": "af-team-1113",
+        "name": "Bosnia & Herzegovina",
+        "countryCode": "bo"
+      },
+      "away": {
+        "id": "af-team-1569",
+        "name": "Qatar",
+        "countryCode": "qa"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1113,
+      "_rawTeamAwayId": 1569,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539009
+    },
+    {
+      "id": "af-1489405",
+      "stage": "group",
+      "kickoff": "2026-06-24T22:00:00+00:00",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "home": {
+        "id": "af-team-31",
+        "name": "Morocco",
+        "countryCode": "ma"
+      },
+      "away": {
+        "id": "af-team-2386",
+        "name": "Haiti",
+        "countryCode": "ht"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 31,
+      "_rawTeamAwayId": 2386,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489405
+    },
+    {
+      "id": "af-1489406",
+      "stage": "group",
+      "kickoff": "2026-06-24T22:00:00+00:00",
+      "venue": "Hard Rock Stadium, Miami",
+      "home": {
+        "id": "af-team-1108",
+        "name": "Scotland",
+        "countryCode": "gb-sct"
+      },
+      "away": {
+        "id": "af-team-6",
+        "name": "Brazil",
+        "countryCode": "br"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1108,
+      "_rawTeamAwayId": 6,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489406
+    },
+    {
+      "id": "af-1539010",
+      "stage": "group",
+      "kickoff": "2026-06-25T01:00:00+00:00",
+      "venue": "Estadio Azteca, Mexico City",
+      "home": {
+        "id": "af-team-770",
+        "name": "Czech Republic",
+        "countryCode": "cz"
+      },
+      "away": {
+        "id": "af-team-16",
+        "name": "Mexico",
+        "countryCode": "mx"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 770,
+      "_rawTeamAwayId": 16,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539010
+    },
+    {
+      "id": "af-1489407",
+      "stage": "group",
+      "kickoff": "2026-06-25T01:00:00+00:00",
+      "venue": "Estadio BBVA, Monterrey",
+      "home": {
+        "id": "af-team-1531",
+        "name": "South Africa",
+        "countryCode": "za"
+      },
+      "away": {
+        "id": "af-team-17",
+        "name": "South Korea",
+        "countryCode": "kr"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1531,
+      "_rawTeamAwayId": 17,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489407
+    },
+    {
+      "id": "af-1489410",
+      "stage": "group",
+      "kickoff": "2026-06-25T20:00:00+00:00",
+      "venue": "MetLife Stadium, New York New Jersey",
+      "home": {
+        "id": "af-team-2382",
+        "name": "Ecuador",
+        "countryCode": "ec"
+      },
+      "away": {
+        "id": "af-team-25",
+        "name": "Germany",
+        "countryCode": "de"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 2382,
+      "_rawTeamAwayId": 25,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489410
+    },
+    {
+      "id": "af-1489409",
+      "stage": "group",
+      "kickoff": "2026-06-25T20:00:00+00:00",
+      "venue": "Lincoln Financial Field, Philadelphia",
+      "home": {
+        "id": "af-team-5530",
+        "name": "Curaçao",
+        "countryCode": "cu"
+      },
+      "away": {
+        "id": "af-team-1501",
+        "name": "Ivory Coast",
+        "countryCode": "ci"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 5530,
+      "_rawTeamAwayId": 1501,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489409
+    },
+    {
+      "id": "af-1539011",
+      "stage": "group",
+      "kickoff": "2026-06-25T23:00:00+00:00",
+      "venue": "AT&T Stadium, Dallas",
+      "home": {
+        "id": "af-team-12",
+        "name": "Japan",
+        "countryCode": "jp"
+      },
+      "away": {
+        "id": "af-team-5",
+        "name": "Sweden",
+        "countryCode": "se"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 12,
+      "_rawTeamAwayId": 5,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539011
+    },
+    {
+      "id": "af-1489412",
+      "stage": "group",
+      "kickoff": "2026-06-25T23:00:00+00:00",
+      "venue": "Arrowhead Stadium, Kansas City",
+      "home": {
+        "id": "af-team-28",
+        "name": "Tunisia",
+        "countryCode": "tn"
+      },
+      "away": {
+        "id": "af-team-1118",
+        "name": "Netherlands",
+        "countryCode": "nl"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 28,
+      "_rawTeamAwayId": 1118,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489412
+    },
+    {
+      "id": "af-1539012",
+      "stage": "group",
+      "kickoff": "2026-06-26T02:00:00+00:00",
+      "venue": "SoFi Stadium, Los Angeles",
+      "home": {
+        "id": "af-team-777",
+        "name": "Türkiye",
+        "countryCode": "tü"
+      },
+      "away": {
+        "id": "af-team-2384",
+        "name": "USA",
+        "countryCode": "us"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 777,
+      "_rawTeamAwayId": 2384,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539012
+    },
+    {
+      "id": "af-1489411",
+      "stage": "group",
+      "kickoff": "2026-06-26T02:00:00+00:00",
+      "venue": "Levi's Stadium, San Francisco Bay Area",
+      "home": {
+        "id": "af-team-2380",
+        "name": "Paraguay",
+        "countryCode": "py"
+      },
+      "away": {
+        "id": "af-team-20",
+        "name": "Australia",
+        "countryCode": "au"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 2380,
+      "_rawTeamAwayId": 20,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489411
+    },
+    {
+      "id": "af-1539074",
+      "stage": "group",
+      "kickoff": "2026-06-26T19:00:00+00:00",
+      "venue": "BMO Field, Toronto",
+      "home": {
+        "id": "af-team-13",
+        "name": "Senegal",
+        "countryCode": "sn"
+      },
+      "away": {
+        "id": "af-team-1567",
+        "name": "Iraq",
+        "countryCode": "iq"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 13,
+      "_rawTeamAwayId": 1567,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539074
+    },
+    {
+      "id": "af-1489416",
+      "stage": "group",
+      "kickoff": "2026-06-26T19:00:00+00:00",
+      "venue": "Gillette Stadium, Boston",
+      "home": {
+        "id": "af-team-1090",
+        "name": "Norway",
+        "countryCode": "no"
+      },
+      "away": {
+        "id": "af-team-2",
+        "name": "France",
+        "countryCode": "fr"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1090,
+      "_rawTeamAwayId": 2,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489416
+    },
+    {
+      "id": "af-1489417",
+      "stage": "group",
+      "kickoff": "2026-06-27T00:00:00+00:00",
+      "venue": "Estadio Akron, Guadalajara",
+      "home": {
+        "id": "af-team-7",
+        "name": "Uruguay",
+        "countryCode": "uy"
+      },
+      "away": {
+        "id": "af-team-9",
+        "name": "Spain",
+        "countryCode": "es"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 7,
+      "_rawTeamAwayId": 9,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489417
+    },
+    {
+      "id": "af-1489413",
+      "stage": "group",
+      "kickoff": "2026-06-27T00:00:00+00:00",
+      "venue": "NRG Stadium, Houston",
+      "home": {
+        "id": "af-team-1533",
+        "name": "Cape Verde Islands",
+        "countryCode": "ca"
+      },
+      "away": {
+        "id": "af-team-23",
+        "name": "Saudi Arabia",
+        "countryCode": "sa"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1533,
+      "_rawTeamAwayId": 23,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489413
+    },
+    {
+      "id": "af-1489414",
+      "stage": "group",
+      "kickoff": "2026-06-27T03:00:00+00:00",
+      "venue": "Lumen Field, Seattle",
+      "home": {
+        "id": "af-team-32",
+        "name": "Egypt",
+        "countryCode": "eg"
+      },
+      "away": {
+        "id": "af-team-22",
+        "name": "Iran",
+        "countryCode": "ir"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 32,
+      "_rawTeamAwayId": 22,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489414
+    },
+    {
+      "id": "af-1489415",
+      "stage": "group",
+      "kickoff": "2026-06-27T03:00:00+00:00",
+      "venue": "BC Place, Vancouver",
+      "home": {
+        "id": "af-team-4673",
+        "name": "New Zealand",
+        "countryCode": "nz"
+      },
+      "away": {
+        "id": "af-team-1",
+        "name": "Belgium",
+        "countryCode": "be"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 4673,
+      "_rawTeamAwayId": 1,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489415
+    },
+    {
+      "id": "af-1489420",
+      "stage": "group",
+      "kickoff": "2026-06-27T21:00:00+00:00",
+      "venue": "Lincoln Financial Field, Philadelphia",
+      "home": {
+        "id": "af-team-3",
+        "name": "Croatia",
+        "countryCode": "hr"
+      },
+      "away": {
+        "id": "af-team-1504",
+        "name": "Ghana",
+        "countryCode": "gh"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 3,
+      "_rawTeamAwayId": 1504,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489420
+    },
+    {
+      "id": "af-1489422",
+      "stage": "group",
+      "kickoff": "2026-06-27T21:00:00+00:00",
+      "venue": "MetLife Stadium, New York New Jersey",
+      "home": {
+        "id": "af-team-11",
+        "name": "Panama",
+        "countryCode": "pa"
+      },
+      "away": {
+        "id": "af-team-10",
+        "name": "England",
+        "countryCode": "gb-eng"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 11,
+      "_rawTeamAwayId": 10,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489422
+    },
+    {
+      "id": "af-1489419",
+      "stage": "group",
+      "kickoff": "2026-06-27T23:30:00+00:00",
+      "venue": "Hard Rock Stadium, Miami",
+      "home": {
+        "id": "af-team-8",
+        "name": "Colombia",
+        "countryCode": "co"
+      },
+      "away": {
+        "id": "af-team-27",
+        "name": "Portugal",
+        "countryCode": "pt"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 8,
+      "_rawTeamAwayId": 27,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489419
+    },
+    {
+      "id": "af-1539013",
+      "stage": "group",
+      "kickoff": "2026-06-27T23:30:00+00:00",
+      "venue": "Mercedes-Benz Stadium, Atlanta",
+      "home": {
+        "id": "af-team-1508",
+        "name": "Congo DR",
+        "countryCode": "co"
+      },
+      "away": {
+        "id": "af-team-1568",
+        "name": "Uzbekistan",
+        "countryCode": "uz"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1508,
+      "_rawTeamAwayId": 1568,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1539013
+    },
+    {
+      "id": "af-1489418",
+      "stage": "group",
+      "kickoff": "2026-06-28T02:00:00+00:00",
+      "venue": "Arrowhead Stadium, Kansas City",
+      "home": {
+        "id": "af-team-1532",
+        "name": "Algeria",
+        "countryCode": "dz"
+      },
+      "away": {
+        "id": "af-team-775",
+        "name": "Austria",
+        "countryCode": "at"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1532,
+      "_rawTeamAwayId": 775,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489418
+    },
+    {
+      "id": "af-1489421",
+      "stage": "group",
+      "kickoff": "2026-06-28T02:00:00+00:00",
+      "venue": "AT&T Stadium, Dallas",
+      "home": {
+        "id": "af-team-1548",
+        "name": "Jordan",
+        "countryCode": "jo"
+      },
+      "away": {
+        "id": "af-team-26",
+        "name": "Argentina",
+        "countryCode": "ar"
+      },
+      "hasLineups": true,
+      "_rawTeamHomeId": 1548,
+      "_rawTeamAwayId": 26,
+      "_rawStatus": "NS",
+      "_rawFixtureId": 1489421
+    }
+  ]
+}

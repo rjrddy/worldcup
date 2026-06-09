@@ -1,0 +1,290 @@
+{
+  "af-team-16": {
+    "id": "af-team-16",
+    "name": "Mexico",
+    "countryCode": "mx",
+    "_rawId": 16
+  },
+  "af-team-1531": {
+    "id": "af-team-1531",
+    "name": "South Africa",
+    "countryCode": "za",
+    "_rawId": 1531
+  },
+  "af-team-17": {
+    "id": "af-team-17",
+    "name": "South Korea",
+    "countryCode": "kr",
+    "_rawId": 17
+  },
+  "af-team-770": {
+    "id": "af-team-770",
+    "name": "Czech Republic",
+    "countryCode": "cz",
+    "_rawId": 770
+  },
+  "af-team-5529": {
+    "id": "af-team-5529",
+    "name": "Canada",
+    "countryCode": "ca",
+    "_rawId": 5529
+  },
+  "af-team-1113": {
+    "id": "af-team-1113",
+    "name": "Bosnia & Herzegovina",
+    "countryCode": "bo",
+    "_rawId": 1113
+  },
+  "af-team-2384": {
+    "id": "af-team-2384",
+    "name": "USA",
+    "countryCode": "us",
+    "_rawId": 2384
+  },
+  "af-team-2380": {
+    "id": "af-team-2380",
+    "name": "Paraguay",
+    "countryCode": "py",
+    "_rawId": 2380
+  },
+  "af-team-1569": {
+    "id": "af-team-1569",
+    "name": "Qatar",
+    "countryCode": "qa",
+    "_rawId": 1569
+  },
+  "af-team-15": {
+    "id": "af-team-15",
+    "name": "Switzerland",
+    "countryCode": "ch",
+    "_rawId": 15
+  },
+  "af-team-6": {
+    "id": "af-team-6",
+    "name": "Brazil",
+    "countryCode": "br",
+    "_rawId": 6
+  },
+  "af-team-31": {
+    "id": "af-team-31",
+    "name": "Morocco",
+    "countryCode": "ma",
+    "_rawId": 31
+  },
+  "af-team-2386": {
+    "id": "af-team-2386",
+    "name": "Haiti",
+    "countryCode": "ht",
+    "_rawId": 2386
+  },
+  "af-team-1108": {
+    "id": "af-team-1108",
+    "name": "Scotland",
+    "countryCode": "gb-sct",
+    "_rawId": 1108
+  },
+  "af-team-20": {
+    "id": "af-team-20",
+    "name": "Australia",
+    "countryCode": "au",
+    "_rawId": 20
+  },
+  "af-team-777": {
+    "id": "af-team-777",
+    "name": "Türkiye",
+    "countryCode": "tü",
+    "_rawId": 777
+  },
+  "af-team-25": {
+    "id": "af-team-25",
+    "name": "Germany",
+    "countryCode": "de",
+    "_rawId": 25
+  },
+  "af-team-5530": {
+    "id": "af-team-5530",
+    "name": "Curaçao",
+    "countryCode": "cu",
+    "_rawId": 5530
+  },
+  "af-team-1118": {
+    "id": "af-team-1118",
+    "name": "Netherlands",
+    "countryCode": "nl",
+    "_rawId": 1118
+  },
+  "af-team-12": {
+    "id": "af-team-12",
+    "name": "Japan",
+    "countryCode": "jp",
+    "_rawId": 12
+  },
+  "af-team-1501": {
+    "id": "af-team-1501",
+    "name": "Ivory Coast",
+    "countryCode": "ci",
+    "_rawId": 1501
+  },
+  "af-team-2382": {
+    "id": "af-team-2382",
+    "name": "Ecuador",
+    "countryCode": "ec",
+    "_rawId": 2382
+  },
+  "af-team-5": {
+    "id": "af-team-5",
+    "name": "Sweden",
+    "countryCode": "se",
+    "_rawId": 5
+  },
+  "af-team-28": {
+    "id": "af-team-28",
+    "name": "Tunisia",
+    "countryCode": "tn",
+    "_rawId": 28
+  },
+  "af-team-9": {
+    "id": "af-team-9",
+    "name": "Spain",
+    "countryCode": "es",
+    "_rawId": 9
+  },
+  "af-team-1533": {
+    "id": "af-team-1533",
+    "name": "Cape Verde Islands",
+    "countryCode": "ca",
+    "_rawId": 1533
+  },
+  "af-team-1": {
+    "id": "af-team-1",
+    "name": "Belgium",
+    "countryCode": "be",
+    "_rawId": 1
+  },
+  "af-team-32": {
+    "id": "af-team-32",
+    "name": "Egypt",
+    "countryCode": "eg",
+    "_rawId": 32
+  },
+  "af-team-23": {
+    "id": "af-team-23",
+    "name": "Saudi Arabia",
+    "countryCode": "sa",
+    "_rawId": 23
+  },
+  "af-team-7": {
+    "id": "af-team-7",
+    "name": "Uruguay",
+    "countryCode": "uy",
+    "_rawId": 7
+  },
+  "af-team-22": {
+    "id": "af-team-22",
+    "name": "Iran",
+    "countryCode": "ir",
+    "_rawId": 22
+  },
+  "af-team-4673": {
+    "id": "af-team-4673",
+    "name": "New Zealand",
+    "countryCode": "nz",
+    "_rawId": 4673
+  },
+  "af-team-2": {
+    "id": "af-team-2",
+    "name": "France",
+    "countryCode": "fr",
+    "_rawId": 2
+  },
+  "af-team-13": {
+    "id": "af-team-13",
+    "name": "Senegal",
+    "countryCode": "sn",
+    "_rawId": 13
+  },
+  "af-team-1567": {
+    "id": "af-team-1567",
+    "name": "Iraq",
+    "countryCode": "iq",
+    "_rawId": 1567
+  },
+  "af-team-1090": {
+    "id": "af-team-1090",
+    "name": "Norway",
+    "countryCode": "no",
+    "_rawId": 1090
+  },
+  "af-team-26": {
+    "id": "af-team-26",
+    "name": "Argentina",
+    "countryCode": "ar",
+    "_rawId": 26
+  },
+  "af-team-1532": {
+    "id": "af-team-1532",
+    "name": "Algeria",
+    "countryCode": "dz",
+    "_rawId": 1532
+  },
+  "af-team-775": {
+    "id": "af-team-775",
+    "name": "Austria",
+    "countryCode": "at",
+    "_rawId": 775
+  },
+  "af-team-1548": {
+    "id": "af-team-1548",
+    "name": "Jordan",
+    "countryCode": "jo",
+    "_rawId": 1548
+  },
+  "af-team-27": {
+    "id": "af-team-27",
+    "name": "Portugal",
+    "countryCode": "pt",
+    "_rawId": 27
+  },
+  "af-team-1508": {
+    "id": "af-team-1508",
+    "name": "Congo DR",
+    "countryCode": "co",
+    "_rawId": 1508
+  },
+  "af-team-10": {
+    "id": "af-team-10",
+    "name": "England",
+    "countryCode": "gb-eng",
+    "_rawId": 10
+  },
+  "af-team-3": {
+    "id": "af-team-3",
+    "name": "Croatia",
+    "countryCode": "hr",
+    "_rawId": 3
+  },
+  "af-team-1504": {
+    "id": "af-team-1504",
+    "name": "Ghana",
+    "countryCode": "gh",
+    "_rawId": 1504
+  },
+  "af-team-11": {
+    "id": "af-team-11",
+    "name": "Panama",
+    "countryCode": "pa",
+    "_rawId": 11
+  },
+  "af-team-1568": {
+    "id": "af-team-1568",
+    "name": "Uzbekistan",
+    "countryCode": "uz",
+    "_rawId": 1568
+  },
+  "af-team-8": {
+    "id": "af-team-8",
+    "name": "Colombia",
+    "countryCode": "co",
+    "_rawId": 8
+  }
+}

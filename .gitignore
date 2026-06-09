@@ -1,0 +1,51 @@
+# ─── Dependencies ──────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# ─── Next.js build output ──────────────────────────────────
+.next/
+out/
+build/
+next-env.d.ts
+
+# ─── Local env files (NEVER commit secrets) ────────────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ─── Vercel ────────────────────────────────────────────────
+.vercel
+
+# ─── Logs ──────────────────────────────────────────────────
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+
+# ─── TypeScript ────────────────────────────────────────────
+*.tsbuildinfo
+
+# ─── OS / editor ───────────────────────────────────────────
+.DS_Store
+*.pem
+.idea/
+.vscode/
+*.swp
+
+# ─── Data caches ───────────────────────────────────────────
+# raw-player-teams.json is a dev-only re-filter cache (~1.9MB). It is NOT
+# needed at runtime — the production provider reads clubs.json which is
+# the filtered output. Keeping it out of the commit shaves ~2MB.
+data/raw-player-teams.json
+
+# Transfermarkt scrape state — populated locally, not for prod
+data/scrape-targets.json

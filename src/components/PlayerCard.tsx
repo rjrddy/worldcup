@@ -1,24 +1,20 @@
 import type { Player } from '@/lib/types'
-import { cmToFeetInches, formatSalary } from '@/lib/utils'
+import { cmToFeetInches } from '@/lib/utils'
 import { CountryFlag } from './CountryFlag'
 import { StarRating } from './StarRating'
 import { PlayerAvatar } from './PlayerAvatar'
+import { SalaryCell } from './SalaryCell'
 
 interface PlayerCardProps {
   player: Player
 }
 
 export function PlayerCard({ player }: PlayerCardProps) {
-  const heightDisplay = player.heightCm ? `${player.heightCm}cm` : '—'
-  const heightTitle = player.heightCm
-    ? `${player.heightCm} cm · ${cmToFeetInches(player.heightCm)}`
-    : ''
-  const salaryDisplay = player.salary
-    ? formatSalary(player.salary.annual, player.salary.currency)
+  // Imperial/metric format, e.g. 6'4"/193cm
+  const heightDisplay = player.heightCm
+    ? `${cmToFeetInches(player.heightCm)}/${player.heightCm}cm`
     : '—'
-  const salaryTitle = player.salary
-    ? `${player.salary.isMarketValue ? 'Market value' : 'Salary / yr'} · ${player.salary.source}`
-    : ''
+
   const hasClub = !!player.club.name && player.club.name !== 'Unknown'
 
   const initials = player.name
@@ -46,7 +42,10 @@ export function PlayerCard({ player }: PlayerCardProps) {
         {player.age || '—'}
       </div>
 
-      <div className="player-card__cell player-card__cell--height" title={heightTitle}>
+      <div
+        className="player-card__cell player-card__cell--height"
+        title="Imperial / metric"
+      >
         {heightDisplay}
       </div>
 
@@ -65,8 +64,12 @@ export function PlayerCard({ player }: PlayerCardProps) {
         )}
       </div>
 
-      <div className="player-card__cell player-card__cell--salary" title={salaryTitle}>
-        {salaryDisplay}
+      <div className="player-card__cell player-card__cell--salary">
+        <SalaryCell
+          annualEur={player.salary?.annualEur}
+          source={player.salary?.source}
+          isMarketValue={player.salary?.isMarketValue}
+        />
       </div>
 
       <div className="player-card__cell player-card__cell--rating">

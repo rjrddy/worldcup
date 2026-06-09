@@ -7,11 +7,11 @@ export interface Club {
 }
 
 export interface Salary {
-  annual: number
-  currency: string
+  /** Gross annual base salary, normalized to EUR. UI converts at render-time. */
+  annualEur: number
   source: string
   /**
-   * When true, the figure is a Transfermarkt market value (≈ estimated transfer fee),
+   * When true, the figure is a market-value estimate (Transfermarkt, etc.),
    * NOT an annual wage. UI labels it accordingly.
    */
   isMarketValue?: boolean

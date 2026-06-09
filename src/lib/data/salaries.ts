@@ -1,26 +1,29 @@
 import type { SalaryProvider, Salary } from '@/lib/types'
 
+// All values are gross base salary normalized to EUR. UI converts at render.
 const salaryMap: Record<string, Salary> = {
-  'bra-vinicius': { annual: 20_000_000, currency: 'EUR', source: 'Capology' },
-  'bra-rodrygo': { annual: 8_000_000, currency: 'EUR', source: 'Capology' },
-  'bra-alisson': { annual: 11_000_000, currency: 'EUR', source: 'Capology' },
-  'bra-casemiro': { annual: 15_600_000, currency: 'EUR', source: 'Capology' },
-  'bra-militao': { annual: 10_000_000, currency: 'EUR', source: 'Capology' },
-  'bra-marquinhos': { annual: 9_600_000, currency: 'EUR', source: 'Capology' },
-  'bra-lucas-paqueta': { annual: 10_400_000, currency: 'EUR', source: 'Capology' },
-  'bra-richarlison': { annual: 8_320_000, currency: 'EUR', source: 'Capology' },
-  'bra-bruno-guimaraes': { annual: 7_280_000, currency: 'EUR', source: 'Capology' },
-  'bra-raphinha': { annual: 9_100_000, currency: 'EUR', source: 'Capology' },
-  'bra-endrick': { annual: 4_000_000, currency: 'EUR', source: 'Capology' },
+  'bra-vinicius': { annualEur: 25_000_000, source: 'Capology 2025-26' },
+  'bra-rodrygo': { annualEur: 8_000_000, source: 'Capology 2025-26' },
+  'bra-alisson': { annualEur: 11_500_000, source: 'Spotrac 2025-26' },
+  'bra-casemiro': { annualEur: 16_000_000, source: 'Spotrac 2025-26' },
+  'bra-militao': { annualEur: 10_000_000, source: 'Capology 2025-26' },
+  'bra-marquinhos': { annualEur: 11_000_000, source: 'Capology 2025-26' },
+  'bra-lucas-paqueta': { annualEur: 10_500_000, source: 'Spotrac 2025-26' },
+  'bra-richarlison': { annualEur: 8_300_000, source: 'Spotrac 2025-26' },
+  'bra-bruno-guimaraes': { annualEur: 7_300_000, source: 'Spotrac 2025-26' },
+  'bra-raphinha': { annualEur: 9_000_000, source: 'Capology 2025-26' },
+  'bra-endrick': { annualEur: 4_000_000, source: 'Capology 2025-26' },
+  'bra-gabriel-magalhaes': { annualEur: 8_000_000, source: 'Spotrac 2025-26' },
+  'bra-gabriel-martinelli': { annualEur: 5_500_000, source: 'Spotrac 2025-26' },
 
-  'mar-achraf': { annual: 14_400_000, currency: 'EUR', source: 'Capology' },
-  'mar-amrabat': { annual: 4_160_000, currency: 'EUR', source: 'Capology' },
-  'mar-ziyech': { annual: 5_200_000, currency: 'EUR', source: 'Capology' },
-  'mar-bono': { annual: 3_640_000, currency: 'EUR', source: 'Capology' },
-  'mar-dari': { annual: 5_200_000, currency: 'EUR', source: 'Capology' },
-  'mar-ounahi': { annual: 3_120_000, currency: 'EUR', source: 'Capology' },
-  'mar-bounou-youssef': { annual: 4_680_000, currency: 'EUR', source: 'Capology' },
-  'mar-boufal': { annual: 2_600_000, currency: 'EUR', source: 'Capology' },
+  'mar-achraf': { annualEur: 13_640_000, source: 'Capology 2025-26' },
+  'mar-amrabat': { annualEur: 4_500_000, source: 'Capology 2025-26' },
+  'mar-ziyech': { annualEur: 5_000_000, source: 'Capology 2025-26' },
+  'mar-bono': { annualEur: 4_000_000, source: 'Capology 2025-26' },
+  'mar-dari': { annualEur: 5_000_000, source: 'Capology 2025-26' },
+  'mar-ounahi': { annualEur: 3_000_000, source: 'Capology 2025-26' },
+  'mar-bounou-youssef': { annualEur: 5_000_000, source: 'Capology 2025-26' },
+  'mar-boufal': { annualEur: 2_500_000, source: 'Capology 2025-26' },
 }
 
 export const staticSalaryProvider: SalaryProvider = {

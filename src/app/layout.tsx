@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
-import { Bricolage_Grotesque, Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
+import {
+  Bricolage_Grotesque,
+  Hanken_Grotesk,
+  JetBrains_Mono,
+} from 'next/font/google'
 import './globals.css'
+import { CurrencyProvider } from '@/components/CurrencyProvider'
+import { AppHeader } from '@/components/AppHeader'
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -25,7 +31,8 @@ export const metadata: Metadata = {
     template: '%s — World Cup 2026',
     default: 'World Cup 2026',
   },
-  description: 'Every match, every squad — FIFA World Cup 2026 USA/Canada/Mexico',
+  description:
+    'Every match, every squad — FIFA World Cup 2026 USA/Canada/Mexico',
 }
 
 export default function RootLayout({
@@ -42,9 +49,10 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <div id="main-content">
-          {children}
-        </div>
+        <CurrencyProvider>
+          <AppHeader />
+          <div id="main-content">{children}</div>
+        </CurrencyProvider>
       </body>
     </html>
   )

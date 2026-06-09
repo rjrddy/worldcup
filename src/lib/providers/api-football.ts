@@ -9,8 +9,84 @@ import type {
   PositionGroup,
   Salary,
 } from '@/lib/types'
+import {
+  curatedSalaries,
+  type CuratedSalary,
+} from '@/lib/data/curated-salaries'
 
 const DATA_DIR = path.join(process.cwd(), 'data')
+
+/** Lowercase + accent-strip for fuzzy name matching. */
+function normalizeName(s: string | null | undefined): string {
+  if (!s) return ''
+  return s
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .trim()
+}
+
+/**
+ * Build the salary lookup map keyed by `af-<playerId>` from the curated list
+ * by walking the squad cache and matching by lastname + nationality.
+ *
+ * Memoized at module level — recomputed only when squads/teams cache changes.
+ */
+let _salaryCache:
+  | { squadsRef: unknown; teamsRef: unknown; map: Record<string, Salary> }
+  | null = null
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function buildSalaryMap(squads: any, teams: any): Record<string, Salary> {
+  if (_salaryCache && _salaryCache.squadsRef === squads && _salaryCache.teamsRef === teams) {
+    return _salaryCache.map
+  }
+  const map: Record<string, Salary> = {}
+
+  // Group curated entries by lowercased nationality for fast filter.
+  const byNat: Record<string, CuratedSalary[]> = {}
+  for (const c of curatedSalaries) {
+    const k = c.nationality.toLowerCase()
+    ;(byNat[k] ??= []).push(c)
+  }
+
+  for (const [teamId, players] of Object.entries(squads)) {
+    const teamMeta = teams[teamId as string]
+    const teamNationality = (teamMeta?.name ?? '').toLowerCase()
+    const candidates = byNat[teamNationality] ?? []
+    if (!candidates.length) continue
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    for (const p of players as any[]) {
+      const pid = p.player?.id
+      if (!pid) continue
+
+      const haystack = normalizeName(
+        [p.player?.name, p.player?.firstname, p.player?.lastname]
+          .filter(Boolean)
+          .join(' ')
+      )
+      const firstName = normalizeName(p.player?.firstname)
+
+      for (const c of candidates) {
+        if (!haystack.includes(normalizeName(c.lastname))) continue
+        // Optional firstname disambiguation (e.g. multiple Silvas in Portugal)
+        if (c.firstnameHint && !firstName.includes(normalizeName(c.firstnameHint))) {
+          continue
+        }
+        map[`af-${pid}`] = {
+          annualEur: c.annualEur,
+          source: c.source,
+          isMarketValue: false,
+        }
+        break
+      }
+    }
+  }
+
+  _salaryCache = { squadsRef: squads, teamsRef: teams, map }
+  return map
+}
 
 /**
  * Reads JSON files produced by `npm run fetch:data`.
@@ -239,10 +315,6 @@ interface LineupCache {
   }
 }
 
-interface MarketValueCache {
-  [playerId: string]: Salary
-}
-
 interface ClubsCache {
   [playerId: string]: {
     id: number
@@ -263,22 +335,22 @@ interface ClubMetaCache {
 }
 
 async function loadCaches() {
-  const [fixtures, squads, teams, lineups, marketValues, clubs, clubMeta] =
-    await Promise.all([
-      readJson<FixturesCache>('fixtures.json'),
-      readJson<SquadCache>('squads.json'),
-      readJson<TeamMetaCache>('teams.json'),
-      readJson<LineupCache>('lineups.json'),
-      readJson<MarketValueCache>('market-values.json'),
-      readJson<ClubsCache>('clubs.json'),
-      readJson<ClubMetaCache>('club-meta.json'),
-    ])
+  const [fixtures, squads, teams, lineups, clubs, clubMeta] = await Promise.all([
+    readJson<FixturesCache>('fixtures.json'),
+    readJson<SquadCache>('squads.json'),
+    readJson<TeamMetaCache>('teams.json'),
+    readJson<LineupCache>('lineups.json'),
+    readJson<ClubsCache>('clubs.json'),
+    readJson<ClubMetaCache>('club-meta.json'),
+  ])
+  const safeSquads = squads ?? {}
+  const safeTeams = teams ?? {}
   return {
     fixtures,
-    squads: squads ?? {},
-    teams: teams ?? {},
+    squads: safeSquads,
+    teams: safeTeams,
     lineups: lineups ?? {},
-    marketValues: marketValues ?? {},
+    salaryMap: buildSalaryMap(safeSquads, safeTeams),
     clubs: clubs ?? {},
     clubMeta: clubMeta ?? {},
   }
@@ -296,7 +368,7 @@ export const apiFootballProvider: WorldCupDataProvider = {
   },
 
   async getMatchDetail(matchId: string): Promise<MatchDetail | null> {
-    const { fixtures, squads, teams, lineups, marketValues, clubs, clubMeta } =
+    const { fixtures, squads, teams, lineups, salaryMap, clubs, clubMeta } =
       await loadCaches()
     if (!fixtures) {
       throw new Error(
@@ -323,7 +395,7 @@ export const apiFootballProvider: WorldCupDataProvider = {
         return m ? parseInt(m[1], 10) : undefined
       })()
       let players: Player[] = rawSquad.map((p) =>
-        mapSquadPlayer(p, marketValues, nationalTeamRawId, clubs, clubMeta)
+        mapSquadPlayer(p, salaryMap, nationalTeamRawId, clubs, clubMeta)
       )
 
       const xiData = lineup?.[side]

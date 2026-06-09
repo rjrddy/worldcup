@@ -1,0 +1,26 @@
+{
+  "test-1": {
+    "annual": 4000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "test-2": {
+    "annual": 250000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "test-4": {
+    "annual": 6000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  },
+  "test-5": {
+    "annual": 80000000,
+    "currency": "EUR",
+    "source": "Transfermarkt",
+    "isMarketValue": true
+  }
+}

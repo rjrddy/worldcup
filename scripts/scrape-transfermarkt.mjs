@@ -47,25 +47,50 @@ async function safeFetch(url) {
 }
 
 /**
- * Crude HTML scrape: pulls the player's primary market value from their profile page.
- * Selector targets the data-row that contains "Current market value" + the headline value.
+ * Pulls the player's market value from their TM profile page.
+ *
+ * Primary selector: the <meta name="description"> tag, which TM populates
+ * with a standardized phrase "Market value: €X.YYm ➤ ..." — stable across
+ * the site and trivial to parse.
+ *
+ * Fallback: search the page body for "€<number><suffix>" near a market-value
+ * marker (in case the meta tag changes).
  */
 function extractMarketValue(html) {
-  // Match the headline value, e.g. "€180.00m" near the top of the player profile
-  const m = html.match(/<a class="data-header__market-value-wrapper"[^>]*>[\s\S]*?<span[^>]*>([^<]+)<\/span>/i)
-  if (!m) {
-    const alt = html.match(/data-header__market-value-wrapper[^>]*>([^<]*€[^<]+)</i)
-    if (alt) return parseValue(alt[1])
-    return null
+  const metaMatch = html.match(/<meta[^>]+name="description"[^>]+content="([^"]+)"/i)
+  if (metaMatch) {
+    const desc = metaMatch[1]
+    // "Market value: €4.00m ➤" or "Market value: -" for unknown
+    const v = desc.match(/Market value:\s*([^➤<\s"][^➤<"]*)/i)
+    if (v) {
+      const parsed = parseValue(v[1].trim())
+      if (parsed) return parsed
+    }
   }
-  return parseValue(m[1])
+
+  // Fallback: look for the value near a header marker.
+  const headerMatch = html.match(
+    /(?:current\s+market\s+value|market[-_]value)[^€]{0,200}(€[\d.,]+\s*(?:m|k|bn))/i
+  )
+  if (headerMatch) return parseValue(headerMatch[1])
+
+  // Last-ditch: any €Xm pattern in the first 50KB (usually the player header).
+  const anyEuro = html.slice(0, 50_000).match(/€[\d.,]+\s*(?:m|k|bn)\b/i)
+  if (anyEuro) return parseValue(anyEuro[0])
+
+  return null
 }
 
 function parseValue(raw) {
-  const cleaned = raw.replace(/\s+/g, '').trim()
-  const num = cleaned.match(/([\d.,]+)\s*(m|k|bn)?/i)
+  if (!raw) return null
+  // Strip currency symbol + whitespace. Handles "€4.00m", "€180.00m", "4.00m", "4m".
+  const cleaned = String(raw).replace(/[€$£\s]/g, '').trim()
+  // Reject placeholders like "-" or "?"
+  if (!cleaned || cleaned === '-' || cleaned === '?') return null
+  const num = cleaned.match(/^([\d.,]+)\s*(m|k|bn)?/i)
   if (!num) return null
   const value = parseFloat(num[1].replace(/,/g, '.'))
+  if (!isFinite(value) || value <= 0) return null
   const mult = (num[2] ?? '').toLowerCase()
   const annual =
     mult === 'm' ? value * 1_000_000 :
@@ -82,13 +107,61 @@ async function scrapePlayerByUrl(slug, tmId) {
   return extractMarketValue(html)
 }
 
-async function searchPlayer(name) {
-  const url = `https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=${encodeURIComponent(name)}`
-  const html = await safeFetch(url)
-  // First search result anchor → /{slug}/profil/spieler/{id}
-  const m = html.match(/href="\/([^"]+)\/profil\/spieler\/(\d+)"/i)
-  if (!m) return null
-  return { slug: m[1], tmId: m[2] }
+async function searchPlayer(variants) {
+  // Try each search variant until one returns a hit.
+  // `variants` is an ordered list of name strings (most-likely match first).
+  for (const name of variants) {
+    if (!name || !name.trim()) continue
+    const url = `https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=${encodeURIComponent(name)}`
+    let html
+    try {
+      html = await safeFetch(url)
+    } catch (err) {
+      throw err
+    }
+    const m = html.match(/href="\/([^"]+)\/profil\/spieler\/(\d+)"/i)
+    if (m) return { slug: m[1], tmId: m[2], matchedQuery: name }
+    // Sleep briefly between variants so we don't pile on too fast
+    await sleep(800)
+  }
+  return null
+}
+
+/**
+ * Build an ordered list of search-name variants from an api-football player.
+ * Most likely → least likely.
+ *
+ * For Hispanic / Portuguese names with double surnames (Ochoa Magaña),
+ * the "first surname only" variant is typically what TM uses.
+ *
+ *   Francisco Guillermo Ochoa Magaña → ["Guillermo Ochoa", "Francisco Guillermo Ochoa Magaña", "G. Ochoa"]
+ *   Manuel Peter Neuer               → ["Peter Neuer", "Manuel Peter Neuer", "M. Neuer"]  (note: "Peter Neuer" wouldn't work; TM has "Manuel Neuer")
+ *
+ * So we also include a "popular firstname" variant which is the FIRST token
+ * of firstname (Manuel, Lionel) — usually the everyday name.
+ */
+function buildSearchVariants(player) {
+  const fn = (player.firstname || '').trim()
+  const ln = (player.lastname || '').trim()
+  const name = (player.name || '').trim()
+  const variants = []
+
+  if (fn && ln) {
+    const fnFirst = fn.split(/\s+/)[0]
+    const fnLast = fn.split(/\s+/).slice(-1)[0]
+    const lnFirst = ln.split(/\s+/)[0]
+    // Most common: "first firstname token" + "first surname token"
+    variants.push(`${fnFirst} ${lnFirst}`)
+    // Last firstname token (handles cases where the everyday name is the middle name)
+    if (fnLast !== fnFirst) variants.push(`${fnLast} ${lnFirst}`)
+    // Full
+    variants.push(`${fn} ${ln}`)
+    // First firstname + full lastname (e.g. "Francisco Ochoa Magaña" — sometimes indexed)
+    variants.push(`${fnFirst} ${ln}`)
+  }
+  if (name && !variants.includes(name)) variants.push(name)
+
+  return [...new Set(variants.filter(Boolean))]
 }
 
 async function loadTargets(args) {
@@ -106,9 +179,12 @@ async function loadTargets(args) {
     const out = []
     for (const teamPlayers of Object.values(squads)) {
       for (const p of teamPlayers) {
+        const pl = p.player ?? {}
         out.push({
-          id: `af-${p.player?.id}`,
-          name: p.player?.name,
+          id: `af-${pl.id}`,
+          name: pl.name ?? '',
+          firstname: pl.firstname ?? '',
+          lastname: pl.lastname ?? '',
         })
       }
     }
@@ -156,9 +232,12 @@ async function main() {
       let slug = t.tmSlug
       let tmId = t.tmId
       if (!tmId) {
-        const found = await searchPlayer(t.name)
+        const variants = buildSearchVariants(t)
+        const found = await searchPlayer(variants)
         if (!found) {
-          console.log(`[${i}/${targets.length}] ${t.name} — not found in TM search`)
+          console.log(
+            `[${i}/${targets.length}] ${t.name} — not found in TM search (tried: ${variants.join(' | ')})`
+          )
           await sleep(DELAY_MS)
           continue
         }

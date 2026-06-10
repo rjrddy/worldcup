@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import type { User } from '@supabase/supabase-js'
+import type { User, SupabaseClient } from '@supabase/supabase-js'
 import { createClient } from '@/lib/supabase/client'
 
 export function AuthMenu() {
@@ -12,16 +12,20 @@ export function AuthMenu() {
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
-  const supabase = createClient()
+  // Memoize client so onAuthStateChange subscription stays stable.
+  // Returns null during SSR / when env vars are missing.
+  const supabase: SupabaseClient | null = useMemo(() => createClient(), [])
 
   useEffect(() => {
-    // Initial fetch
+    if (!supabase) {
+      setLoading(false)
+      return
+    }
     supabase.auth.getUser().then(({ data }) => {
       setUser(data.user ?? null)
       setLoading(false)
     })
 
-    // Subscribe to future changes
     const { data: sub } = supabase.auth.onAuthStateChange((_evt, session) => {
       setUser(session?.user ?? null)
     })
@@ -41,6 +45,7 @@ export function AuthMenu() {
   }, [menuOpen])
 
   async function signIn() {
+    if (!supabase) return
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -50,10 +55,15 @@ export function AuthMenu() {
   }
 
   async function signOut() {
+    if (!supabase) return
     await supabase.auth.signOut()
     setMenuOpen(false)
     router.refresh()
   }
+
+  // If Supabase isn't configured (no env vars), render nothing — the rest of
+  // the app still works in read-only mode.
+  if (!supabase) return null
 
   if (loading) {
     return <div className="auth-menu auth-menu--loading" aria-hidden="true" />

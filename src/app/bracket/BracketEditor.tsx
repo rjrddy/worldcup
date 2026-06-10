@@ -52,6 +52,7 @@ export function BracketEditor({
   }, [picks])
 
   async function save(next: GroupPicks) {
+    if (!supabase) return
     setSaving(true)
     setError(null)
     const { error } = await supabase

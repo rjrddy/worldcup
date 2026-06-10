@@ -37,6 +37,10 @@ export function ProfileForm({ userId, initial, teams }: Props) {
 
   async function onSave(e: React.FormEvent) {
     e.preventDefault()
+    if (!supabase) {
+      setError('Auth not configured')
+      return
+    }
     setSaving(true)
     setError(null)
     setSaved(false)

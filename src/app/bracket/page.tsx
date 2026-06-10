@@ -26,7 +26,7 @@ function buildGroups(matches: Match[]): Group[] {
     if (!seen.has(m.home.id)) g.teams.push(m.home)
     if (!seen.has(m.away.id)) g.teams.push(m.away)
   }
-  return [...byLetter.values()]
+  return Array.from(byLetter.values())
     .sort((a, b) => a.letter.localeCompare(b.letter))
     .map((g) => ({
       ...g,
@@ -36,6 +36,20 @@ function buildGroups(matches: Match[]): Group[] {
 
 export default async function BracketPage() {
   const supabase = createClient()
+  if (!supabase) {
+    return (
+      <main className="page-shell" id="main-content">
+        <header className="bracket-hero">
+          <p className="bracket-hero__eyebrow">My bracket</p>
+          <h1 className="bracket-hero__title">Not available yet</h1>
+          <p className="bracket-hero__lede">
+            Sign-in isn’t configured on this deployment. See{' '}
+            <code>SUPABASE_SETUP.md</code>.
+          </p>
+        </header>
+      </main>
+    )
+  }
   const {
     data: { user },
   } = await supabase.auth.getUser()

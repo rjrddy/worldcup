@@ -11,6 +11,19 @@ export const dynamic = 'force-dynamic'
 
 export default async function ProfilePage() {
   const supabase = createClient()
+  if (!supabase) {
+    return (
+      <main className="page-shell" id="main-content">
+        <header className="profile-hero">
+          <h1 className="profile-hero__title">Profile</h1>
+          <p className="profile-hero__lede">
+            Sign-in isn’t configured on this deployment yet. See{' '}
+            <code>SUPABASE_SETUP.md</code>.
+          </p>
+        </header>
+      </main>
+    )
+  }
   const {
     data: { user },
   } = await supabase.auth.getUser()
@@ -26,7 +39,9 @@ export default async function ProfilePage() {
     teamMap.set(m.home.id, m.home)
     teamMap.set(m.away.id, m.away)
   }
-  const teams = [...teamMap.values()].sort((a, b) => a.name.localeCompare(b.name))
+  const teams = Array.from(teamMap.values()).sort((a, b) =>
+    a.name.localeCompare(b.name)
+  )
 
   // Load this user's profile
   const { data: profile } = await supabase

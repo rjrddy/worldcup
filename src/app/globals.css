@@ -114,15 +114,21 @@ button {
   border-bottom: 1px solid var(--color-border);
   /* iOS: paint into the notch / status bar area */
   padding-top: env(safe-area-inset-top);
+  transition: transform 220ms var(--ease-out);
+  will-change: transform;
+}
+/* Hidden state when user scrolls down past threshold */
+.app-header.is-hidden {
+  transform: translateY(-100%);
 }
 .app-header__inner {
   max-width: 84rem;
   margin: 0 auto;
   padding: 0.75rem max(1rem, env(safe-area-inset-left)) 0.75rem
     max(1rem, env(safe-area-inset-right));
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 0.75rem;
 }
 @media (min-width: 768px) {
@@ -131,6 +137,7 @@ button {
       max(2rem, env(safe-area-inset-right));
   }
 }
+.app-header__brand { justify-self: start; }
 .app-header__brand {
   display: inline-flex;
   align-items: baseline;
@@ -225,9 +232,74 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
+  justify-self: end;
 }
 @media (max-width: 640px) {
   .app-header__right { gap: 0.6rem; }
+}
+
+/* Center-column tabs — editorial text-only nav, evenly spaced */
+.app-header__tabs {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+.app-header__tab {
+  display: inline-block;
+  padding: 0.4rem 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  font-family: var(--font-hanken), sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  transition: color 120ms var(--ease-out);
+}
+.app-header__tab:hover { color: var(--color-ink); }
+.app-header__tab.is-active {
+  background: none;
+  color: var(--color-accent);
+}
+/* Underline under the active tab, in the same accent color */
+.app-header__tab.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 1px;
+}
+
+/* Responsive tightening so brand + tabs + auth share a single line on phones */
+@media (max-width: 640px) {
+  .app-header__tabs { gap: 1.25rem; }
+  .app-header__tab {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+}
+@media (max-width: 480px) {
+  /* very narrow phones: hide the brand text-mark entirely so the star + tabs fit */
+  .app-header__brand-text { display: none; }
+  .app-header__tabs { gap: 0.95rem; }
+  .app-header__tab {
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -557,8 +629,8 @@ button {
 
 .bracket-status {
   position: sticky;
-  /* sit below the sticky header + sub-nav (~60px + ~52px) */
-  top: calc(env(safe-area-inset-top) + 112px);
+  /* sit just below the merged sticky header (~64px tall) */
+  top: calc(env(safe-area-inset-top) + 64px);
   z-index: 50;
   display: flex;
   align-items: center;
@@ -627,15 +699,27 @@ button {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.4rem;
 }
 .bracket-group__team-row {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  padding: 0.45rem 0.25rem;
+  gap: 0.6rem;
+  padding: 0.55rem 0.65rem;
   border-radius: var(--radius-sm);
   position: relative;
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  touch-action: none; /* dnd-kit + iOS: prevent native scroll during drag */
+}
+.bracket-group__team-row--sortable {
+  cursor: grab;
+}
+.bracket-group__team-row--sortable.is-dragging {
+  box-shadow: var(--shadow-lg);
+  cursor: grabbing;
+  background: var(--color-paper-card);
+  border-color: var(--color-border-strong);
 }
 .bracket-group__team-id {
   display: flex;
@@ -651,9 +735,70 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.bracket-group__pick-buttons {
+
+/* Rank chip on the left of each sortable row */
+.bracket-group__rank {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.45rem;
+  min-width: 32px;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  background: var(--color-paper-deep);
+  color: var(--color-ink-muted);
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+.is-ranked .bracket-group__rank--pos1 {
+  background: var(--color-pos-att);
+  color: #161616;
+  border-color: var(--color-pos-att);
+}
+.is-ranked .bracket-group__rank--pos2 {
+  background: var(--color-pos-def);
+  color: #161616;
+  border-color: var(--color-pos-def);
+}
+.is-ranked .bracket-group__rank--pos3 {
+  background: var(--color-pos-mid);
+  color: #161616;
+  border-color: var(--color-pos-mid);
+}
+.is-ranked .bracket-group__rank--pos4 {
+  background: var(--color-pos-gk);
+  color: #161616;
+  border-color: var(--color-pos-gk);
+}
+
+/* Drag handle on the right of each row */
+.bracket-group__drag-handle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink-faint);
+  padding: 0.5rem 0.35rem;
+  cursor: grab;
+  border-radius: var(--radius-sm);
   display: inline-flex;
-  gap: 0.3rem;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 120ms var(--ease-out), background 120ms var(--ease-out);
+}
+.bracket-group__drag-handle:hover {
+  color: var(--color-ink);
+  background: var(--color-paper-deep);
+}
+.bracket-group__drag-handle:active { cursor: grabbing; }
+.bracket-group__drag-handle:focus-visible {
+  color: var(--color-ink);
+  background: var(--color-paper-deep);
+}
+@media (max-width: 640px) {
+  /* bigger touch target on phones (HIG 44pt) */
+  .bracket-group__drag-handle { padding: 0.65rem 0.5rem; }
 }
 .bracket-pick-btn {
   appearance: none;
@@ -994,55 +1139,6 @@ button {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   SubNav — Schedule / Standings / Bracket tabs
-═══════════════════════════════════════════════════════════ */
-.sub-nav {
-  position: sticky;
-  top: calc(env(safe-area-inset-top) + 60px);
-  z-index: 90;
-  background: rgba(22, 22, 22, 0.82);
-  -webkit-backdrop-filter: saturate(140%) blur(10px);
-  backdrop-filter: saturate(140%) blur(10px);
-  border-bottom: 1px solid var(--color-border);
-}
-.sub-nav__inner {
-  max-width: 84rem;
-  margin: 0 auto;
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: center;
-}
-.sub-nav__tabs {
-  list-style: none;
-  display: inline-flex;
-  gap: 0.15rem;
-  margin: 0;
-  padding: 0.25rem;
-  background: var(--color-paper-deep);
-  border-radius: 999px;
-  border: 1px solid var(--color-border);
-}
-.sub-nav__tab {
-  display: inline-block;
-  padding: 0.5rem 1.1rem;
-  border-radius: 999px;
-  font-family: var(--font-hanken), sans-serif;
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--color-ink-muted);
-  text-decoration: none;
-  transition: color 120ms var(--ease-out), background 120ms var(--ease-out);
-}
-@media (max-width: 480px) {
-  .sub-nav__tab { padding: 0.55rem 0.95rem; font-size: 0.88rem; }
-}
-.sub-nav__tab:hover { color: var(--color-ink); }
-.sub-nav__tab.is-active {
-  background: var(--color-ink);
-  color: #161616;
-}
-
-/* ═══════════════════════════════════════════════════════════
    Standings page
 ═══════════════════════════════════════════════════════════ */
 .standings-hero {
@@ -1371,50 +1467,51 @@ button {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   Match list — groups
+   Match list — chronological by day
 ═══════════════════════════════════════════════════════════ */
 .match-list {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 2.5rem;
 }
-.match-list__group-header {
+.match-list__day-header {
   display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
   border-bottom: 1px solid var(--color-border);
 }
-.match-list__group-letter {
+.match-list__day-title {
   font-family: var(--font-bricolage), serif;
-  font-size: 2.4rem;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--color-accent);
-  width: 2.4rem;
-  text-align: center;
-  flex-shrink: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--color-ink);
 }
 @media (min-width: 640px) {
-  .match-list__group-letter { font-size: 3rem; width: 3rem; }
+  .match-list__day-title { font-size: 1.75rem; }
 }
-.match-list__group-meta { min-width: 0; flex: 1; }
-.match-list__group-title {
-  font-family: var(--font-bricolage), serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+.match-list__day-count {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin: 0 0 0.2rem;
-  color: var(--color-ink-muted);
+  color: var(--color-ink-faint);
 }
-.match-list__group-teams {
-  margin: 0;
-  font-size: 0.92rem;
-  color: var(--color-ink);
-  font-weight: 500;
+.match-list__day-chip {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  background: rgba(240, 234, 219, 0.04);
 }
 .match-list__cards {
   display: grid;
@@ -1551,6 +1648,31 @@ button {
 }
 .match-card--clickable:hover .match-card__chevron {
   transform: translateX(3px);
+}
+
+/* Group badge — top right corner of every match card */
+.match-card__group-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 0.18rem 0.45rem;
+  background: var(--color-paper-deep);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink-muted);
+  line-height: 1;
+  z-index: 1;
+}
+.match-card__group-badge::before {
+  content: 'GROUP ';
+  font-size: 0.62em;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.14em;
+  margin-right: 0.15em;
 }
 
 /* ═══════════════════════════════════════════════════════════

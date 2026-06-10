@@ -8,7 +8,6 @@ import {
 import './globals.css'
 import { CurrencyProvider } from '@/components/CurrencyProvider'
 import { AppHeader } from '@/components/AppHeader'
-import { SubNav } from '@/components/SubNav'
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -72,7 +71,6 @@ export default function RootLayout({
         </a>
         <CurrencyProvider>
           <AppHeader />
-          <SubNav />
           <div id="main-content">{children}</div>
         </CurrencyProvider>
       </body>

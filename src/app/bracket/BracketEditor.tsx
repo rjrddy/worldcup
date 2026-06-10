@@ -8,15 +8,14 @@ import {
   GROUP_LETTERS,
   N_BEST_THIRDS,
   POSITIONS,
-  POSITION_LABEL,
   bracketCanStart,
   resolveSlot,
-  type Position,
   type GroupPicks,
   type KoPicks,
   type MatchSlot,
   type SlotRef,
 } from '@/lib/bracket'
+import { SortableGroupCard } from './SortableGroupCard'
 
 interface Team {
   id: string
@@ -83,24 +82,17 @@ export function BracketEditor({
     else setSavedAt(new Date())
   }
 
-  // ── Group pick handler ───────────────────────────────────
-  function pickPosition(letter: string, position: Position, teamId: string) {
-    setGroupPicks((prev) => {
-      const current = prev[letter] ?? {}
-      const next: Partial<Record<Position, string>> = { ...current }
-      // If clicking the same position again on the same team, toggle off
-      if (next[position] === teamId) {
-        delete next[position]
-      } else {
-        // 1) Remove this team from any other position in this group
-        for (const p of POSITIONS) {
-          if (p !== position && next[p] === teamId) delete next[p]
-        }
-        // 2) Assign
-        next[position] = teamId
-      }
-      return { ...prev, [letter]: next }
-    })
+  // ── Group ordering (drag-to-rank) ────────────────────────
+  function setGroupOrder(letter: string, orderedTeamIds: string[]) {
+    setGroupPicks((prev) => ({
+      ...prev,
+      [letter]: {
+        first: orderedTeamIds[0],
+        second: orderedTeamIds[1],
+        third: orderedTeamIds[2],
+        fourth: orderedTeamIds[3],
+      },
+    }))
   }
 
   // ── Best 3rds handler ────────────────────────────────────
@@ -187,17 +179,16 @@ export function BracketEditor({
           Group stage
         </h2>
         <p className="bracket-section-sub">
-          Predict each group&rsquo;s full finishing order — 1st through 4th.
-          Tap a position next to each team; tapping the same position again
-          clears it.
+          Predict each group&rsquo;s full finishing order — drag teams up or
+          down to rank them 1st through 4th.
         </p>
         <div className="bracket-groups">
           {groups.map((g) => (
-            <GroupCard
+            <SortableGroupCard
               key={g.letter}
               group={g}
               picks={groupPicks[g.letter] ?? {}}
-              onPick={(p, teamId) => pickPosition(g.letter, p, teamId)}
+              onReorder={(order) => setGroupOrder(g.letter, order)}
             />
           ))}
         </div>
@@ -311,71 +302,6 @@ export function BracketEditor({
         </section>
       )}
     </>
-  )
-}
-
-// ──────────────────────────────────────────────────────────
-// GroupCard — 4 position buttons per team
-// ──────────────────────────────────────────────────────────
-function GroupCard({
-  group,
-  picks,
-  onPick,
-}: {
-  group: Group
-  picks: Partial<Record<Position, string>>
-  onPick: (position: Position, teamId: string) => void
-}) {
-  return (
-    <article className="bracket-group" aria-labelledby={`group-${group.letter}`}>
-      <header className="bracket-group__header">
-        <h3 id={`group-${group.letter}`} className="bracket-group__letter">
-          {group.letter}
-        </h3>
-        <span className="bracket-group__hint">Order 1–4</span>
-      </header>
-      <ul className="bracket-group__teams" role="list">
-        {group.teams.map((t) => {
-          // Which position is this team currently assigned to (if any)?
-          const currentPos = POSITIONS.find((p) => picks[p] === t.id)
-          return (
-            <li key={t.id} className="bracket-group__team-row">
-              <div className="bracket-group__team-id">
-                <CountryFlag
-                  countryCode={t.countryCode}
-                  countryName={t.name}
-                  size="sm"
-                />
-                <span className="bracket-group__team-name">{t.name}</span>
-              </div>
-              <div
-                className="bracket-group__pick-buttons"
-                role="group"
-                aria-label={`Predict ${t.name}'s finish in group ${group.letter}`}
-              >
-                {POSITIONS.map((p, i) => {
-                  const isActive = currentPos === p
-                  return (
-                    <button
-                      key={p}
-                      type="button"
-                      className={`bracket-pick-btn bracket-pick-btn--pos${i + 1} ${
-                        isActive ? 'is-active' : ''
-                      }`}
-                      onClick={() => onPick(p, t.id)}
-                      aria-pressed={isActive}
-                      aria-label={`Pick ${t.name} as ${POSITION_LABEL[p]}`}
-                    >
-                      {i + 1}
-                    </button>
-                  )
-                })}
-              </div>
-            </li>
-          )
-        })}
-      </ul>
-    </article>
   )
 }
 

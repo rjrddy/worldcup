@@ -26,6 +26,14 @@ export function MatchCard({ match }: MatchCardProps) {
       {...tagProps}
       className={`match-card ${isClickable ? 'match-card--clickable' : ''}`}
     >
+      {match.group && (
+        <span
+          className="match-card__group-badge"
+          aria-label={`Group ${match.group}`}
+        >
+          {match.group}
+        </span>
+      )}
       <div className="match-card__date" aria-hidden="true">
         <span className="match-card__date-month">{k.month}</span>
         <span className="match-card__date-day">{k.day}</span>

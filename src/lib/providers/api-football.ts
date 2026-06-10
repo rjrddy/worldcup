@@ -240,7 +240,9 @@ const COUNTRY_TO_CODE: Record<string, string> = {
   Denmark: 'dk', Norway: 'no', Sweden: 'se', Finland: 'fi', Iceland: 'is',
   Ireland: 'ie', 'Republic of Ireland': 'ie', Cyprus: 'cy', Malta: 'mt',
   Albania: 'al', 'North Macedonia': 'mk', Bosnia: 'ba',
-  'Bosnia and Herzegovina': 'ba', Turkey: 'tr', 'Türkiye': 'tr',
+  'Bosnia and Herzegovina': 'ba',
+  'Bosnia & Herzegovina': 'ba',  // alias used by api-football team data
+  Turkey: 'tr', 'Türkiye': 'tr',
   Israel: 'il', Luxembourg: 'lu', Estonia: 'ee', Latvia: 'lv', Lithuania: 'lt',
   Belarus: 'by', Georgia: 'ge', Armenia: 'am', Azerbaijan: 'az',
   Kazakhstan: 'kz', Moldova: 'md',
@@ -252,6 +254,8 @@ const COUNTRY_TO_CODE: Record<string, string> = {
   'Costa Rica': 'cr', Panama: 'pa', Honduras: 'hn', 'El Salvador': 'sv',
   Guatemala: 'gt', Nicaragua: 'ni', Jamaica: 'jm', Haiti: 'ht', Cuba: 'cu',
   'Dominican Republic': 'do', 'Trinidad and Tobago': 'tt',
+  Curacao: 'cw', 'Curaçao': 'cw',
+  'Cape Verde Islands': 'cv',  // api-football alias
 
   // Asia
   'South Korea': 'kr', 'Korea Republic': 'kr', 'North Korea': 'kp',
@@ -356,6 +360,132 @@ async function loadCaches() {
   }
 }
 
+/**
+ * Re-resolve a match's team country codes from the team name using the
+ * provider's full COUNTRY_TO_CODE map. The codes baked into fixtures.json
+ * at fetch time were computed with an older / partial map (slice(0,2)
+ * fallback) and have a few wrong matches (Bosnia → Bolivia, etc.) This
+ * fixes them at render time without a refetch.
+ */
+function withFixedFlags(m: Match): Match {
+  return {
+    ...m,
+    home: { ...m.home, countryCode: clubCountryCode(m.home.name) },
+    away: { ...m.away, countryCode: clubCountryCode(m.away.name) },
+  }
+}
+
+/**
+ * Fill in `group` for every match.
+ *
+ * api-football's round name is only "Group Stage - 1/2/3" (no letter) so we
+ * can't extract group letters from there. Instead we cluster matches by team
+ * co-occurrence (each team plays exactly its 3 group-mates) and label
+ * clusters using the published 2026 draw for the 4 host-anchored groups.
+ * Remaining clusters get E–L deterministically by alphabetical order of
+ * their first team's name — guarantees stability across page loads.
+ */
+const KNOWN_GROUPS: Record<string, string[]> = {
+  A: ['Mexico', 'South Africa', 'South Korea', 'Czech Republic', 'Czechia'],
+  B: [
+    'Canada',
+    'Bosnia & Herzegovina',
+    'Bosnia and Herzegovina',
+    'Qatar',
+    'Switzerland',
+  ],
+  C: ['Brazil', 'Morocco', 'Haiti', 'Scotland'],
+  D: [
+    'USA',
+    'United States',
+    'Paraguay',
+    'Australia',
+    'Türkiye',
+    'Turkey',
+  ],
+}
+const KNOWN_TEAM_TO_LETTER: Record<string, string> = {}
+for (const [letter, names] of Object.entries(KNOWN_GROUPS)) {
+  for (const n of names) KNOWN_TEAM_TO_LETTER[n] = letter
+}
+const ALL_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
+
+function withDerivedGroups(matches: Match[]): Match[] {
+  // Skip work if every match already has a group letter.
+  if (matches.every((m) => m.group)) return matches
+
+  // Build team graph: edge between home + away.
+  const adj = new Map<string, Set<string>>()
+  const idToName = new Map<string, string>()
+  for (const m of matches) {
+    idToName.set(m.home.id, m.home.name)
+    idToName.set(m.away.id, m.away.name)
+    if (!adj.has(m.home.id)) adj.set(m.home.id, new Set())
+    if (!adj.has(m.away.id)) adj.set(m.away.id, new Set())
+    adj.get(m.home.id)!.add(m.away.id)
+    adj.get(m.away.id)!.add(m.home.id)
+  }
+
+  // Find connected components via BFS.
+  const visited = new Set<string>()
+  const clusters: string[][] = []
+  for (const seed of adj.keys()) {
+    if (visited.has(seed)) continue
+    const cluster: string[] = []
+    const queue = [seed]
+    while (queue.length) {
+      const cur = queue.shift()!
+      if (visited.has(cur)) continue
+      visited.add(cur)
+      cluster.push(cur)
+      for (const n of adj.get(cur) ?? []) {
+        if (!visited.has(n)) queue.push(n)
+      }
+    }
+    clusters.push(cluster)
+  }
+
+  // Label A–D using KNOWN_GROUPS, defer the rest.
+  const idToLetter = new Map<string, string>()
+  const usedLetters = new Set<string>()
+  const deferred: { teamIds: string[]; repName: string }[] = []
+
+  for (const cluster of clusters) {
+    let letter: string | undefined
+    for (const tid of cluster) {
+      const candidate = KNOWN_TEAM_TO_LETTER[idToName.get(tid) ?? '']
+      if (candidate && !usedLetters.has(candidate)) {
+        letter = candidate
+        break
+      }
+    }
+    if (letter) {
+      usedLetters.add(letter)
+      for (const tid of cluster) idToLetter.set(tid, letter)
+    } else {
+      const names = cluster.map((id) => idToName.get(id) ?? '').sort()
+      deferred.push({ teamIds: cluster, repName: names[0] ?? '' })
+    }
+  }
+
+  // Assign remaining letters deterministically.
+  deferred.sort((a, b) => a.repName.localeCompare(b.repName))
+  const remaining = ALL_LETTERS.filter((L) => !usedLetters.has(L))
+  deferred.forEach((c, i) => {
+    if (i < remaining.length) {
+      for (const tid of c.teamIds) idToLetter.set(tid, remaining[i])
+    }
+  })
+
+  return matches.map((m) => ({
+    ...m,
+    group:
+      m.group ??
+      idToLetter.get(m.home.id) ??
+      idToLetter.get(m.away.id),
+  }))
+}
+
 export const apiFootballProvider: WorldCupDataProvider = {
   async getMatches(): Promise<Match[]> {
     const { fixtures } = await loadCaches()
@@ -364,7 +494,7 @@ export const apiFootballProvider: WorldCupDataProvider = {
         'No cached api-football data found. Run `npm run fetch:data` to populate `data/`.'
       )
     }
-    return fixtures.matches
+    return withDerivedGroups(fixtures.matches.map(withFixedFlags))
   },
 
   async getMatchDetail(matchId: string): Promise<MatchDetail | null> {
@@ -375,7 +505,10 @@ export const apiFootballProvider: WorldCupDataProvider = {
         'No cached api-football data found. Run `npm run fetch:data` to populate `data/`.'
       )
     }
-    const match = fixtures.matches.find((m) => m.id === matchId)
+    // Derive groups across the whole fixture set so we can look up the missing
+    // group on the requested match.
+    const allMatches = withDerivedGroups(fixtures.matches.map(withFixedFlags))
+    const match = allMatches.find((m) => m.id === matchId)
     if (!match) return null
 
     const lineup = lineups[matchId]

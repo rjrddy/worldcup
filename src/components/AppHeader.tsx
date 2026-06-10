@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CurrencyToggle } from './CurrencyToggle'
+import { MatchOnlyCurrencyToggle } from './MatchOnlyCurrencyToggle'
 import { AuthMenu } from './AuthMenu'
 
 export function AppHeader() {
@@ -18,7 +18,7 @@ export function AppHeader() {
           </span>
         </Link>
         <div className="app-header__right">
-          <CurrencyToggle />
+          <MatchOnlyCurrencyToggle />
           <AuthMenu />
         </div>
       </div>

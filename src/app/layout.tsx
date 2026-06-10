@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import {
   Bricolage_Grotesque,
   Hanken_Grotesk,
@@ -43,6 +43,16 @@ export const metadata: Metadata = {
   },
   description:
     'Every match, every squad, your bracket — FIFA World Cup 2026 USA/Canada/Mexico',
+}
+
+// iOS Safari: viewport-fit=cover lets us paint into the notch + home-bar areas,
+// then we pad with env(safe-area-inset-*) in CSS.
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: '#1f1f1f',
 }
 
 export default function RootLayout({

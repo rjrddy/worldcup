@@ -40,7 +40,11 @@ export default async function MatchPage({ params }: Props) {
   const { match, home, away } = detail
   const k = formatKickoffDate(match.kickoff)
   const stageLabel =
-    match.stage === 'group' ? `Group ${match.group}` : match.stage.toUpperCase()
+    match.stage === 'group'
+      ? match.group
+        ? `Group ${match.group}`
+        : 'Group stage'
+      : match.stage.toUpperCase()
 
   return (
     <>

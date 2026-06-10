@@ -6,16 +6,17 @@ import { CountryFlag } from '@/components/CountryFlag'
 import {
   BRACKET_TEMPLATE,
   GROUP_LETTERS,
-  N_BEST_RUNNERS_UP,
+  N_BEST_THIRDS,
+  POSITIONS,
+  POSITION_LABEL,
   bracketCanStart,
   resolveSlot,
+  type Position,
   type GroupPicks,
   type KoPicks,
   type MatchSlot,
   type SlotRef,
 } from '@/lib/bracket'
-
-type Slot = 'first' | 'second'
 
 interface Team {
   id: string
@@ -74,11 +75,7 @@ export function BracketEditor({
     const { error } = await supabase
       .from('brackets')
       .upsert(
-        {
-          user_id: userId,
-          group_picks: g,
-          ko_picks: k,
-        },
+        { user_id: userId, group_picks: g, ko_picks: k },
         { onConflict: 'user_id' }
       )
     setSaving(false)
@@ -86,51 +83,47 @@ export function BracketEditor({
     else setSavedAt(new Date())
   }
 
-  // ── Group pick handlers ──────────────────────────────────
-  function pickSlot(groupLetter: string, slot: Slot, teamId: string) {
+  // ── Group pick handler ───────────────────────────────────
+  function pickPosition(letter: string, position: Position, teamId: string) {
     setGroupPicks((prev) => {
-      const current = prev[groupLetter] ?? {}
-      const next = { ...current, [slot]: teamId }
-      const other: Slot = slot === 'first' ? 'second' : 'first'
-      if (next[other] === teamId) next[other] = undefined
-      return { ...prev, [groupLetter]: next }
+      const current = prev[letter] ?? {}
+      const next: Partial<Record<Position, string>> = { ...current }
+      // If clicking the same position again on the same team, toggle off
+      if (next[position] === teamId) {
+        delete next[position]
+      } else {
+        // 1) Remove this team from any other position in this group
+        for (const p of POSITIONS) {
+          if (p !== position && next[p] === teamId) delete next[p]
+        }
+        // 2) Assign
+        next[position] = teamId
+      }
+      return { ...prev, [letter]: next }
     })
-    // If the 2nd-place pick for a group changes, that group might be in
-    // bestRunnersUp; the KO picks that depend on it will resolve to the
-    // new team automatically, so no extra work here.
   }
 
-  // ── Best runners-up handlers ─────────────────────────────
-  function toggleBestSecond(letter: string) {
+  // ── Best 3rds handler ────────────────────────────────────
+  function toggleBestThird(letter: string) {
     setKoPicks((prev) => {
-      const current = prev.bestRunnersUp ?? []
+      const current = prev.bestThirds ?? []
       const idx = current.indexOf(letter)
       let next: string[]
-      if (idx >= 0) {
-        // already picked → remove
-        next = current.filter((l) => l !== letter)
-      } else {
-        // not picked → add (cap at N)
-        if (current.length >= N_BEST_RUNNERS_UP) return prev
+      if (idx >= 0) next = current.filter((l) => l !== letter)
+      else {
+        if (current.length >= N_BEST_THIRDS) return prev
         next = [...current, letter]
       }
-      // Reset any KO winner picks that referenced removed teams
-      return { ...prev, bestRunnersUp: next }
+      return { ...prev, bestThirds: next }
     })
   }
 
-  // ── KO match winner picker ───────────────────────────────
+  // ── KO winner picker ─────────────────────────────────────
   function pickWinner(matchId: string, teamId: string) {
     setKoPicks((prev) => {
       const winners = { ...(prev.winners ?? {}) }
-      // Toggle off if same team clicked twice
-      if (winners[matchId] === teamId) {
-        delete winners[matchId]
-      } else {
-        winners[matchId] = teamId
-      }
-      // Clear any downstream picks that were inherited from this match
-      // (otherwise the bracket can show "Team X advances" where Team X is no longer the winner)
+      if (winners[matchId] === teamId) delete winners[matchId]
+      else winners[matchId] = teamId
       clearDownstreamWinners(matchId, winners)
       return { ...prev, winners }
     })
@@ -140,8 +133,6 @@ export function BracketEditor({
     sourceMatchId: string,
     winners: Record<string, string>
   ) {
-    // Walk the bracket: for each match, if either ref is winner(sourceMatchId)
-    // and that match has a winner pick, clear it (and recurse).
     for (const m of BRACKET_TEMPLATE) {
       const refsTouch = (ref: SlotRef) =>
         ref.kind === 'winner' && ref.matchId === sourceMatchId
@@ -153,13 +144,14 @@ export function BracketEditor({
   }
 
   // ── Derived state ────────────────────────────────────────
-  const completedGroups = groups.filter(
-    (g) => groupPicks[g.letter]?.first && groupPicks[g.letter]?.second
+  const completedGroups = groups.filter((g) =>
+    POSITIONS.every((p) => groupPicks[g.letter]?.[p])
   ).length
 
   const canStartKO = bracketCanStart(groupPicks, koPicks)
   const championId = koPicks.winners?.['final']
   const champion = championId ? teamById.get(championId) : null
+  const koPicksMade = Object.keys(koPicks.winners ?? {}).length
 
   // ── Render ───────────────────────────────────────────────
   return (
@@ -169,11 +161,11 @@ export function BracketEditor({
           <strong>{completedGroups}</strong>
           <span> / {groups.length} groups</span>
           <span aria-hidden="true"> · </span>
-          <strong>{koPicks.bestRunnersUp?.length ?? 0}</strong>
-          <span> / {N_BEST_RUNNERS_UP} wildcards</span>
+          <strong>{koPicks.bestThirds?.length ?? 0}</strong>
+          <span> / {N_BEST_THIRDS} wildcards</span>
           <span aria-hidden="true"> · </span>
-          <strong>{Object.keys(koPicks.winners ?? {}).length}</strong>
-          <span> / 15 KO picks</span>
+          <strong>{koPicksMade}</strong>
+          <span> / 31 KO picks</span>
         </span>
         <span className="bracket-status__save">
           {saving
@@ -189,14 +181,15 @@ export function BracketEditor({
         </span>
       </div>
 
-      {/* ─── Group stage ─── */}
+      {/* Group stage */}
       <section aria-labelledby="groups-section-title">
         <h2 id="groups-section-title" className="bracket-section-title">
           Group stage
         </h2>
         <p className="bracket-section-sub">
-          Pick your top 2 in every group. The 12 group winners auto-fill the
-          knockout bracket below.
+          Predict each group&rsquo;s full finishing order — 1st through 4th.
+          Tap a position next to each team; tapping the same position again
+          clears it.
         </p>
         <div className="bracket-groups">
           {groups.map((g) => (
@@ -204,52 +197,50 @@ export function BracketEditor({
               key={g.letter}
               group={g}
               picks={groupPicks[g.letter] ?? {}}
-              onPick={(slot, teamId) => pickSlot(g.letter, slot, teamId)}
+              onPick={(p, teamId) => pickPosition(g.letter, p, teamId)}
             />
           ))}
         </div>
       </section>
 
-      {/* ─── Best runners-up picker ─── */}
+      {/* Best-3rds wildcards */}
       <section aria-labelledby="wildcards-section-title">
         <h2 id="wildcards-section-title" className="bracket-section-title">
           Wildcard slots
         </h2>
         <p className="bracket-section-sub">
-          Four of the twelve group runners-up advance to fill out the Round of
-          16. Pick the four you think make it.
+          Eight of the twelve 3rd-placed teams advance to the Round of 32.
+          Pick the eight you think make it.
         </p>
         <div className="bracket-wildcards">
           {GROUP_LETTERS.map((letter) => {
-            const idx = koPicks.bestRunnersUp?.indexOf(letter) ?? -1
+            const idx = koPicks.bestThirds?.indexOf(letter) ?? -1
             const isPicked = idx >= 0
-            const secondPickId = groupPicks[letter]?.second
-            const team = secondPickId ? teamById.get(secondPickId) : null
+            const thirdId = groupPicks[letter]?.third
+            const team = thirdId ? teamById.get(thirdId) : null
             const disabledNoPick = !team
             const disabledFull =
               !isPicked &&
-              (koPicks.bestRunnersUp?.length ?? 0) >= N_BEST_RUNNERS_UP
+              (koPicks.bestThirds?.length ?? 0) >= N_BEST_THIRDS
 
             return (
               <button
                 key={letter}
                 type="button"
                 className={`bracket-wildcard ${isPicked ? 'is-picked' : ''}`}
-                onClick={() => toggleBestSecond(letter)}
+                onClick={() => toggleBestThird(letter)}
                 disabled={disabledNoPick || disabledFull}
                 aria-pressed={isPicked}
                 title={
                   disabledNoPick
-                    ? `Pick a 2nd in group ${letter} first`
+                    ? `Pick a 3rd in group ${letter} first`
                     : disabledFull
-                    ? `${N_BEST_RUNNERS_UP} wildcards already selected`
+                    ? `${N_BEST_THIRDS} wildcards already selected`
                     : undefined
                 }
               >
                 <span className="bracket-wildcard__letter">{letter}</span>
-                <span className="bracket-wildcard__divider" aria-hidden="true">
-                  2nd
-                </span>
+                <span className="bracket-wildcard__divider" aria-hidden="true">3rd</span>
                 <span className="bracket-wildcard__team">
                   {team ? (
                     <>
@@ -261,7 +252,9 @@ export function BracketEditor({
                       <span>{team.name}</span>
                     </>
                   ) : (
-                    <span className="bracket-wildcard__empty">— pick group {letter} 2nd —</span>
+                    <span className="bracket-wildcard__empty">
+                      — pick group {letter} 3rd —
+                    </span>
                   )}
                 </span>
                 {isPicked && (
@@ -275,7 +268,7 @@ export function BracketEditor({
         </div>
       </section>
 
-      {/* ─── KO bracket ─── */}
+      {/* KO bracket */}
       <section aria-labelledby="ko-section-title">
         <h2 id="ko-section-title" className="bracket-section-title">
           Knockout bracket
@@ -286,14 +279,12 @@ export function BracketEditor({
             <ul className="bracket-ko-locked__list">
               <li className={completedGroups === groups.length ? 'is-done' : ''}>
                 {completedGroups === groups.length ? '✓' : '○'} All 12 groups
-                have a 1st &amp; 2nd ({completedGroups}/12)
+                are fully ordered (1st-4th) ({completedGroups}/12)
               </li>
-              <li className={(koPicks.bestRunnersUp?.length ?? 0) === N_BEST_RUNNERS_UP ? 'is-done' : ''}>
-                {(koPicks.bestRunnersUp?.length ?? 0) === N_BEST_RUNNERS_UP
-                  ? '✓'
-                  : '○'}{' '}
-                {N_BEST_RUNNERS_UP} wildcards picked (
-                {koPicks.bestRunnersUp?.length ?? 0}/{N_BEST_RUNNERS_UP})
+              <li className={(koPicks.bestThirds?.length ?? 0) === N_BEST_THIRDS ? 'is-done' : ''}>
+                {(koPicks.bestThirds?.length ?? 0) === N_BEST_THIRDS ? '✓' : '○'}{' '}
+                {N_BEST_THIRDS} wildcards picked (
+                {koPicks.bestThirds?.length ?? 0}/{N_BEST_THIRDS})
               </li>
             </ul>
           </div>
@@ -308,7 +299,6 @@ export function BracketEditor({
         )}
       </section>
 
-      {/* ─── Champion ─── */}
       {champion && (
         <section className="bracket-champion" aria-label="Predicted champion">
           <p className="bracket-champion__eyebrow">Your champion</p>
@@ -325,7 +315,7 @@ export function BracketEditor({
 }
 
 // ──────────────────────────────────────────────────────────
-// GroupCard — same as before, unchanged contract
+// GroupCard — 4 position buttons per team
 // ──────────────────────────────────────────────────────────
 function GroupCard({
   group,
@@ -333,8 +323,8 @@ function GroupCard({
   onPick,
 }: {
   group: Group
-  picks: { first?: string; second?: string }
-  onPick: (slot: Slot, teamId: string) => void
+  picks: Partial<Record<Position, string>>
+  onPick: (position: Position, teamId: string) => void
 }) {
   return (
     <article className="bracket-group" aria-labelledby={`group-${group.letter}`}>
@@ -342,12 +332,12 @@ function GroupCard({
         <h3 id={`group-${group.letter}`} className="bracket-group__letter">
           {group.letter}
         </h3>
-        <span className="bracket-group__hint">Pick top 2</span>
+        <span className="bracket-group__hint">Order 1–4</span>
       </header>
       <ul className="bracket-group__teams" role="list">
         {group.teams.map((t) => {
-          const isFirst = picks.first === t.id
-          const isSecond = picks.second === t.id
+          // Which position is this team currently assigned to (if any)?
+          const currentPos = POSITIONS.find((p) => picks[p] === t.id)
           return (
             <li key={t.id} className="bracket-group__team-row">
               <div className="bracket-group__team-id">
@@ -358,25 +348,28 @@ function GroupCard({
                 />
                 <span className="bracket-group__team-name">{t.name}</span>
               </div>
-              <div className="bracket-group__pick-buttons" role="group" aria-label={`Predict ${t.name} in group ${group.letter}`}>
-                <button
-                  type="button"
-                  className={`bracket-pick-btn ${isFirst ? 'is-active is-first' : ''}`}
-                  onClick={() => onPick('first', t.id)}
-                  aria-pressed={isFirst}
-                  aria-label={`Pick ${t.name} as 1st`}
-                >
-                  1st
-                </button>
-                <button
-                  type="button"
-                  className={`bracket-pick-btn ${isSecond ? 'is-active is-second' : ''}`}
-                  onClick={() => onPick('second', t.id)}
-                  aria-pressed={isSecond}
-                  aria-label={`Pick ${t.name} as 2nd`}
-                >
-                  2nd
-                </button>
+              <div
+                className="bracket-group__pick-buttons"
+                role="group"
+                aria-label={`Predict ${t.name}'s finish in group ${group.letter}`}
+              >
+                {POSITIONS.map((p, i) => {
+                  const isActive = currentPos === p
+                  return (
+                    <button
+                      key={p}
+                      type="button"
+                      className={`bracket-pick-btn bracket-pick-btn--pos${i + 1} ${
+                        isActive ? 'is-active' : ''
+                      }`}
+                      onClick={() => onPick(p, t.id)}
+                      aria-pressed={isActive}
+                      aria-label={`Pick ${t.name} as ${POSITION_LABEL[p]}`}
+                    >
+                      {i + 1}
+                    </button>
+                  )
+                })}
               </div>
             </li>
           )
@@ -387,7 +380,7 @@ function GroupCard({
 }
 
 // ──────────────────────────────────────────────────────────
-// KoBracket — 4 rounds laid out left → right on desktop
+// KoBracket — 5 rounds, scroll-snap on phone
 // ──────────────────────────────────────────────────────────
 function KoBracket({
   template,
@@ -403,6 +396,7 @@ function KoBracket({
   onPickWinner: (matchId: string, teamId: string) => void
 }) {
   const rounds = [
+    { round: 'r32', label: 'Round of 32' },
     { round: 'r16', label: 'Round of 16' },
     { round: 'qf', label: 'Quarter-finals' },
     { round: 'sf', label: 'Semi-finals' },
@@ -508,15 +502,14 @@ function KoSlot({
       ) : (
         <span className="ko-slot__placeholder">{placeholder}</span>
       )}
-      {isWinner && (
-        <span className="ko-slot__check" aria-hidden="true">✓</span>
-      )}
+      {isWinner && <span className="ko-slot__check" aria-hidden="true">✓</span>}
     </button>
   )
 }
 
 function describeSlot(ref: SlotRef): string {
-  if (ref.kind === 'groupFirst') return `Winner of group ${ref.letter}`
-  if (ref.kind === 'bestSecond') return `Wildcard #${ref.index + 1}`
+  if (ref.kind === 'groupFirst') return `1st in ${ref.letter}`
+  if (ref.kind === 'groupSecond') return `2nd in ${ref.letter}`
+  if (ref.kind === 'bestThird') return `Wildcard #${ref.index + 1}`
   return `Winner of ${ref.matchId.toUpperCase()}`
 }

@@ -429,7 +429,7 @@ function withDerivedGroups(matches: Match[]): Match[] {
   // Find connected components via BFS.
   const visited = new Set<string>()
   const clusters: string[][] = []
-  for (const seed of adj.keys()) {
+  for (const seed of Array.from(adj.keys())) {
     if (visited.has(seed)) continue
     const cluster: string[] = []
     const queue = [seed]
@@ -438,8 +438,11 @@ function withDerivedGroups(matches: Match[]): Match[] {
       if (visited.has(cur)) continue
       visited.add(cur)
       cluster.push(cur)
-      for (const n of adj.get(cur) ?? []) {
-        if (!visited.has(n)) queue.push(n)
+      const neighbors = adj.get(cur)
+      if (neighbors) {
+        for (const n of Array.from(neighbors)) {
+          if (!visited.has(n)) queue.push(n)
+        }
       }
     }
     clusters.push(cluster)

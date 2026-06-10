@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import { getProvider } from '@/lib/providers'
 import type { Match } from '@/lib/types'
 import { BracketEditor } from './BracketEditor'
+import type { GroupPicks, KoPicks } from '@/lib/bracket'
 
 export const metadata: Metadata = { title: 'My Bracket' }
 export const dynamic = 'force-dynamic'
@@ -83,10 +84,8 @@ export default async function BracketPage() {
       <BracketEditor
         userId={user.id}
         groups={groups}
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        initialGroupPicks={(bracket?.group_picks as any) ?? {}}
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        initialKoPicks={(bracket?.ko_picks as any) ?? {}}
+        initialGroupPicks={(bracket?.group_picks as GroupPicks | null) ?? {}}
+        initialKoPicks={(bracket?.ko_picks as KoPicks | null) ?? {}}
       />
     </main>
   )

@@ -6,13 +6,15 @@ export function AppHeader() {
   return (
     <header className="app-header" role="banner">
       <div className="app-header__inner">
-        <Link href="/" className="app-header__brand" aria-label="World Cup 2026 — home">
-          <span className="app-header__mark" aria-hidden="true">
-            ⬢
-          </span>
+        <Link
+          href="/"
+          className="app-header__brand"
+          aria-label="The Maracanã — home"
+        >
+          <span className="app-header__mark" aria-hidden="true">✦</span>
           <span className="app-header__brand-text">
-            <span className="app-header__brand-line1">World Cup</span>
-            <span className="app-header__brand-line2">2026</span>
+            <span className="app-header__brand-the">The</span>
+            <span className="app-header__brand-word">Maracanã</span>
           </span>
         </Link>
         <div className="app-header__right">

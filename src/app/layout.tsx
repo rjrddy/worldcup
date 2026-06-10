@@ -3,6 +3,7 @@ import {
   Bricolage_Grotesque,
   Hanken_Grotesk,
   JetBrains_Mono,
+  DM_Serif_Display,
 } from 'next/font/google'
 import './globals.css'
 import { CurrencyProvider } from '@/components/CurrencyProvider'
@@ -26,13 +27,22 @@ const mono = JetBrains_Mono({
   display: 'swap',
 })
 
+// Retro serif for the brand wordmark. Italic option gives classic, broadcast-poster feel.
+const serifDisplay = DM_Serif_Display({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-serif-display',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: {
-    template: '%s — World Cup 2026',
-    default: 'World Cup 2026',
+    template: '%s — The Maracanã',
+    default: 'The Maracanã — World Cup 2026',
   },
   description:
-    'Every match, every squad — FIFA World Cup 2026 USA/Canada/Mexico',
+    'Every match, every squad, your bracket — FIFA World Cup 2026 USA/Canada/Mexico',
 }
 
 export default function RootLayout({
@@ -43,7 +53,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${hanken.variable} ${mono.variable}`}
+      className={`${bricolage.variable} ${hanken.variable} ${mono.variable} ${serifDisplay.variable}`}
     >
       <body>
         <a href="#main-content" className="skip-link">

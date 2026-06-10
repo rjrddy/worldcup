@@ -1,0 +1,1110 @@
+{
+  "groups": [
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-16",
+          "name": "Mexico",
+          "logo": "https://media.api-sports.io/football/teams/16.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group A"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-1531",
+          "name": "South Africa",
+          "logo": "https://media.api-sports.io/football/teams/1531.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group A"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-17",
+          "name": "South Korea",
+          "logo": "https://media.api-sports.io/football/teams/17.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group A"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-770",
+          "name": "Czech Republic",
+          "logo": "https://media.api-sports.io/football/teams/770.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group A"
+      }
+    ],
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-5529",
+          "name": "Canada",
+          "logo": "https://media.api-sports.io/football/teams/5529.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group B"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-1113",
+          "name": "Bosnia & Herzegovina",
+          "logo": "https://media.api-sports.io/football/teams/1113.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group B"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-1569",
+          "name": "Qatar",
+          "logo": "https://media.api-sports.io/football/teams/1569.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group B"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-15",
+          "name": "Switzerland",
+          "logo": "https://media.api-sports.io/football/teams/15.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group B"
+      }
+    ],
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-6",
+          "name": "Brazil",
+          "logo": "https://media.api-sports.io/football/teams/6.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group C"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-31",
+          "name": "Morocco",
+          "logo": "https://media.api-sports.io/football/teams/31.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group C"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-2386",
+          "name": "Haiti",
+          "logo": "https://media.api-sports.io/football/teams/2386.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group C"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-1108",
+          "name": "Scotland",
+          "logo": "https://media.api-sports.io/football/teams/1108.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group C"
+      }
+    ],
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-2384",
+          "name": "USA",
+          "logo": "https://media.api-sports.io/football/teams/2384.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group D"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-2380",
+          "name": "Paraguay",
+          "logo": "https://media.api-sports.io/football/teams/2380.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group D"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-20",
+          "name": "Australia",
+          "logo": "https://media.api-sports.io/football/teams/20.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group D"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-777",
+          "name": "Türkiye",
+          "logo": "https://media.api-sports.io/football/teams/777.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group D"
+      }
+    ],
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-25",
+          "name": "Germany",
+          "logo": "https://media.api-sports.io/football/teams/25.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group E"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-5530",
+          "name": "Curaçao",
+          "logo": "https://media.api-sports.io/football/teams/5530.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group E"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-1501",
+          "name": "Ivory Coast",
+          "logo": "https://media.api-sports.io/football/teams/1501.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group E"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-2382",
+          "name": "Ecuador",
+          "logo": "https://media.api-sports.io/football/teams/2382.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group E"
+      }
+    ],
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-1118",
+          "name": "Netherlands",
+          "logo": "https://media.api-sports.io/football/teams/1118.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group F"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-12",
+          "name": "Japan",
+          "logo": "https://media.api-sports.io/football/teams/12.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group F"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-5",
+          "name": "Sweden",
+          "logo": "https://media.api-sports.io/football/teams/5.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group F"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-28",
+          "name": "Tunisia",
+          "logo": "https://media.api-sports.io/football/teams/28.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group F"
+      }
+    ],
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-1",
+          "name": "Belgium",
+          "logo": "https://media.api-sports.io/football/teams/1.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group G"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-32",
+          "name": "Egypt",
+          "logo": "https://media.api-sports.io/football/teams/32.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group G"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-22",
+          "name": "Iran",
+          "logo": "https://media.api-sports.io/football/teams/22.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group G"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-4673",
+          "name": "New Zealand",
+          "logo": "https://media.api-sports.io/football/teams/4673.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group G"
+      }
+    ],
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-9",
+          "name": "Spain",
+          "logo": "https://media.api-sports.io/football/teams/9.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group H"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-1533",
+          "name": "Cape Verde Islands",
+          "logo": "https://media.api-sports.io/football/teams/1533.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group H"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-23",
+          "name": "Saudi Arabia",
+          "logo": "https://media.api-sports.io/football/teams/23.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group H"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-7",
+          "name": "Uruguay",
+          "logo": "https://media.api-sports.io/football/teams/7.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group H"
+      }
+    ],
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-2",
+          "name": "France",
+          "logo": "https://media.api-sports.io/football/teams/2.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group I"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-13",
+          "name": "Senegal",
+          "logo": "https://media.api-sports.io/football/teams/13.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group I"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-1567",
+          "name": "Iraq",
+          "logo": "https://media.api-sports.io/football/teams/1567.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group I"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-1090",
+          "name": "Norway",
+          "logo": "https://media.api-sports.io/football/teams/1090.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group I"
+      }
+    ],
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-26",
+          "name": "Argentina",
+          "logo": "https://media.api-sports.io/football/teams/26.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group J"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-1532",
+          "name": "Algeria",
+          "logo": "https://media.api-sports.io/football/teams/1532.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group J"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-775",
+          "name": "Austria",
+          "logo": "https://media.api-sports.io/football/teams/775.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group J"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-1548",
+          "name": "Jordan",
+          "logo": "https://media.api-sports.io/football/teams/1548.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group J"
+      }
+    ],
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-27",
+          "name": "Portugal",
+          "logo": "https://media.api-sports.io/football/teams/27.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group K"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-1508",
+          "name": "Congo DR",
+          "logo": "https://media.api-sports.io/football/teams/1508.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group K"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-1568",
+          "name": "Uzbekistan",
+          "logo": "https://media.api-sports.io/football/teams/1568.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group K"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-8",
+          "name": "Colombia",
+          "logo": "https://media.api-sports.io/football/teams/8.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group K"
+      }
+    ],
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-10",
+          "name": "England",
+          "logo": "https://media.api-sports.io/football/teams/10.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group L"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-3",
+          "name": "Croatia",
+          "logo": "https://media.api-sports.io/football/teams/3.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group L"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-1504",
+          "name": "Ghana",
+          "logo": "https://media.api-sports.io/football/teams/1504.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group L"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-11",
+          "name": "Panama",
+          "logo": "https://media.api-sports.io/football/teams/11.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group L"
+      }
+    ],
+    [
+      {
+        "rank": 1,
+        "team": {
+          "id": "af-team-17",
+          "name": "South Korea",
+          "logo": "https://media.api-sports.io/football/teams/17.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Ranking of third-placed teams"
+      },
+      {
+        "rank": 2,
+        "team": {
+          "id": "af-team-1569",
+          "name": "Qatar",
+          "logo": "https://media.api-sports.io/football/teams/1569.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Ranking of third-placed teams"
+      },
+      {
+        "rank": 3,
+        "team": {
+          "id": "af-team-2386",
+          "name": "Haiti",
+          "logo": "https://media.api-sports.io/football/teams/2386.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Ranking of third-placed teams"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-20",
+          "name": "Australia",
+          "logo": "https://media.api-sports.io/football/teams/20.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Ranking of third-placed teams"
+      },
+      {
+        "rank": 5,
+        "team": {
+          "id": "af-team-1501",
+          "name": "Ivory Coast",
+          "logo": "https://media.api-sports.io/football/teams/1501.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Ranking of third-placed teams"
+      },
+      {
+        "rank": 6,
+        "team": {
+          "id": "af-team-5",
+          "name": "Sweden",
+          "logo": "https://media.api-sports.io/football/teams/5.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Ranking of third-placed teams"
+      },
+      {
+        "rank": 7,
+        "team": {
+          "id": "af-team-22",
+          "name": "Iran",
+          "logo": "https://media.api-sports.io/football/teams/22.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Ranking of third-placed teams"
+      },
+      {
+        "rank": 8,
+        "team": {
+          "id": "af-team-23",
+          "name": "Saudi Arabia",
+          "logo": "https://media.api-sports.io/football/teams/23.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Ranking of third-placed teams"
+      },
+      {
+        "rank": 9,
+        "team": {
+          "id": "af-team-1567",
+          "name": "Iraq",
+          "logo": "https://media.api-sports.io/football/teams/1567.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Ranking of third-placed teams"
+      },
+      {
+        "rank": 10,
+        "team": {
+          "id": "af-team-775",
+          "name": "Austria",
+          "logo": "https://media.api-sports.io/football/teams/775.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Ranking of third-placed teams"
+      },
+      {
+        "rank": 11,
+        "team": {
+          "id": "af-team-1568",
+          "name": "Uzbekistan",
+          "logo": "https://media.api-sports.io/football/teams/1568.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Ranking of third-placed teams"
+      },
+      {
+        "rank": 12,
+        "team": {
+          "id": "af-team-1504",
+          "name": "Ghana",
+          "logo": "https://media.api-sports.io/football/teams/1504.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Ranking of third-placed teams"
+      }
+    ]
+  ]
+}

@@ -5,6 +5,7 @@ import type {
   Team,
   Player,
   PositionGroup,
+  GroupStanding,
 } from '@/lib/types'
 
 const BASE = 'https://www.fotmob.com/api'
@@ -124,5 +125,10 @@ export const fotmobProvider: WorldCupDataProvider = {
     const away: Team = mapTeamFromLineup(lineup?.awayTeam ?? {})
 
     return { match, home, away }
+  },
+
+  async getStandings(): Promise<GroupStanding[]> {
+    // TODO: FotMob standings endpoint not yet mapped.
+    return []
   },
 }

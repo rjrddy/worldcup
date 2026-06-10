@@ -8,6 +8,8 @@ import type {
   Player,
   PositionGroup,
   Salary,
+  GroupStanding,
+  Standing,
 } from '@/lib/types'
 import {
   curatedSalaries,
@@ -338,21 +340,44 @@ interface ClubMetaCache {
   } | null
 }
 
+/** Raw shape persisted to data/standings.json by the fetch script. */
+interface StandingsCache {
+  groups: Array<
+    Array<{
+      rank: number
+      team: { id: string; name: string; logo?: string | null }
+      played: number
+      win: number
+      draw: number
+      lose: number
+      goalsFor: number
+      goalsAgainst: number
+      goalDifference: number
+      points: number
+      form?: string
+      groupRaw?: string | null
+    }>
+  >
+}
+
 async function loadCaches() {
-  const [fixtures, squads, teams, lineups, clubs, clubMeta] = await Promise.all([
-    readJson<FixturesCache>('fixtures.json'),
-    readJson<SquadCache>('squads.json'),
-    readJson<TeamMetaCache>('teams.json'),
-    readJson<LineupCache>('lineups.json'),
-    readJson<ClubsCache>('clubs.json'),
-    readJson<ClubMetaCache>('club-meta.json'),
-  ])
+  const [fixtures, squads, teams, lineups, clubs, clubMeta, standings] =
+    await Promise.all([
+      readJson<FixturesCache>('fixtures.json'),
+      readJson<SquadCache>('squads.json'),
+      readJson<TeamMetaCache>('teams.json'),
+      readJson<LineupCache>('lineups.json'),
+      readJson<ClubsCache>('clubs.json'),
+      readJson<ClubMetaCache>('club-meta.json'),
+      readJson<StandingsCache>('standings.json'),
+    ])
   const safeSquads = squads ?? {}
   const safeTeams = teams ?? {}
   return {
     fixtures,
     squads: safeSquads,
     teams: safeTeams,
+    standings,
     lineups: lineups ?? {},
     salaryMap: buildSalaryMap(safeSquads, safeTeams),
     clubs: clubs ?? {},
@@ -564,5 +589,42 @@ export const apiFootballProvider: WorldCupDataProvider = {
       home: buildTeam(match.home, 'home', homeMeta),
       away: buildTeam(match.away, 'away', awayMeta),
     }
+  },
+
+  async getStandings(): Promise<GroupStanding[]> {
+    const { standings } = await loadCaches()
+    if (!standings?.groups?.length) return []
+
+    // api-football's standings response embeds the official group letter as
+    // `groupRaw` ("Group A"). Use it to label tables — falls back to "?".
+    // Sometimes the response returns extra/aggregate tables; filter to those
+    // with a real group letter.
+    const out: GroupStanding[] = []
+    for (const rows of standings.groups) {
+      if (!rows?.length) continue
+      const rawLabel = rows[0].groupRaw ?? ''
+      const m = rawLabel.match(/Group\s+([A-L])/i)
+      if (!m) continue
+      const group = m[1].toUpperCase()
+      const mapped: Standing[] = rows.map((r) => ({
+        rank: r.rank,
+        team: {
+          id: r.team.id,
+          name: r.team.name,
+          countryCode: clubCountryCode(r.team.name),
+        },
+        played: r.played,
+        win: r.win,
+        draw: r.draw,
+        lose: r.lose,
+        goalsFor: r.goalsFor,
+        goalsAgainst: r.goalsAgainst,
+        goalDifference: r.goalDifference,
+        points: r.points,
+        form: r.form || undefined,
+      }))
+      out.push({ group, rows: mapped })
+    }
+    return out.sort((a, b) => a.group.localeCompare(b.group))
   },
 }

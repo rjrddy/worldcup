@@ -67,9 +67,29 @@ export interface MatchDetail {
   away: Team
 }
 
+export interface Standing {
+  rank: number
+  team: TeamRef
+  played: number
+  win: number
+  draw: number
+  lose: number
+  goalsFor: number
+  goalsAgainst: number
+  goalDifference: number
+  points: number
+  form?: string // e.g. "WLDWW"
+}
+
+export interface GroupStanding {
+  group: string // 'A', 'B', ..., 'L'
+  rows: Standing[]
+}
+
 export interface WorldCupDataProvider {
   getMatches(): Promise<Match[]>
   getMatchDetail(matchId: string): Promise<MatchDetail | null>
+  getStandings(): Promise<GroupStanding[]>
 }
 
 export interface SalaryProvider {

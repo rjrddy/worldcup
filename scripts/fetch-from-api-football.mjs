@@ -602,6 +602,41 @@ async function main() {
     JSON.stringify(clubMeta, null, 2)
   )
 
+  // 3d. Standings — single call, captures all 12 group tables. Refetched
+  //     every run so they stay current as the tournament progresses.
+  try {
+    console.log('→ Fetching standings…')
+    const raw = await af('/standings', { league: LEAGUE_ID, season: SEASON })
+    const groupTables = raw?.[0]?.league?.standings ?? []
+    const standings = groupTables.map((rows) =>
+      rows.map((s) => ({
+        rank: s.rank,
+        team: {
+          id: `af-team-${s.team.id}`,
+          name: s.team.name,
+          logo: s.team.logo,
+        },
+        played: s.all?.played ?? 0,
+        win: s.all?.win ?? 0,
+        draw: s.all?.draw ?? 0,
+        lose: s.all?.lose ?? 0,
+        goalsFor: s.all?.goals?.for ?? 0,
+        goalsAgainst: s.all?.goals?.against ?? 0,
+        goalDifference: s.goalsDiff ?? 0,
+        points: s.points ?? 0,
+        form: s.form ?? '',
+        groupRaw: s.group ?? null,
+      }))
+    )
+    await fs.writeFile(
+      path.join(DATA_DIR, 'standings.json'),
+      JSON.stringify({ groups: standings }, null, 2)
+    )
+    console.log(`  ✓ ${standings.length} group tables saved`)
+  } catch (err) {
+    console.log(`  ✗ standings: ${err.message}`)
+  }
+
   // Re-flag hasLineups based on whether we actually have squads for both teams.
   // (Originally this gated on FT/LIVE status — but pre-tournament we still want
   // matches to be clickable as long as we can render both squads.)

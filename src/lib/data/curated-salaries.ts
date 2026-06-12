@@ -50,7 +50,7 @@ export const curatedSalaries: CuratedSalary[] = [
   { display: 'Aurélien Tchouaméni', lastname: 'tchouameni', nationality: 'France', annualEur: 7_500_000, source: 'Capology 2025-26' },
   { display: 'Eduardo Camavinga', lastname: 'camavinga', nationality: 'France', annualEur: 6_000_000, source: 'Capology 2025-26' },
   { display: 'Kingsley Coman', lastname: 'coman', firstnameHint: 'kingsley', nationality: 'France', annualEur: 15_000_000, source: 'Capology 2025-26' },
-  { display: 'Ousmane Dembélé', lastname: 'dembele', firstnameHint: 'ousmane', nationality: 'France', annualEur: 15_000_000, source: 'Capology 2025-26' },
+  { display: 'Ousmane Dembélé', lastname: 'dembele', firstnameHint: 'ousmane', nationality: 'France', annualEur: 18_000_000, source: 'Capology 2025-26 (PSG)' },
   { display: 'Adrien Rabiot', lastname: 'rabiot', nationality: 'France', annualEur: 6_500_000, source: 'Capology 2025-26' },
   { display: 'Mike Maignan', lastname: 'maignan', nationality: 'France', annualEur: 4_000_000, source: 'Capology 2025-26' },
   { display: 'Bradley Barcola', lastname: 'barcola', nationality: 'France', annualEur: 3_500_000, source: 'Capology 2025-26' },
@@ -65,10 +65,10 @@ export const curatedSalaries: CuratedSalary[] = [
   { display: 'Nico Williams', lastname: 'williams', firstnameHint: 'nico', nationality: 'Spain', annualEur: 6_000_000, source: 'Capology 2025-26' },
 
   // ── Brazil ────────────────────────────────────────────────
-  { display: 'Vinícius Júnior', lastname: 'junior', firstnameHint: 'vinicius', nationality: 'Brazil', annualEur: 25_000_000, source: 'Capology 2025-26' },
+  { display: 'Vinícius Júnior', lastname: 'junior', firstnameHint: 'vinicius', nationality: 'Brazil', annualEur: 20_800_000, source: 'Capology 2025-26' },
   { display: 'Rodrygo', lastname: 'rodrygo', nationality: 'Brazil', annualEur: 8_000_000, source: 'Capology 2025-26' },
   { display: 'Casemiro', lastname: 'casemiro', nationality: 'Brazil', annualEur: 16_000_000, source: 'Spotrac 2025-26' },
-  { display: 'Marquinhos', lastname: 'marquinhos', nationality: 'Brazil', annualEur: 11_000_000, source: 'Capology 2025-26' },
+  { display: 'Marquinhos', lastname: 'marquinhos', nationality: 'Brazil', annualEur: 13_400_000, source: 'Capology 2025-26 (PSG)' },
   { display: 'Alisson Becker', lastname: 'becker', firstnameHint: 'alisson', nationality: 'Brazil', annualEur: 11_500_000, source: 'Spotrac 2025-26' },
   { display: 'Ederson', lastname: 'ederson', nationality: 'Brazil', annualEur: 8_000_000, source: 'Spotrac 2025-26' },
   { display: 'Bruno Guimarães', lastname: 'guimaraes', firstnameHint: 'bruno', nationality: 'Brazil', annualEur: 7_300_000, source: 'Spotrac 2025-26' },
@@ -83,10 +83,10 @@ export const curatedSalaries: CuratedSalary[] = [
 
   // ── Argentina ─────────────────────────────────────────────
   { display: 'Lionel Messi', lastname: 'messi', nationality: 'Argentina', annualEur: 26_000_000, source: 'MLSPA 2025 ($28.3M)' },
-  { display: 'Lautaro Martínez', lastname: 'martinez', firstnameHint: 'lautaro', nationality: 'Argentina', annualEur: 6_500_000, source: 'Capology 2025-26' },
+  { display: 'Lautaro Martínez', lastname: 'martinez', firstnameHint: 'lautaro', nationality: 'Argentina', annualEur: 16_700_000, source: 'TransferFeed 2025-26' },
   { display: 'Julián Álvarez', lastname: 'alvarez', firstnameHint: 'julian', nationality: 'Argentina', annualEur: 5_500_000, source: 'Capology 2025-26' },
   { display: 'Rodrigo De Paul', lastname: 'paul', nationality: 'Argentina', annualEur: 5_000_000, source: 'Capology 2025-26' },
-  { display: 'Paulo Dybala', lastname: 'dybala', nationality: 'Argentina', annualEur: 7_000_000, source: 'Capology 2025-26' },
+  { display: 'Paulo Dybala', lastname: 'dybala', nationality: 'Argentina', annualEur: 12_900_000, source: 'Capology 2025-26 (Roma)' },
   { display: 'Emiliano Martínez', lastname: 'martinez', firstnameHint: 'emiliano', nationality: 'Argentina', annualEur: 5_200_000, source: 'Spotrac 2025-26' },
 
   // ── Germany ───────────────────────────────────────────────
@@ -101,7 +101,7 @@ export const curatedSalaries: CuratedSalary[] = [
 
   // ── England ───────────────────────────────────────────────
   { display: 'Harry Kane', lastname: 'kane', firstnameHint: 'harry', nationality: 'England', annualEur: 25_000_000, source: 'Capology 2025-26' },
-  { display: 'Jude Bellingham', lastname: 'bellingham', firstnameHint: 'jude', nationality: 'England', annualEur: 18_000_000, source: 'Capology 2025-26' },
+  { display: 'Jude Bellingham', lastname: 'bellingham', firstnameHint: 'jude', nationality: 'England', annualEur: 20_800_000, source: 'Capology 2025-26' },
   { display: 'Bukayo Saka', lastname: 'saka', nationality: 'England', annualEur: 12_900_000, source: 'Spotrac 2025-26 (£11M)' },
   { display: 'Phil Foden', lastname: 'foden', nationality: 'England', annualEur: 13_500_000, source: 'Spotrac 2025-26' },
   { display: 'Cole Palmer', lastname: 'palmer', firstnameHint: 'cole', nationality: 'England', annualEur: 9_400_000, source: 'Spotrac 2025-26 (£8M)' },
@@ -121,7 +121,7 @@ export const curatedSalaries: CuratedSalary[] = [
   { display: 'Matthijs de Ligt', lastname: 'ligt', nationality: 'Netherlands', annualEur: 11_800_000, source: 'Spotrac 2025-26' },
 
   // ── Belgium ───────────────────────────────────────────────
-  { display: 'Kevin De Bruyne', lastname: 'bruyne', firstnameHint: 'kevin', nationality: 'Belgium', annualEur: 18_000_000, source: 'Capology 2025-26 (Napoli)' },
+  { display: 'Kevin De Bruyne', lastname: 'bruyne', firstnameHint: 'kevin', nationality: 'Belgium', annualEur: 11_100_000, source: 'Capology 2025-26 (Napoli)' },
   { display: 'Romelu Lukaku', lastname: 'lukaku', nationality: 'Belgium', annualEur: 9_000_000, source: 'Capology 2025-26' },
   { display: 'Thibaut Courtois', lastname: 'courtois', nationality: 'Belgium', annualEur: 15_000_000, source: 'Capology 2025-26' },
   { display: 'Jeremy Doku', lastname: 'doku', nationality: 'Belgium', annualEur: 4_700_000, source: 'Spotrac 2025-26' },
@@ -129,7 +129,7 @@ export const curatedSalaries: CuratedSalary[] = [
   // ── Italy ─────────────────────────────────────────────────
   { display: 'Federico Chiesa', lastname: 'chiesa', nationality: 'Italy', annualEur: 7_000_000, source: 'Spotrac 2025-26' },
   { display: 'Gianluigi Donnarumma', lastname: 'donnarumma', nationality: 'Italy', annualEur: 12_000_000, source: 'Capology 2025-26' },
-  { display: 'Nicolò Barella', lastname: 'barella', nationality: 'Italy', annualEur: 6_500_000, source: 'Capology 2025-26' },
+  { display: 'Nicolò Barella', lastname: 'barella', nationality: 'Italy', annualEur: 12_000_000, source: 'Capology 2025-26 (Inter)' },
 
   // ── Croatia ───────────────────────────────────────────────
   { display: 'Luka Modrić', lastname: 'modric', nationality: 'Croatia', annualEur: 10_000_000, source: 'Capology 2025-26' },
@@ -160,7 +160,7 @@ export const curatedSalaries: CuratedSalary[] = [
 
   // ── Canada ────────────────────────────────────────────────
   { display: 'Alphonso Davies', lastname: 'davies', firstnameHint: 'alphonso', nationality: 'Canada', annualEur: 13_000_000, source: 'Capology 2025-26' },
-  { display: 'Jonathan David', lastname: 'david', firstnameHint: 'jonathan', nationality: 'Canada', annualEur: 6_500_000, source: 'Capology 2025-26' },
+  { display: 'Jonathan David', lastname: 'david', firstnameHint: 'jonathan', nationality: 'Canada', annualEur: 11_100_000, source: 'Capology 2025-26 (Juventus)' },
 
   // ── Switzerland ───────────────────────────────────────────
   { display: 'Granit Xhaka', lastname: 'xhaka', nationality: 'Switzerland', annualEur: 6_500_000, source: 'Capology 2025-26' },
@@ -169,6 +169,63 @@ export const curatedSalaries: CuratedSalary[] = [
 
   // ── Türkiye ───────────────────────────────────────────────
   { display: 'Arda Güler', lastname: 'guler', nationality: 'Türkiye', annualEur: 4_000_000, source: 'Capology 2025-26' },
-  { display: 'Hakan Çalhanoğlu', lastname: 'calhanoglu', nationality: 'Türkiye', annualEur: 6_500_000, source: 'Capology 2025-26' },
+  { display: 'Hakan Çalhanoğlu', lastname: 'calhanoglu', nationality: 'Türkiye', annualEur: 11_100_000, source: 'Capology 2025-26 (Inter)' },
   { display: 'Kenan Yıldız', lastname: 'yildiz', nationality: 'Türkiye', annualEur: 3_500_000, source: 'Capology 2025-26' },
+
+  // ── Batch 2 additions (verified June 2026) ────────────────
+  // Brazil
+  { display: 'Bremer', lastname: 'bremer', nationality: 'Brazil', annualEur: 5_500_000, source: 'Capology 2025-26' },
+  // Argentina
+  { display: 'Cristian Romero', lastname: 'romero', firstnameHint: 'cristian', nationality: 'Argentina', annualEur: 6_000_000, source: 'Spotrac 2025-26' },
+  { display: 'Nicolás Otamendi', lastname: 'otamendi', nationality: 'Argentina', annualEur: 4_000_000, source: 'Capology 2025-26' },
+  { display: 'Enzo Fernández', lastname: 'fernandez', firstnameHint: 'enzo', nationality: 'Argentina', annualEur: 9_400_000, source: 'Spotrac 2025-26 (£8M)' },
+  // England
+  { display: 'John Stones', lastname: 'stones', nationality: 'England', annualEur: 11_800_000, source: 'Spotrac 2025-26 (£10M)' },
+  { display: 'Kyle Walker', lastname: 'walker', firstnameHint: 'kyle', nationality: 'England', annualEur: 9_400_000, source: 'Spotrac 2025-26 (£8M)' },
+  { display: 'Jordan Pickford', lastname: 'pickford', nationality: 'England', annualEur: 7_100_000, source: 'Spotrac 2025-26 (£6M)' },
+  { display: 'Eberechi Eze', lastname: 'eze', nationality: 'England', annualEur: 9_400_000, source: 'Spotrac 2025-26 (£8M)' },
+  // Germany
+  { display: 'Leon Goretzka', lastname: 'goretzka', nationality: 'Germany', annualEur: 17_000_000, source: 'Goal.com 2025-26' },
+  { display: 'Niclas Füllkrug', lastname: 'fullkrug', nationality: 'Germany', annualEur: 5_500_000, source: 'Capology 2025-26' },
+  { display: 'Serge Gnabry', lastname: 'gnabry', nationality: 'Germany', annualEur: 17_000_000, source: 'Capology 2025-26' },
+  { display: 'Pascal Groß', lastname: 'gross', firstnameHint: 'pascal', nationality: 'Germany', annualEur: 4_500_000, source: 'Capology 2025-26' },
+  // France
+  { display: 'Theo Hernández', lastname: 'hernandez', firstnameHint: 'theo', nationality: 'France', annualEur: 9_000_000, source: 'Capology 2025-26' },
+  { display: 'William Saliba', lastname: 'saliba', nationality: 'France', annualEur: 9_400_000, source: 'Spotrac 2025-26 (£8M)' },
+  { display: 'Dayot Upamecano', lastname: 'upamecano', nationality: 'France', annualEur: 8_000_000, source: 'Capology 2025-26' },
+  { display: 'Ibrahima Konaté', lastname: 'konate', nationality: 'France', annualEur: 4_700_000, source: 'Spotrac 2025-26 (£4M)' },
+  { display: 'Federico Valverde', lastname: 'valverde', nationality: 'Uruguay', annualEur: 15_000_000, source: 'Capology 2025-26' },
+  // Portugal
+  { display: 'João Cancelo', lastname: 'cancelo', nationality: 'Portugal', annualEur: 15_000_000, source: 'Capology 2025-26 (Al-Hilal)' },
+  { display: 'Vitinha', lastname: 'vitinha', nationality: 'Portugal', annualEur: 11_800_000, source: 'Capology 2025-26 (PSG)' },
+  { display: 'Diogo Costa', lastname: 'costa', firstnameHint: 'diogo', nationality: 'Portugal', annualEur: 5_000_000, source: 'Capology 2025-26' },
+  // Spain
+  { display: 'Mikel Merino', lastname: 'merino', nationality: 'Spain', annualEur: 5_900_000, source: 'Spotrac 2025-26 (£5M)' },
+  { display: 'Dani Olmo', lastname: 'olmo', nationality: 'Spain', annualEur: 6_000_000, source: 'Capology 2025-26' },
+  { display: 'Robin Le Normand', lastname: 'normand', nationality: 'Spain', annualEur: 4_000_000, source: 'Capology 2025-26' },
+  // Italy
+  { display: 'Alessandro Bastoni', lastname: 'bastoni', nationality: 'Italy', annualEur: 6_000_000, source: 'Capology 2025-26' },
+  { display: 'Sandro Tonali', lastname: 'tonali', nationality: 'Italy', annualEur: 9_400_000, source: 'Spotrac 2025-26 (£8M)' },
+  { display: 'Manuel Locatelli', lastname: 'locatelli', nationality: 'Italy', annualEur: 5_000_000, source: 'Capology 2025-26' },
+  // Netherlands
+  { display: 'Jurriën Timber', lastname: 'timber', nationality: 'Netherlands', annualEur: 4_700_000, source: 'Spotrac 2025-26 (£4M)' },
+  { display: 'Tijjani Reijnders', lastname: 'reijnders', nationality: 'Netherlands', annualEur: 4_000_000, source: 'Capology 2025-26' },
+  // Belgium
+  { display: 'Youri Tielemans', lastname: 'tielemans', nationality: 'Belgium', annualEur: 5_900_000, source: 'Spotrac 2025-26 (£5M)' },
+  { display: 'Amadou Onana', lastname: 'onana', firstnameHint: 'amadou', nationality: 'Belgium', annualEur: 7_100_000, source: 'Spotrac 2025-26 (£6M)' },
+  // Croatia
+  { display: 'Marcelo Brozović', lastname: 'brozovic', nationality: 'Croatia', annualEur: 24_200_000, source: 'Capology 2025-26 (Al-Nassr)' },
+  { display: 'Andrej Kramarić', lastname: 'kramaric', nationality: 'Croatia', annualEur: 3_000_000, source: 'Capology 2025-26' },
+  // Norway
+  { display: 'Alexander Sørloth', lastname: 'sorloth', nationality: 'Norway', annualEur: 4_000_000, source: 'Capology 2025-26' },
+  // USA
+  { display: 'Yunus Musah', lastname: 'musah', nationality: 'USA', annualEur: 3_000_000, source: 'Capology 2025-26' },
+  { display: 'Brenden Aaronson', lastname: 'aaronson', nationality: 'USA', annualEur: 2_400_000, source: 'Spotrac 2025-26 (£2M)' },
+  { display: 'Sergiño Dest', lastname: 'dest', nationality: 'USA', annualEur: 2_500_000, source: 'Capology 2025-26' },
+
+  // ── Batch 3: Serie A / PSG / Saudi top earners ────────────
+  { display: 'Dušan Vlahović', lastname: 'vlahovic', firstnameHint: 'dusan', nationality: 'Serbia', annualEur: 22_200_000, source: 'Football-Italia 2025-26 (Juventus)' },
+  { display: 'Warren Zaïre-Emery', lastname: 'zaire-emery', nationality: 'France', annualEur: 9_500_000, source: 'Capology 2025-26 (PSG)' },
+  { display: 'Denzel Dumfries', lastname: 'dumfries', nationality: 'Netherlands', annualEur: 4_500_000, source: 'Capology 2025-26 (Inter)' },
+  { display: 'Federico Dimarco', lastname: 'dimarco', nationality: 'Italy', annualEur: 4_500_000, source: 'Capology 2025-26 (Inter)' },
 ]

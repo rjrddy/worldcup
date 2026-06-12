@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { getProvider } from '@/lib/providers'
 import { TeamPanel } from '@/components/TeamPanel'
 import { CountryFlag } from '@/components/CountryFlag'
-import { formatKickoffDate } from '@/lib/utils'
+import { KickoffTime } from '@/components/KickoffTime'
 
 // Pre-render every match page at build time. Data is read from cached JSON
 // in ./data/, so this costs no API calls and produces fully static HTML.
@@ -38,7 +38,6 @@ export default async function MatchPage({ params }: Props) {
   if (!detail) notFound()
 
   const { match, home, away } = detail
-  const k = formatKickoffDate(match.kickoff)
   const stageLabel =
     match.stage === 'group'
       ? match.group
@@ -73,11 +72,7 @@ export default async function MatchPage({ params }: Props) {
             </div>
 
             <div className="match-hero__vs" aria-hidden="true">
-              <div className="match-hero__vs-date">
-                {k.weekday} {k.month} {k.day}
-              </div>
-              <div className="match-hero__vs-time">{k.time}</div>
-              <div className="match-hero__vs-tz">{k.tz}</div>
+              <KickoffTime iso={match.kickoff} variant="hero" />
             </div>
 
             <div className="match-hero__team match-hero__team--away">

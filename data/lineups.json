@@ -1,1 +1,102 @@
-{}
+{
+  "af-1489369": {
+    "home": {
+      "formation": "4-1-4-1",
+      "startXI": [
+        {
+          "playerId": 270774,
+          "grid": "1:1"
+        },
+        {
+          "playerId": 127227,
+          "grid": "2:4"
+        },
+        {
+          "playerId": 2873,
+          "grid": "2:3"
+        },
+        {
+          "playerId": 35544,
+          "grid": "2:2"
+        },
+        {
+          "playerId": 2881,
+          "grid": "2:1"
+        },
+        {
+          "playerId": 266345,
+          "grid": "3:1"
+        },
+        {
+          "playerId": 2879,
+          "grid": "4:4"
+        },
+        {
+          "playerId": 212233,
+          "grid": "4:3"
+        },
+        {
+          "playerId": 750,
+          "grid": "4:2"
+        },
+        {
+          "playerId": 35532,
+          "grid": "4:1"
+        },
+        {
+          "playerId": 2887,
+          "grid": "5:1"
+        }
+      ]
+    },
+    "away": {
+      "formation": "5-3-2",
+      "startXI": [
+        {
+          "playerId": 3275,
+          "grid": "1:1"
+        },
+        {
+          "playerId": 46601,
+          "grid": "2:5"
+        },
+        {
+          "playerId": 46458,
+          "grid": "2:4"
+        },
+        {
+          "playerId": 406752,
+          "grid": "2:3"
+        },
+        {
+          "playerId": 510799,
+          "grid": "2:2"
+        },
+        {
+          "playerId": 46334,
+          "grid": "2:1"
+        },
+        {
+          "playerId": 3287,
+          "grid": "3:3"
+        },
+        {
+          "playerId": 158433,
+          "grid": "3:2"
+        },
+        {
+          "playerId": 268710,
+          "grid": "3:1"
+        },
+        {
+          "playerId": 127429,
+          "grid": "4:2"
+        },
+        {
+          "playerId": 98936,
+          "grid": "4:1"
+        }
+      ]
+    }
+  }
+}

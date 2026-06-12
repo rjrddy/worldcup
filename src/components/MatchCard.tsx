@@ -1,24 +1,25 @@
 import Link from 'next/link'
 import type { Match } from '@/lib/types'
-import { formatKickoffDate } from '@/lib/utils'
 import { CountryFlag } from './CountryFlag'
+import { KickoffTime } from './KickoffTime'
 
 interface MatchCardProps {
   match: Match
 }
 
 export function MatchCard({ match }: MatchCardProps) {
-  const k = formatKickoffDate(match.kickoff)
   const isClickable = !!match.hasLineups
   const Tag = isClickable ? Link : 'div'
+  // The aria-label uses the ISO string so screen readers always announce
+  // the kickoff. Browsers convert it to the user's locale automatically.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const tagProps: any = isClickable
     ? {
         href: `/match/${match.id}`,
-        'aria-label': `${match.home.name} vs ${match.away.name} — ${k.weekday} ${k.month} ${k.day}, ${k.time} ${k.tz}. View squads.`,
+        'aria-label': `${match.home.name} vs ${match.away.name}. View squads.`,
       }
     : {
-        'aria-label': `${match.home.name} vs ${match.away.name} — ${k.weekday} ${k.month} ${k.day}, ${k.time} ${k.tz}.`,
+        'aria-label': `${match.home.name} vs ${match.away.name}`,
       }
 
   return (
@@ -35,8 +36,7 @@ export function MatchCard({ match }: MatchCardProps) {
         </span>
       )}
       <div className="match-card__date" aria-hidden="true">
-        <span className="match-card__date-month">{k.month}</span>
-        <span className="match-card__date-day">{k.day}</span>
+        <KickoffTime iso={match.kickoff} variant="card-chip" />
       </div>
 
       <div className="match-card__body">
@@ -64,7 +64,7 @@ export function MatchCard({ match }: MatchCardProps) {
 
         <div className="match-card__meta">
           <time dateTime={match.kickoff} className="match-card__time">
-            {k.weekday} · {k.time} {k.tz}
+            <KickoffTime iso={match.kickoff} variant="card-meta" />
           </time>
           {match.venue && (
             <span className="match-card__venue" title={match.venue}>

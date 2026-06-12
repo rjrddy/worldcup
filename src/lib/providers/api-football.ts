@@ -34,18 +34,48 @@ function normalizeName(s: string | null | undefined): string {
  *
  * Memoized at module level — recomputed only when squads/teams cache changes.
  */
+/**
+ * Shape of the optional `data/market-values.json` (produced by the TM scraper).
+ * Each entry is keyed by `af-<playerId>`. Values are normalized to EUR.
+ */
+type MarketValueCache = Record<string, Salary>
+
 let _salaryCache:
-  | { squadsRef: unknown; teamsRef: unknown; map: Record<string, Salary> }
+  | {
+      squadsRef: unknown
+      teamsRef: unknown
+      mvRef: unknown
+      map: Record<string, Salary>
+    }
   | null = null
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function buildSalaryMap(squads: any, teams: any): Record<string, Salary> {
-  if (_salaryCache && _salaryCache.squadsRef === squads && _salaryCache.teamsRef === teams) {
+/**
+ * Build the salary map keyed by `af-<playerId>`.
+ *
+ * Source priority:
+ *   1. `curatedSalaries` — manually curated annual base salaries (highest quality)
+ *   2. `marketValues` — Transfermarkt market value (fallback, marked
+ *      `isMarketValue: true` so the UI labels it "Market value")
+ *   3. undefined (player card shows "—")
+ */
+function buildSalaryMap(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  squads: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  teams: any,
+  marketValues: MarketValueCache
+): Record<string, Salary> {
+  if (
+    _salaryCache &&
+    _salaryCache.squadsRef === squads &&
+    _salaryCache.teamsRef === teams &&
+    _salaryCache.mvRef === marketValues
+  ) {
     return _salaryCache.map
   }
   const map: Record<string, Salary> = {}
 
-  // Group curated entries by lowercased nationality for fast filter.
+  // ── 1. Curated salaries ─────────────────────────────────
   const byNat: Record<string, CuratedSalary[]> = {}
   for (const c of curatedSalaries) {
     const k = c.nationality.toLowerCase()
@@ -56,37 +86,52 @@ function buildSalaryMap(squads: any, teams: any): Record<string, Salary> {
     const teamMeta = teams[teamId as string]
     const teamNationality = (teamMeta?.name ?? '').toLowerCase()
     const candidates = byNat[teamNationality] ?? []
-    if (!candidates.length) continue
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     for (const p of players as any[]) {
       const pid = p.player?.id
       if (!pid) continue
+      const key = `af-${pid}`
 
-      const haystack = normalizeName(
-        [p.player?.name, p.player?.firstname, p.player?.lastname]
-          .filter(Boolean)
-          .join(' ')
-      )
-      const firstName = normalizeName(p.player?.firstname)
-
-      for (const c of candidates) {
-        if (!haystack.includes(normalizeName(c.lastname))) continue
-        // Optional firstname disambiguation (e.g. multiple Silvas in Portugal)
-        if (c.firstnameHint && !firstName.includes(normalizeName(c.firstnameHint))) {
+      // 1a) Try curated salary match
+      if (candidates.length) {
+        const haystack = normalizeName(
+          [p.player?.name, p.player?.firstname, p.player?.lastname]
+            .filter(Boolean)
+            .join(' ')
+        )
+        const firstName = normalizeName(p.player?.firstname)
+        let curated: CuratedSalary | undefined
+        for (const c of candidates) {
+          if (!haystack.includes(normalizeName(c.lastname))) continue
+          if (
+            c.firstnameHint &&
+            !firstName.includes(normalizeName(c.firstnameHint))
+          ) {
+            continue
+          }
+          curated = c
+          break
+        }
+        if (curated) {
+          map[key] = {
+            annualEur: curated.annualEur,
+            source: curated.source,
+            isMarketValue: false,
+          }
           continue
         }
-        map[`af-${pid}`] = {
-          annualEur: c.annualEur,
-          source: c.source,
-          isMarketValue: false,
-        }
-        break
+      }
+
+      // 1b) Fallback: market value from Transfermarkt scrape
+      const mv = marketValues[key]
+      if (mv && mv.annualEur > 0) {
+        map[key] = { ...mv, isMarketValue: true }
       }
     }
   }
 
-  _salaryCache = { squadsRef: squads, teamsRef: teams, map }
+  _salaryCache = { squadsRef: squads, teamsRef: teams, mvRef: marketValues, map }
   return map
 }
 
@@ -361,25 +406,35 @@ interface StandingsCache {
 }
 
 async function loadCaches() {
-  const [fixtures, squads, teams, lineups, clubs, clubMeta, standings] =
-    await Promise.all([
-      readJson<FixturesCache>('fixtures.json'),
-      readJson<SquadCache>('squads.json'),
-      readJson<TeamMetaCache>('teams.json'),
-      readJson<LineupCache>('lineups.json'),
-      readJson<ClubsCache>('clubs.json'),
-      readJson<ClubMetaCache>('club-meta.json'),
-      readJson<StandingsCache>('standings.json'),
-    ])
+  const [
+    fixtures,
+    squads,
+    teams,
+    lineups,
+    clubs,
+    clubMeta,
+    standings,
+    marketValues,
+  ] = await Promise.all([
+    readJson<FixturesCache>('fixtures.json'),
+    readJson<SquadCache>('squads.json'),
+    readJson<TeamMetaCache>('teams.json'),
+    readJson<LineupCache>('lineups.json'),
+    readJson<ClubsCache>('clubs.json'),
+    readJson<ClubMetaCache>('club-meta.json'),
+    readJson<StandingsCache>('standings.json'),
+    readJson<MarketValueCache>('market-values.json'),
+  ])
   const safeSquads = squads ?? {}
   const safeTeams = teams ?? {}
+  const safeMv = marketValues ?? {}
   return {
     fixtures,
     squads: safeSquads,
     teams: safeTeams,
     standings,
     lineups: lineups ?? {},
-    salaryMap: buildSalaryMap(safeSquads, safeTeams),
+    salaryMap: buildSalaryMap(safeSquads, safeTeams, safeMv),
     clubs: clubs ?? {},
     clubMeta: clubMeta ?? {},
   }

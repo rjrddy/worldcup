@@ -97,7 +97,11 @@ function parseValue(raw) {
     mult === 'k' ? value * 1_000 :
     mult === 'bn' ? value * 1_000_000_000 :
     value
-  return { annual: Math.round(annual), currency: 'EUR', source: 'Transfermarkt', isMarketValue: true }
+  return {
+    annualEur: Math.round(annual),
+    source: 'Transfermarkt',
+    isMarketValue: true,
+  }
 }
 
 async function scrapePlayerByUrl(slug, tmId) {
@@ -250,7 +254,7 @@ async function main() {
       if (value) {
         out[t.id] = value
         console.log(
-          `[${i}/${targets.length}] ${t.name} — €${(value.annual / 1_000_000).toFixed(1)}M (market value)`
+          `[${i}/${targets.length}] ${t.name} — €${(value.annualEur / 1_000_000).toFixed(1)}M (market value)`
         )
       } else {
         console.log(`[${i}/${targets.length}] ${t.name} — couldn't parse value`)

@@ -8,37 +8,19 @@
           "name": "Mexico",
           "logo": "https://media.api-sports.io/football/teams/16.png"
         },
-        "played": 0,
-        "win": 0,
+        "played": 1,
+        "win": 1,
         "draw": 0,
         "lose": 0,
-        "goalsFor": 0,
+        "goalsFor": 2,
         "goalsAgainst": 0,
-        "goalDifference": 0,
-        "points": 0,
-        "form": "",
-        "groupRaw": "Group A"
+        "goalDifference": 2,
+        "points": 3,
+        "form": "W",
+        "groupRaw": "Group Stage - Group A"
       },
       {
         "rank": 2,
-        "team": {
-          "id": "af-team-1531",
-          "name": "South Africa",
-          "logo": "https://media.api-sports.io/football/teams/1531.png"
-        },
-        "played": 0,
-        "win": 0,
-        "draw": 0,
-        "lose": 0,
-        "goalsFor": 0,
-        "goalsAgainst": 0,
-        "goalDifference": 0,
-        "points": 0,
-        "form": "",
-        "groupRaw": "Group A"
-      },
-      {
-        "rank": 3,
         "team": {
           "id": "af-team-17",
           "name": "South Korea",
@@ -53,10 +35,10 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group A"
+        "groupRaw": "Group Stage - Group A"
       },
       {
-        "rank": 4,
+        "rank": 3,
         "team": {
           "id": "af-team-770",
           "name": "Czech Republic",
@@ -71,7 +53,25 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group A"
+        "groupRaw": "Group Stage - Group A"
+      },
+      {
+        "rank": 4,
+        "team": {
+          "id": "af-team-1531",
+          "name": "South Africa",
+          "logo": "https://media.api-sports.io/football/teams/1531.png"
+        },
+        "played": 1,
+        "win": 0,
+        "draw": 0,
+        "lose": 1,
+        "goalsFor": 0,
+        "goalsAgainst": 2,
+        "goalDifference": -2,
+        "points": 0,
+        "form": "L",
+        "groupRaw": "Group Stage - Group A"
       }
     ],
     [
@@ -91,7 +91,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group B"
+        "groupRaw": "Group Stage - Group B"
       },
       {
         "rank": 2,
@@ -109,7 +109,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group B"
+        "groupRaw": "Group Stage - Group B"
       },
       {
         "rank": 3,
@@ -127,7 +127,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group B"
+        "groupRaw": "Group Stage - Group B"
       },
       {
         "rank": 4,
@@ -145,7 +145,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group B"
+        "groupRaw": "Group Stage - Group B"
       }
     ],
     [
@@ -165,7 +165,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group C"
+        "groupRaw": "Group Stage - Group C"
       },
       {
         "rank": 2,
@@ -183,7 +183,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group C"
+        "groupRaw": "Group Stage - Group C"
       },
       {
         "rank": 3,
@@ -201,7 +201,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group C"
+        "groupRaw": "Group Stage - Group C"
       },
       {
         "rank": 4,
@@ -219,7 +219,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group C"
+        "groupRaw": "Group Stage - Group C"
       }
     ],
     [
@@ -239,7 +239,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group D"
+        "groupRaw": "Group Stage - Group D"
       },
       {
         "rank": 2,
@@ -257,7 +257,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group D"
+        "groupRaw": "Group Stage - Group D"
       },
       {
         "rank": 3,
@@ -275,7 +275,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group D"
+        "groupRaw": "Group Stage - Group D"
       },
       {
         "rank": 4,
@@ -293,7 +293,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group D"
+        "groupRaw": "Group Stage - Group D"
       }
     ],
     [
@@ -313,7 +313,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group E"
+        "groupRaw": "Group Stage - Group E"
       },
       {
         "rank": 2,
@@ -331,7 +331,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group E"
+        "groupRaw": "Group Stage - Group E"
       },
       {
         "rank": 3,
@@ -349,7 +349,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group E"
+        "groupRaw": "Group Stage - Group E"
       },
       {
         "rank": 4,
@@ -367,7 +367,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group E"
+        "groupRaw": "Group Stage - Group E"
       }
     ],
     [
@@ -387,7 +387,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group F"
+        "groupRaw": "Group Stage - Group F"
       },
       {
         "rank": 2,
@@ -405,7 +405,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group F"
+        "groupRaw": "Group Stage - Group F"
       },
       {
         "rank": 3,
@@ -423,7 +423,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group F"
+        "groupRaw": "Group Stage - Group F"
       },
       {
         "rank": 4,
@@ -441,7 +441,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group F"
+        "groupRaw": "Group Stage - Group F"
       }
     ],
     [
@@ -461,7 +461,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group G"
+        "groupRaw": "Group Stage - Group G"
       },
       {
         "rank": 2,
@@ -479,7 +479,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group G"
+        "groupRaw": "Group Stage - Group G"
       },
       {
         "rank": 3,
@@ -497,7 +497,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group G"
+        "groupRaw": "Group Stage - Group G"
       },
       {
         "rank": 4,
@@ -515,7 +515,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group G"
+        "groupRaw": "Group Stage - Group G"
       }
     ],
     [
@@ -535,7 +535,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group H"
+        "groupRaw": "Group Stage - Group H"
       },
       {
         "rank": 2,
@@ -553,7 +553,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group H"
+        "groupRaw": "Group Stage - Group H"
       },
       {
         "rank": 3,
@@ -571,7 +571,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group H"
+        "groupRaw": "Group Stage - Group H"
       },
       {
         "rank": 4,
@@ -589,7 +589,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group H"
+        "groupRaw": "Group Stage - Group H"
       }
     ],
     [
@@ -609,7 +609,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group I"
+        "groupRaw": "Group Stage - Group I"
       },
       {
         "rank": 2,
@@ -627,7 +627,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group I"
+        "groupRaw": "Group Stage - Group I"
       },
       {
         "rank": 3,
@@ -645,7 +645,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group I"
+        "groupRaw": "Group Stage - Group I"
       },
       {
         "rank": 4,
@@ -663,7 +663,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group I"
+        "groupRaw": "Group Stage - Group I"
       }
     ],
     [
@@ -683,7 +683,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group J"
+        "groupRaw": "Group Stage - Group J"
       },
       {
         "rank": 2,
@@ -701,7 +701,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group J"
+        "groupRaw": "Group Stage - Group J"
       },
       {
         "rank": 3,
@@ -719,7 +719,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group J"
+        "groupRaw": "Group Stage - Group J"
       },
       {
         "rank": 4,
@@ -737,7 +737,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group J"
+        "groupRaw": "Group Stage - Group J"
       }
     ],
     [
@@ -757,7 +757,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group K"
+        "groupRaw": "Group Stage - Group K"
       },
       {
         "rank": 2,
@@ -775,7 +775,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group K"
+        "groupRaw": "Group Stage - Group K"
       },
       {
         "rank": 3,
@@ -793,7 +793,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group K"
+        "groupRaw": "Group Stage - Group K"
       },
       {
         "rank": 4,
@@ -811,7 +811,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group K"
+        "groupRaw": "Group Stage - Group K"
       }
     ],
     [
@@ -831,7 +831,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group L"
+        "groupRaw": "Group Stage - Group L"
       },
       {
         "rank": 2,
@@ -849,7 +849,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group L"
+        "groupRaw": "Group Stage - Group L"
       },
       {
         "rank": 3,
@@ -867,7 +867,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group L"
+        "groupRaw": "Group Stage - Group L"
       },
       {
         "rank": 4,
@@ -885,16 +885,16 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Group L"
+        "groupRaw": "Group Stage - Group L"
       }
     ],
     [
       {
         "rank": 1,
         "team": {
-          "id": "af-team-17",
-          "name": "South Korea",
-          "logo": "https://media.api-sports.io/football/teams/17.png"
+          "id": "af-team-22",
+          "name": "Iran",
+          "logo": "https://media.api-sports.io/football/teams/22.png"
         },
         "played": 0,
         "win": 0,
@@ -905,14 +905,14 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Ranking of third-placed teams"
+        "groupRaw": "Group Stage"
       },
       {
         "rank": 2,
         "team": {
-          "id": "af-team-1569",
-          "name": "Qatar",
-          "logo": "https://media.api-sports.io/football/teams/1569.png"
+          "id": "af-team-775",
+          "name": "Austria",
+          "logo": "https://media.api-sports.io/football/teams/775.png"
         },
         "played": 0,
         "win": 0,
@@ -923,14 +923,14 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Ranking of third-placed teams"
+        "groupRaw": "Group Stage"
       },
       {
         "rank": 3,
         "team": {
-          "id": "af-team-2386",
-          "name": "Haiti",
-          "logo": "https://media.api-sports.io/football/teams/2386.png"
+          "id": "af-team-770",
+          "name": "Czech Republic",
+          "logo": "https://media.api-sports.io/football/teams/770.png"
         },
         "played": 0,
         "win": 0,
@@ -941,7 +941,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Ranking of third-placed teams"
+        "groupRaw": "Group Stage"
       },
       {
         "rank": 4,
@@ -959,7 +959,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Ranking of third-placed teams"
+        "groupRaw": "Group Stage"
       },
       {
         "rank": 5,
@@ -977,7 +977,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Ranking of third-placed teams"
+        "groupRaw": "Group Stage"
       },
       {
         "rank": 6,
@@ -995,14 +995,14 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Ranking of third-placed teams"
+        "groupRaw": "Group Stage"
       },
       {
         "rank": 7,
         "team": {
-          "id": "af-team-22",
-          "name": "Iran",
-          "logo": "https://media.api-sports.io/football/teams/22.png"
+          "id": "af-team-1568",
+          "name": "Uzbekistan",
+          "logo": "https://media.api-sports.io/football/teams/1568.png"
         },
         "played": 0,
         "win": 0,
@@ -1013,14 +1013,14 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Ranking of third-placed teams"
+        "groupRaw": "Group Stage"
       },
       {
         "rank": 8,
         "team": {
-          "id": "af-team-23",
-          "name": "Saudi Arabia",
-          "logo": "https://media.api-sports.io/football/teams/23.png"
+          "id": "af-team-1569",
+          "name": "Qatar",
+          "logo": "https://media.api-sports.io/football/teams/1569.png"
         },
         "played": 0,
         "win": 0,
@@ -1031,7 +1031,7 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Ranking of third-placed teams"
+        "groupRaw": "Group Stage"
       },
       {
         "rank": 9,
@@ -1049,14 +1049,14 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Ranking of third-placed teams"
+        "groupRaw": "Group Stage"
       },
       {
         "rank": 10,
         "team": {
-          "id": "af-team-775",
-          "name": "Austria",
-          "logo": "https://media.api-sports.io/football/teams/775.png"
+          "id": "af-team-23",
+          "name": "Saudi Arabia",
+          "logo": "https://media.api-sports.io/football/teams/23.png"
         },
         "played": 0,
         "win": 0,
@@ -1067,28 +1067,10 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Ranking of third-placed teams"
+        "groupRaw": "Group Stage"
       },
       {
         "rank": 11,
-        "team": {
-          "id": "af-team-1568",
-          "name": "Uzbekistan",
-          "logo": "https://media.api-sports.io/football/teams/1568.png"
-        },
-        "played": 0,
-        "win": 0,
-        "draw": 0,
-        "lose": 0,
-        "goalsFor": 0,
-        "goalsAgainst": 0,
-        "goalDifference": 0,
-        "points": 0,
-        "form": "",
-        "groupRaw": "Ranking of third-placed teams"
-      },
-      {
-        "rank": 12,
         "team": {
           "id": "af-team-1504",
           "name": "Ghana",
@@ -1103,7 +1085,25 @@
         "goalDifference": 0,
         "points": 0,
         "form": "",
-        "groupRaw": "Ranking of third-placed teams"
+        "groupRaw": "Group Stage"
+      },
+      {
+        "rank": 12,
+        "team": {
+          "id": "af-team-2386",
+          "name": "Haiti",
+          "logo": "https://media.api-sports.io/football/teams/2386.png"
+        },
+        "played": 0,
+        "win": 0,
+        "draw": 0,
+        "lose": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "goalDifference": 0,
+        "points": 0,
+        "form": "",
+        "groupRaw": "Group Stage"
       }
     ]
   ]

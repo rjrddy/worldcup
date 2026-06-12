@@ -80,17 +80,52 @@ Settings → Environment Variables → add **all four**:
 
 Then redeploy with **"Use existing Build Cache" UNCHECKED**.
 
-## Live updates (Vercel Cron)
+## Live updates (external cron — free on Vercel Hobby)
 
-`vercel.json` is already configured to ping `/api/cron/refresh-live` every minute. As long as the env vars above are set in Production, live scores and events flow automatically from api-football → Supabase → your browser whenever a WC match is on.
+Vercel Hobby caps crons at **once per day**, which won't give near-real-time scores. Two ways around it:
 
-To verify locally:
+### Option A — Vercel Pro ($20/mo)
+
+Add this back to `vercel.json`:
+```json
+{ "crons": [{ "path": "/api/cron/refresh-live", "schedule": "* * * * *" }] }
+```
+Done. Vercel hits the route every minute automatically (Bearer-authed with `CRON_SECRET`).
+
+### Option B — External cron (cron-job.org, free)
+
+1. Sign up at https://cron-job.org (free)
+2. **Create cronjob** → URL: `https://<your-vercel-domain>/api/cron/refresh-live`
+3. Schedule: **every minute**
+4. Advanced → **Request Method**: GET; **Request Headers**: add
+   ```
+   Authorization: Bearer <your CRON_SECRET value>
+   ```
+5. Save + enable. cron-job.org will ping every minute, the route checks the header, and updates Supabase.
+
+### Option C — GitHub Actions (also free)
+
+`.github/workflows/cron.yml`:
+```yaml
+name: Live data refresh
+on:
+  schedule:
+    - cron: '* * * * *'
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -fsS -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" https://<your-vercel-domain>/api/cron/refresh-live
+```
+Add `CRON_SECRET` as a repo secret.
+
+### Verify locally
+
 ```
 curl http://localhost:3000/api/cron/refresh-live
 # returns { "ok": true, "fixtures": N, "events": M }
 ```
-
-(Locally, no auth header is required since CRON_SECRET is unset.)
+(Locally no auth needed since `CRON_SECRET` is unset.)
 
 ## 6. Test it
 

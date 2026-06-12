@@ -48,8 +48,16 @@ In Supabase you can't enable Google without creating a Google OAuth client first
 
 In Supabase → **Project Settings → API**:
 
-- `Project URL` → goes into env as `NEXT_PUBLIC_SUPABASE_URL`
-- `anon public` key → goes into env as `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `Project URL` → env `NEXT_PUBLIC_SUPABASE_URL`
+- `anon public` key → env `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `service_role` key → env `SUPABASE_SERVICE_ROLE_KEY` ⚠️ **server-only, never expose**
+
+The `service_role` key is used by the live-data cron job to write to the `live_status` and `match_events` tables (it bypasses RLS by design). Keep it secret.
+
+## 4b. Vercel Cron secret
+
+Vercel auto-signs every cron request with a Bearer token. Generate a random secret and add to Vercel env:
+- `CRON_SECRET` → any long random string. The cron route rejects unauthorized requests.
 
 ## 5. Add to env vars
 
@@ -57,10 +65,32 @@ In Supabase → **Project Settings → API**:
 ```
 NEXT_PUBLIC_SUPABASE_URL=https://xxxxxxxxxxxx.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOi...
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOi...      # server-only, do NOT prefix with NEXT_PUBLIC_
+CRON_SECRET=                                  # any long random string
+API_FOOTBALL_KEY=                             # already set
 ```
 
 ### Vercel
-Settings → Environment Variables → add both, scope to Production + Preview + Development → redeploy with **"Use existing Build Cache" UNCHECKED**.
+Settings → Environment Variables → add **all four**:
+- `NEXT_PUBLIC_SUPABASE_URL` (scope: all environments)
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` (scope: all environments)
+- `SUPABASE_SERVICE_ROLE_KEY` (**scope: Production only** — sensitive)
+- `CRON_SECRET` (scope: all environments)
+- `API_FOOTBALL_KEY` (already there if you set it up earlier)
+
+Then redeploy with **"Use existing Build Cache" UNCHECKED**.
+
+## Live updates (Vercel Cron)
+
+`vercel.json` is already configured to ping `/api/cron/refresh-live` every minute. As long as the env vars above are set in Production, live scores and events flow automatically from api-football → Supabase → your browser whenever a WC match is on.
+
+To verify locally:
+```
+curl http://localhost:3000/api/cron/refresh-live
+# returns { "ok": true, "fixtures": N, "events": M }
+```
+
+(Locally, no auth header is required since CRON_SECRET is unset.)
 
 ## 6. Test it
 

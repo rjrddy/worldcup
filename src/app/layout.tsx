@@ -7,6 +7,7 @@ import {
 } from 'next/font/google'
 import './globals.css'
 import { CurrencyProvider } from '@/components/CurrencyProvider'
+import { LiveProvider } from '@/components/LiveProvider'
 import { AppHeader } from '@/components/AppHeader'
 
 const bricolage = Bricolage_Grotesque({
@@ -70,8 +71,10 @@ export default function RootLayout({
           Skip to main content
         </a>
         <CurrencyProvider>
-          <AppHeader />
-          <div id="main-content">{children}</div>
+          <LiveProvider>
+            <AppHeader />
+            <div id="main-content">{children}</div>
+          </LiveProvider>
         </CurrencyProvider>
       </body>
     </html>

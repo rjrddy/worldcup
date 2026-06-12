@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Match } from '@/lib/types'
 import { CountryFlag } from './CountryFlag'
 import { KickoffTime } from './KickoffTime'
+import { MatchCardLive } from './MatchCardLive'
 
 interface MatchCardProps {
   match: Match
@@ -35,6 +36,7 @@ export function MatchCard({ match }: MatchCardProps) {
           {match.group}
         </span>
       )}
+      <MatchCardLive matchId={match.id} />
       <div className="match-card__date" aria-hidden="true">
         <KickoffTime iso={match.kickoff} variant="card-chip" />
       </div>

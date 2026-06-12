@@ -4,6 +4,8 @@ import type {
   MatchDetail,
   Team,
   GroupStanding,
+  LiveStatus,
+  MatchEvent,
 } from '@/lib/types'
 import { allMatches } from '@/lib/data/matches'
 import { brazilSquad } from '@/lib/data/brazil-squad'
@@ -74,6 +76,14 @@ export const mockProvider: WorldCupDataProvider = {
 
   async getStandings(): Promise<GroupStanding[]> {
     // Mock provider seeds Brazil + Morocco only; no realistic standings.
+    return []
+  },
+
+  async getLiveStatuses(): Promise<Record<string, LiveStatus>> {
+    return {}
+  },
+
+  async getMatchEvents(): Promise<MatchEvent[]> {
     return []
   },
 }

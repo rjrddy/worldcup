@@ -67,6 +67,45 @@ export interface MatchDetail {
   away: Team
 }
 
+export type LiveStatusShort =
+  | 'TBD' | 'NS'        // not started
+  | '1H' | 'HT' | '2H'  // first / half time / second
+  | 'ET' | 'BT' | 'P'   // extra time / break / penalties
+  | 'SUSP' | 'INT'      // suspended / interrupted
+  | 'FT' | 'AET' | 'PEN'// finished
+  | 'PST' | 'CANC' | 'ABD' | 'AWD' | 'WO' // off
+
+export interface LiveStatus {
+  fixtureId: string
+  statusShort: LiveStatusShort | string
+  statusLong?: string | null
+  elapsed?: number | null
+  addedMinute?: number | null
+  scoreHome?: number | null
+  scoreAway?: number | null
+  htHome?: number | null
+  htAway?: number | null
+  hasLineups: boolean
+  updatedAt?: string
+}
+
+export type MatchEventType = 'Goal' | 'Card' | 'subst' | 'Var' | 'Lineup' | string
+
+export interface MatchEvent {
+  fixtureId: string
+  minute: number
+  addedMinute?: number | null
+  type: MatchEventType
+  detail?: string | null   // 'Normal Goal', 'Yellow Card', 'Red Card', etc.
+  teamId?: string | null
+  teamName?: string | null
+  playerId?: string | null
+  playerName?: string | null
+  assistId?: string | null
+  assistName?: string | null
+  comments?: string | null
+}
+
 export interface Standing {
   rank: number
   team: TeamRef
@@ -90,6 +129,13 @@ export interface WorldCupDataProvider {
   getMatches(): Promise<Match[]>
   getMatchDetail(matchId: string): Promise<MatchDetail | null>
   getStandings(): Promise<GroupStanding[]>
+  /**
+   * Reads cached live status from Supabase for every fixture, returned as a
+   * Map keyed by fixtureId. Empty when no rows / Supabase unconfigured.
+   */
+  getLiveStatuses(): Promise<Record<string, LiveStatus>>
+  /** Reads the event timeline (goals, cards, subs) for a single fixture. */
+  getMatchEvents(matchId: string): Promise<MatchEvent[]>
 }
 
 export interface SalaryProvider {

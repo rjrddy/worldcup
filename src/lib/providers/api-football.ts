@@ -10,7 +10,10 @@ import type {
   Salary,
   GroupStanding,
   Standing,
+  LiveStatus,
+  MatchEvent,
 } from '@/lib/types'
+import { createClient as createSupabaseServerClient } from '@/lib/supabase/server'
 import {
   curatedSalaries,
   type CuratedSalary,
@@ -681,5 +684,61 @@ export const apiFootballProvider: WorldCupDataProvider = {
       out.push({ group, rows: mapped })
     }
     return out.sort((a, b) => a.group.localeCompare(b.group))
+  },
+
+  async getLiveStatuses(): Promise<Record<string, LiveStatus>> {
+    const supabase = createSupabaseServerClient()
+    if (!supabase) return {}
+    const { data, error } = await supabase
+      .from('live_status')
+      .select(
+        'fixture_id, status_short, status_long, elapsed, added_minute, score_home, score_away, ht_home, ht_away, has_lineups, updated_at'
+      )
+    if (error || !data) return {}
+    const out: Record<string, LiveStatus> = {}
+    for (const r of data) {
+      out[r.fixture_id] = {
+        fixtureId: r.fixture_id,
+        statusShort: r.status_short,
+        statusLong: r.status_long,
+        elapsed: r.elapsed,
+        addedMinute: r.added_minute,
+        scoreHome: r.score_home,
+        scoreAway: r.score_away,
+        htHome: r.ht_home,
+        htAway: r.ht_away,
+        hasLineups: !!r.has_lineups,
+        updatedAt: r.updated_at,
+      }
+    }
+    return out
+  },
+
+  async getMatchEvents(matchId: string): Promise<MatchEvent[]> {
+    const supabase = createSupabaseServerClient()
+    if (!supabase) return []
+    const { data, error } = await supabase
+      .from('match_events')
+      .select(
+        'fixture_id, minute, added_minute, type, detail, team_id, team_name, player_id, player_name, assist_id, assist_name, comments'
+      )
+      .eq('fixture_id', matchId)
+      .order('minute', { ascending: true })
+      .order('added_minute', { ascending: true, nullsFirst: true })
+    if (error || !data) return []
+    return data.map((r) => ({
+      fixtureId: r.fixture_id,
+      minute: r.minute,
+      addedMinute: r.added_minute,
+      type: r.type,
+      detail: r.detail,
+      teamId: r.team_id,
+      teamName: r.team_name,
+      playerId: r.player_id,
+      playerName: r.player_name,
+      assistId: r.assist_id,
+      assistName: r.assist_name,
+      comments: r.comments,
+    }))
   },
 }

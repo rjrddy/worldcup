@@ -5,6 +5,7 @@ import { getProvider } from '@/lib/providers'
 import { TeamPanel } from '@/components/TeamPanel'
 import { CountryFlag } from '@/components/CountryFlag'
 import { KickoffTime } from '@/components/KickoffTime'
+import { MatchLiveView } from '@/components/MatchLiveView'
 
 // Pre-render every match page at build time. Data is read from cached JSON
 // in ./data/, so this costs no API calls and produces fully static HTML.
@@ -96,6 +97,13 @@ export default async function MatchPage({ params }: Props) {
       </header>
 
       <main className="page-shell" id="main-content">
+        <MatchLiveView
+          matchId={match.id}
+          homeName={home.name}
+          awayName={away.name}
+          homeTeamId={home.id}
+          awayTeamId={away.id}
+        />
         <div className="team-grid">
           <TeamPanel team={home} side="home" />
           <TeamPanel team={away} side="away" />

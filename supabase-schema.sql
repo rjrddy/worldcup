@@ -118,10 +118,81 @@ exception when duplicate_object then null; end $$;
 
 
 -- ═══════════════════════════════════════════════════════════
--- Verify (returns 2 rows on success: profiles + brackets)
+-- live_status — one row per fixture, refreshed by the cron job
+-- ═══════════════════════════════════════════════════════════
+create table if not exists public.live_status (
+  fixture_id   text primary key,                -- "af-1489369"
+  status_short text not null,                   -- 'NS','1H','HT','2H','ET','FT','AET','PEN','PST','CANC'
+  status_long  text,
+  elapsed      int,                             -- minute in match; null when not running
+  added_minute int,                             -- stoppage minute
+  score_home   int,
+  score_away   int,
+  ht_home      int,                             -- half-time score
+  ht_away      int,
+  has_lineups  boolean not null default false,  -- starting XI published?
+  updated_at   timestamptz not null default now()
+);
+
+alter table public.live_status enable row level security;
+
+-- Public read; writes are done by the cron handler using the service-role key
+-- (service role bypasses RLS by design).
+do $$ begin
+  create policy live_status_read_all on public.live_status
+    for select using (true);
+exception when duplicate_object then null; end $$;
+
+
+-- ═══════════════════════════════════════════════════════════
+-- match_events — append-only timeline (goals, cards, subs, var)
+-- ═══════════════════════════════════════════════════════════
+create table if not exists public.match_events (
+  id           bigserial primary key,
+  fixture_id   text not null,                   -- e.g. "af-1489369"
+  -- A stable key derived from (fixture_id, minute, type, player_id, detail)
+  -- so cron upserts don't create duplicates on every poll.
+  event_key    text not null,
+  minute       int not null,
+  added_minute int,
+  type         text not null,                   -- 'Goal' | 'Card' | 'subst' | 'Var' | 'Lineup'
+  detail       text,                            -- 'Normal Goal' | 'Yellow Card' | 'Red Card' | ...
+  team_id      text,                            -- "af-team-16"
+  team_name    text,
+  player_id    text,
+  player_name  text,
+  assist_id    text,
+  assist_name  text,
+  comments     text,
+  created_at   timestamptz not null default now(),
+  unique (fixture_id, event_key)
+);
+
+create index if not exists match_events_fixture_idx
+  on public.match_events(fixture_id, minute, added_minute);
+
+alter table public.match_events enable row level security;
+
+do $$ begin
+  create policy match_events_read_all on public.match_events
+    for select using (true);
+exception when duplicate_object then null; end $$;
+
+
+-- ═══════════════════════════════════════════════════════════
+-- Auto-touch updated_at on live_status changes
+-- ═══════════════════════════════════════════════════════════
+do $$ begin
+  create trigger live_status_touch before update on public.live_status
+    for each row execute function public.touch_updated_at();
+exception when duplicate_object then null; end $$;
+
+
+-- ═══════════════════════════════════════════════════════════
+-- Verify (returns 4 rows on success)
 -- ═══════════════════════════════════════════════════════════
 select table_name
 from information_schema.tables
 where table_schema = 'public'
-  and table_name in ('profiles', 'brackets')
+  and table_name in ('profiles', 'brackets', 'live_status', 'match_events')
 order by table_name;
